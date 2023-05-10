@@ -45,5 +45,8 @@ const displayHistoryFlatRents = flatRents => {
         historyFlatRents.appendChild(rentDiv)
     });
 }
-
+// var date1 = new Date().getFullYear();
+// console.log(date1);
+// var date2 = new Date("October 31, 2021 09:38:00").getFullYear();
+// console.log(date2);
 displayHistoryFlatRents(flatRents);
