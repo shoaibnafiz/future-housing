@@ -177,7 +177,7 @@ displayHistoryGuests(guests);
 displayTasks(tasks);
 displayComplains(complains);
 
-document.getElementById('navbarNav').addEventListener('click', function (e) {
+document.getElementById('navbar-nav').addEventListener('click', function (e) {
     const historyFlatRentContainer = document.getElementById('history-flat-rent-container');
     const historyTasksContainer = document.getElementById('history-tasks-container');
     const historyComplainsContainer = document.getElementById('history-complains-container');

@@ -20,69 +20,31 @@
 <body>
     <header>
         <!-- Navbar Start -->
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container">
                 <h2><a class="navbar-brand" href="dashboard.html">Future Housing</a></h2>
-                <div id="navbarNav">
-                    <ul class="navbar-nav d-flex flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Flat Rent & Utility Bills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">All Guests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Tasks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2" href="#">Complains</a>
-                        </li>
-                    </ul>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Future Housing</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="dashboard.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="profile.html">Profile</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="flat-rent.html">Flat Rent</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="utility-bill.html">Utility Bill</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="guest.html">Guest</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tasks.html">Tasks</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="report.html">Report</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="complain.html">Complain</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="guard.html">Guard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Logout</a>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul id="navbar-nav" class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Flat Rent & Utility Bills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">All Guests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Complains</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -90,26 +52,37 @@
     </header>
 
     <main>
+        <!-- Flat Rent History Section Start -->
         <section id="history-flat-rent-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Flat Rent History</h3>
             <div id="history-flat-rent">
             </div>
         </section>
+        <!-- Flat Rent History Section End -->
+
+        <!-- Guest History Section Start -->
         <section id="history-guests-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Guests History</h3>
             <div id="history-guests">
             </div>
         </section>
+        <!-- Guest History Section End -->
+
+        <!-- Tasks History Section Start -->
         <section id="history-tasks-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Tasks History</h3>
             <div id="history-tasks">
             </div>
         </section>
+        <!-- Tasks History Section End -->
+
+        <!-- Complains History Section Start -->
         <section id="history-complains-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Complains History</h3>
             <div id="history-complains">
             </div>
         </section>
+        <!-- Complains History Section End -->
     </main>
 
     <!-- Footer Start -->
