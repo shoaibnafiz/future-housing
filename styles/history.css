@@ -5,3 +5,11 @@
     margin: 20px 0;
     text-align: center;
 }
+
+.navbar-nav .nav-item a {
+    font-weight: 600;
+}
+
+.navbar-nav .nav-item a:hover {
+    font-weight: 700;
+}

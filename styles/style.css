@@ -35,10 +35,19 @@ body {
 .background {
     width: 100%;
     height: 100vh;
-    background: url(https://images.unsplash.com/photo-1568142402902-1298fe147da9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1243&q=80) no-repeat;
+    background: url(../image/background/Background.avif) no-repeat;
     background-size: cover;
     background-position: center;
-    filter: blur(10px);
+    filter: blur(5px);
+}
+
+.register-background {
+    width: 100%;
+    height: 120vh;
+    background: url(../image/background/Background.avif) no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
 }
 
 .navbar a {
@@ -118,7 +127,7 @@ body {
     transform: translate(-50%, -50%);
     width: 75%;
     height: 550px;
-    background: url(faq/a.jpeg) no-repeat;
+    background: url(../image/background/a.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -494,7 +503,7 @@ body {
 /* footer */
 
 .footer {
-    background: url(faq/a.jpeg) no-repeat;
+    background: url(../image/background/a.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     color: #e4e4e4;
@@ -551,7 +560,7 @@ body {
     transform: translate(-50%, -50%);
     width: 37.5%;
     height: 750px;
-    background: url(faq/a.jpeg) no-repeat;
+    background: url(../image/background/a.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     border-radius: 10px;

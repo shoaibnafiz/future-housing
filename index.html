@@ -26,10 +26,9 @@
 
             <nav class="navbar">
                 <a href="index.html">Home</a>
-                <a href="#">About</a>
-                <a href="#">Price</a>
                 <a href="#service">Services</a>
-                <a href="#">Contact</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#about">About</a>
             </nav>
 
             <form action="#" class="search-bar">
@@ -79,21 +78,21 @@
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-envelope'></i></span>
-                            <input type="email" required>
+                            <input id="user-email" type="email" required>
                             <Label>Email</Label>
                         </div>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                            <input type="password" required>
+                            <input id="user-password" type="password" required>
                             <Label>Password</Label>
                         </div>
 
                         <div class="input-box">
 
-                            <select class="icon type">
-                                <option value="admin">Admin</option>
-                                <option value="user">User / Guard</option>
+                            <select id="acount-type" class="icon type">
+                                <option value="user">User</option>
+                                <option value="guard">Guard</option>
                             </select>
 
                             <Label>Account Type</Label>
@@ -105,7 +104,7 @@
                             <a href="#">Forgot password?</a>
                         </div>
 
-                        <button type="submit" class="btn">Login</button>
+                        <button id="btn-login" type="button" class="btn">Login</button>
 
                         <div class="login-register">
                             <p>Don't have an account? &nbsp<a href="register.html" class="register-link">Sign up</a></p>
@@ -197,7 +196,7 @@
 
     <!-- facilities -->
 
-    <section class="facilities">
+    <section id="facilities" class="facilities">
 
         <h1> Facilities We Provide </h1>
 
@@ -327,7 +326,7 @@
 
     <!-- footer -->
 
-    <section class="footer">
+    <section id="about" class="footer">
 
         <div class="wide">
 
@@ -356,6 +355,8 @@
         </div>
 
     </section>
+
+    <script src="js/index.js"></script>
 
 
 </body>

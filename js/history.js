@@ -183,30 +183,29 @@ document.getElementById('navbar-nav').addEventListener('click', function (e) {
     const historyComplainsContainer = document.getElementById('history-complains-container');
     const historyGuestsContainer = document.getElementById('history-guests-container');
 
-    console.log(e.target.text);
     const addressLink = e.target.text;
     if (addressLink === "Flat Rent & Utility Bills") {
-        historyFlatRentContainer.style.display = 'block';
-        historyGuestsContainer.style.display = 'none';
-        historyTasksContainer.style.display = 'none';
-        historyComplainsContainer.style.display = 'none';
+        historyFlatRentContainer.classList.remove('d-none');
+        historyGuestsContainer.classList.add('d-none');
+        historyTasksContainer.classList.add('d-none');
+        historyComplainsContainer.classList.add('d-none');
     }
     else if (addressLink === "All Guests") {
-        historyFlatRentContainer.style.display = 'none';
-        historyGuestsContainer.style.display = 'block';
-        historyTasksContainer.style.display = 'none';
-        historyComplainsContainer.style.display = 'none';
+        historyFlatRentContainer.classList.add('d-none');
+        historyGuestsContainer.classList.remove('d-none');
+        historyTasksContainer.classList.add('d-none');
+        historyComplainsContainer.classList.add('d-none');
     }
     else if (addressLink === "Tasks") {
-        historyFlatRentContainer.style.display = 'none';
-        historyGuestsContainer.style.display = 'none';
-        historyTasksContainer.style.display = 'block';
-        historyComplainsContainer.style.display = 'none';
+        historyFlatRentContainer.classList.add('d-none');
+        historyGuestsContainer.classList.add('d-none');
+        historyTasksContainer.classList.remove('d-none');
+        historyComplainsContainer.classList.add('d-none');
     }
     else if (addressLink === "Complains") {
-        historyFlatRentContainer.style.display = 'none';
-        historyGuestsContainer.style.display = 'none';
-        historyTasksContainer.style.display = 'none';
-        historyComplainsContainer.style.display = 'block';
+        historyFlatRentContainer.classList.add('d-none');
+        historyGuestsContainer.classList.add('d-none');
+        historyTasksContainer.classList.add('d-none');
+        historyComplainsContainer.classList.remove('d-none');
     }
 })
