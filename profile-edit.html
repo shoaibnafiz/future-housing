@@ -14,8 +14,17 @@
     <!-- Awesome Icon -->
     <script src="https://kit.fontawesome.com/a2afe6c5bb.js" crossorigin="anonymous"></script>
     <!-- Stylesheet Link -->
-    <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/bootstrap-icons.css">
+
+    <style>
+        .bg-color {
+            background-color: rgb(224, 26, 62);
+        }
+
+        table tr th {
+            color: whitesmoke !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,10 +49,7 @@
                             <a class="nav-link" href="flat-rent.html">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="utility-bill.html">Utility Bill</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="guest.html">Guest</a>
+                            <a class="nav-link" href="invite-guests.html">Guests</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tasks.html">Tasks</a>
@@ -52,10 +58,10 @@
                             <a class="nav-link" href="report.html">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complain.html">Complain</a>
+                            <a class="nav-link" href="complains.html">Complains</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="guard.html">Guard</a>
+                            <a class="nav-link" href="guards.html">Guards</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Logout</a>
@@ -70,7 +76,7 @@
     <main>
 
         <!-- Edit Profile Start -->
-        <div class="row col-lg-8 border rounded mx-auto p-2 my-5 shadow-lg">
+        <div class="row col-lg-8 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
             <div class="col-md-4 text-center mb-3">
                 <img src="image/users/user.jpg" class="js-image m-2 1img-fluid rounded"
                     style="width: 180px; height: 180px;" alt="">
@@ -90,7 +96,7 @@
                             <th colspan="2">User Details:</th>
                         </tr>
                         <tr>
-                            <th><i class="bi bi-person-circle"></i> Name</th>
+                            <th><i class="bi bi-person-circle"></i> Full Name</th>
                             <td>
                                 <input type="text" class="form-control" name="name" placeholder="Full Name" id="">
                             </td>

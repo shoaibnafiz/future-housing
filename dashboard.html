@@ -16,6 +16,17 @@
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/bootstrap-icons.css">
+
+    <style>
+        .bg-color {
+            background-color: rgb(224, 26, 62);
+        }
+
+        table tr th,
+        td {
+            color: whitesmoke !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,10 +51,7 @@
                             <a class="nav-link" href="flat-rent.html">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="utility-bill.html">Utility Bill</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="guest.html">Guest</a>
+                            <a class="nav-link" href="invite-guests.html">Guests</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tasks.html">Tasks</a>
@@ -52,10 +60,10 @@
                             <a class="nav-link" href="report.html">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complain.html">Complain</a>
+                            <a class="nav-link" href="complains.html">Complains</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="guard.html">Guard</a>
+                            <a class="nav-link" href="guards.html">Guards</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Logout</a>
@@ -115,7 +123,7 @@
                         <i class="fa-solid fa-calendar-day fa-2xl"></i>
                         <h4 class="mt-4">Flat Rent</h4>
                     </button>
-                    <button
+                    <button id="btn-guests"
                         class="btn btn-outline-dark col d-flex flex-column align-items-center border-3 rounded-3 pt-5 pb-3">
                         <i class="fa-solid fa-square-poll-horizontal fa-2xl"></i>
                         <h4 class="mt-4">Guests</h4>

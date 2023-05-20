@@ -1,7 +1,7 @@
 const displayProfile = () => {
     const profileContainer = document.getElementById('profile-container');
     const profileDiv = document.createElement('div');
-    profileDiv.classList.add('row', 'col-lg-8', 'border', 'rounded', 'mx-auto', 'p-2', 'my-5', 'shadow-lg');
+    profileDiv.classList.add('bg-color', 'text-light', 'row', 'col-lg-8', 'border', 'rounded-4', 'mx-auto', 'p-5', 'my-5', 'shadow-lg');
     profileDiv.innerHTML = `
         <div class="col-md-4 text-center mb-3">
             <img src="image/users/user.jpg" class="mt-2 1img-fluid rounded" style="width: 180px; height: 180px;"
@@ -57,4 +57,7 @@ document.getElementById('btn-profile').addEventListener('click', function () {
     const profileContainer = document.getElementById('profile-container');
 
     profileContainer.classList.remove('d-none');
+})
+document.getElementById('btn-guests').addEventListener('click', function () {
+    window.location.href = "invite-guests.html";
 })
