@@ -1,3 +1,24 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+//Export Query
+
+$query = "SELECT * FROM `flats`";
+
+$stmt = $conn->prepare($query);
+$result = $stmt->execute();
+$flats = $stmt->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,47 +66,71 @@
 
                 <div class="form-box login">
 
-                    <form action="#">
+                    <form action="php/create-user-profile.php" method="post">
 
                         <h1>Sign Up</h1>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-user'></i></span>
-                            <input type="text" required>
+                            <input type="text" name="fullname" required>
                             <Label>Name</Label>
                         </div>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-envelope'></i></span>
-                            <input type="email" required>
+                            <input type="email" name="email" required>
                             <Label>Email</Label>
                         </div>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bx-phone'></i></span>
-                            <input type="text" required>
+                            <input type="text" name="phone" required>
                             <Label>Phone</Label>
                         </div>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bx-id-card'></i></span>
-                            <input type="text" required>
+                            <input type="text" name="nid" required>
                             <Label>NID Number</Label>
                         </div>
 
                         <div class="input-box">
+
+                            <select id="acount-type" class="icon type">
+
+                                <?php
+                                foreach ($flats as $flat):
+                                    if ($flat['status'] == 0):
+
+                                        ?>
+
+                                <option value="<?=$flat['flat']?>"><?=$flat['flat']?></option>
+
+                                <?php
+                                    endif;
+                                endforeach;
+                                ?>
+
+                            </select>
+
+                            <Label>Flat</Label>
+
+                        </div>
+
+                        <div class="input-box">
                             <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                            <input type="password" required>
+                            <input type="password" name="password" required>
                             <Label>Password</Label>
                         </div>
 
 
 
                         <div class="remember-forgot">
-                            <label><input type="checkbox">&nbsp I agree with <a>Terms & Conditions</a></label>
+                            <label><input type="checkbox" required>&nbsp I agree with <a>Terms & Conditions</a></label>
                         </div>
 
-                        <button type="submit" class="btn">Register</button>
+                        <button type="submit" onclick="return confirm('Confirm Registration?')"
+                            class="btn">Register</button>
 
                         <div class="using">
                             <Label>----- or sign up with -----</Label>

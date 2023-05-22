@@ -53,11 +53,11 @@ const displayProfile = () => {
 }
 
 displayProfile();
-document.getElementById('btn-profile').addEventListener('click', function () {
+/* document.getElementById('btn-profile').addEventListener('click', function () {
     const profileContainer = document.getElementById('profile-container');
 
     profileContainer.classList.remove('d-none');
 })
 document.getElementById('btn-guests').addEventListener('click', function () {
     window.location.href = "invite-guests.html";
-})
+}) */

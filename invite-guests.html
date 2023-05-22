@@ -168,15 +168,15 @@
 
         let qrImg = document.getElementById('qrImg');
         let qrSecondImg = document.getElementById('qrSecondImg');
-        let guestName = document.getElementById('guest-name');
-        let guestCell = document.getElementById('guest-cell');
-        let totalGuest = document.getElementById('total-guest');
-        let visitPurpose = document.getElementById('visit-purpose');
+        let guestName = document.getElementById('guest-name').value;
+        let guestCell = document.getElementById('guest-cell').value;
+        let totalGuest = document.getElementById('total-guest').value;
+        let visitPurpose = document.getElementById('visit-purpose').value;
 
         function qrCode() {
             // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
             qrSecondImg.src = `https://chart.googleapis.com/chart?cht=qr&chl=
-            Guest Name = ${guestName.value}; Guest Cell = ${guestCell.value}; Total Guest = ${totalGuest.value}; Visit Purpose = ${visitPurpose.value}; &chs=160x160&chld=L|0`;
+            Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; &chs=160x160&chld=L|0`;
         }
     </script>
 </body>

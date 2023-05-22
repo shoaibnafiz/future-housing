@@ -1,3 +1,27 @@
+<?php
+
+$webroot = "http://localhost/future-housing/image/";
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+//Export Query
+
+$query = "SELECT * FROM `flats`";
+
+$stmt = $conn->prepare($query);
+$result = $stmt->execute();
+$flats = $stmt->fetchAll();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +37,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
 
 </head>
 
@@ -27,6 +52,7 @@
             <nav class="navbar">
                 <a href="index.html">Home</a>
                 <a href="#service">Services</a>
+                <a href="#flats">Flats</a>
                 <a href="#facilities">Facilities</a>
                 <a href="#about">About</a>
             </nav>
@@ -72,19 +98,19 @@
 
                 <div class="form-box login">
 
-                    <form action="#">
+                    <form action="php/login-user-profile.php" method="get">
 
                         <h1>Sign In</h1>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-envelope'></i></span>
-                            <input id="user-email" type="email" required>
+                            <input id="user-email" type="email" name="email" required>
                             <Label>Email</Label>
                         </div>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-lock-alt'></i></span>
-                            <input id="user-password" type="password" required>
+                            <input id="user-password" type="password" name="password" required>
                             <Label>Password</Label>
                         </div>
 
@@ -104,7 +130,7 @@
                             <a href="#">Forgot password?</a>
                         </div>
 
-                        <button id="btn-login" type="button" class="btn">Login</button>
+                        <button id="btn-login" type="submit" class="btn">Login</button>
 
                         <div class="login-register">
                             <p>Don't have an account? &nbsp<a href="register.html" class="register-link">Sign up</a></p>
@@ -191,6 +217,51 @@
     </section>
 
 
+    <!-- Flats Start -->
+
+    <section id="flats" class="facilities">
+
+        <h1> Flats We Have </h1>
+
+        <p> 3 rooms, 2 bathrooms, 1 kitchen, back porch in one Flat, with 15,000 rent. 3 rooms, 2 bathrooms, 1 kitchen,
+            back porch, front porch in another Flat with 20,000 rent. Gas double-burner, 1080/- bill. Electricity Self,
+            Wasa from Landlord Party. Rent in advance, from 1 to 10 days, 2 months notice before vacating houses.
+            Renters have to give 30,000 in advance.. </p>
+
+        <div class="row row-cols-1 row-cols-md-2">
+
+            <?php
+            foreach ($flats as $flat):
+                if ($flat['status'] == 0):
+
+                    ?>
+
+                    <div class="col facilities-col">
+
+                        <img src="<?= $webroot; ?>flats/<?= $flat['picture']; ?>">
+
+                        <h3> Flat
+                            <?= $flat['flat']; ?>
+                        </h3>
+
+                        <p>
+                            <?= $flat['description']; ?>
+                        </p>
+
+                        <p>Status: Available</p>
+
+                    </div>
+
+                    <?php
+                endif;
+            endforeach;
+            ?>
+
+        </div>
+
+    </section>
+
+    <!-- Flats End -->
 
 
 
@@ -356,7 +427,7 @@
 
     </section>
 
-    <script src="js/index.js"></script>
+    <!-- <script src="js/index.js"></script> -->
 
 
 </body>

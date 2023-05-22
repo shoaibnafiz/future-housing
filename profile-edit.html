@@ -81,10 +81,11 @@
                 <img src="image/users/user.jpg" class="js-image m-2 1img-fluid rounded"
                     style="width: 180px; height: 180px;" alt="">
                 <label for="formFile" class="form-label">Click below to select an image</label>
-                <div class="input-group mb-3">
-                    <input onchange="display_image(this.files[0])" class="form-control" type="file" class="form-control"
-                        id="inputImage">
-                    <label class="input-group-text" for="inputImage">Upload</label>
+                <div class="row text-center">
+                    <div class="col">
+                        <input onchange="display_image(this.files[0])" type="file" class="form-control" id="inputImage"
+                            name="image" value="">
+                    </div>
                 </div>
             </div>
             <div class="col-md-8">
@@ -98,26 +99,27 @@
                         <tr>
                             <th><i class="bi bi-person-circle"></i> Full Name</th>
                             <td>
-                                <input type="text" class="form-control" name="name" placeholder="Full Name" id="">
+                                <input type="text" class="form-control" name="fullname" placeholder="Full Name"
+                                    id="fullname">
                             </td>
                         </tr>
                         <tr>
                             <th><i class="bi bi-envelope"></i> Email</th>
                             <td>
                                 <input type="email" class="form-control" name="email" placeholder="email@email.com"
-                                    id="">
+                                    id="email">
                             </td>
                         </tr>
                         <tr>
                             <th><i class="bi bi-phone"></i> Phone</th>
                             <td>
-                                <input type="text" class="form-control" name="phone" placeholder="Phone No" id="">
+                                <input type="text" class="form-control" name="phone" placeholder="Phone No" id="phone">
                             </td>
                         </tr>
                         <tr>
                             <th><i class="bi bi-gender-ambiguous"></i> Gender</th>
                             <td>
-                                <select class="form-select mb-3" aria-label=".form-select example">
+                                <select id="gender" class="form-select mb-3" aria-label=".form-select example">
                                     <option selected value="">--Select Gender--</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -127,7 +129,7 @@
                     </table>
 
                     <div class="p-2">
-                        <button class="btn btn-dark float-end">Save</button>
+                        <button id="" class="btn btn-dark float-end">Save</button>
                         <a href="dashboard.html" class="btn btn-secondary">Back</a>
                     </div>
                 </form>
