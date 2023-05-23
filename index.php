@@ -50,7 +50,7 @@ $flats = $stmt->fetchAll();
         <header class="header">
 
             <nav class="navbar">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <a href="#service">Services</a>
                 <a href="#flats">Flats</a>
                 <a href="#facilities">Facilities</a>
@@ -98,7 +98,7 @@ $flats = $stmt->fetchAll();
 
                 <div class="form-box login">
 
-                    <form action="php/login-user-profile.php" method="get">
+                    <form action="login-user-profile.php" method="get">
 
                         <h1>Sign In</h1>
 
@@ -116,7 +116,7 @@ $flats = $stmt->fetchAll();
 
                         <div class="input-box">
 
-                            <select id="acount-type" class="icon type">
+                            <select name="account_type" id="acount-type" class="icon type">
                                 <option value="renter">Renter</option>
                                 <option value="guard">Guard</option>
                             </select>
@@ -133,7 +133,7 @@ $flats = $stmt->fetchAll();
                         <button id="btn-login" type="submit" class="btn">Login</button>
 
                         <div class="login-register">
-                            <p>Don't have an account? &nbsp<a href="register.html" class="register-link">Sign up</a></p>
+                            <p>Don't have an account? &nbsp<a href="register.php" class="register-link">Sign up</a></p>
                         </div>
                     </form>
 
@@ -232,28 +232,42 @@ $flats = $stmt->fetchAll();
 
             <?php
             foreach ($flats as $flat):
-                if ($flat['status'] == 0):
+                ?>
 
-                    ?>
+            <div class="col facilities-col">
 
-                    <div class="col facilities-col">
+                <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>">
 
-                        <img src="<?= $webroot; ?>flats/<?= $flat['picture']; ?>">
+                <h3> Flat
+                    <?= $flat['flat']; ?>
+                </h3>
 
-                        <h3> Flat
-                            <?= $flat['flat']; ?>
-                        </h3>
+                <p>
+                    <?= $flat['description']; ?>
+                </p>
+                <div class="d-flex justify-content-between">
+                    <p>
+                        Rent:
+                        <strong>
+                            <?= $flat['rent'] ?>
+                        </strong>
+                    </p>
+                    <p>
+                        Status:
+                        <?php
+                            if ($flat['status'] == 0) {
+                                echo "<strong>Available</strong>";
+                            } else {
+                                echo "<strong>Rented</strong>";
+                            }
+                            ?>
+                    </p>
+                </div>
 
-                        <p>
-                            <?= $flat['description']; ?>
-                        </p>
 
-                        <p>Status: Available</p>
+            </div>
 
-                    </div>
-
-                    <?php
-                endif;
+            <?php
             endforeach;
             ?>
 
@@ -426,8 +440,6 @@ $flats = $stmt->fetchAll();
         </div>
 
     </section>
-
-    <!-- <script src="js/index.js"></script> -->
 
 
 </body>

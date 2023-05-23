@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,17 +19,9 @@
     <script src="https://kit.fontawesome.com/a2afe6c5bb.js" crossorigin="anonymous"></script>
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="styles/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/table-background.css">
 
 
-    <style>
-        .bg-color {
-            background-color: rgb(224, 26, 62);
-        }
-
-        table tr th {
-            color: whitesmoke !important;
-        }
-    </style>
 
 </head>
 
@@ -34,7 +30,7 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.html">Future Housing</a></h2>
+                <h2><a class="navbar-brand" href="dashboard.php">Future Housing</a></h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -42,31 +38,31 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">Home</a>
+                            <a class="nav-link" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.html">Profile</a>
+                            <a class="nav-link" href="profile-edit.php">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.html">Flat Rent</a>
+                            <a class="nav-link" href="flat-rent.php">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="invite-guests.html">Guests</a>
+                            <a class="nav-link" href="invite-guests.php">Guests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="tasks.html">Tasks</a>
+                            <a class="nav-link" href="tasks.php">Tasks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="report.html">Report</a>
+                            <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complains.html">Complain</a>
+                            <a class="nav-link" href="complains.php">Complain</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="guards.html">Guards</a>
+                            <a class="nav-link" href="guards.php">Guards</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Logout</a>
+                            <a class="nav-link" href="index.php">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -80,7 +76,7 @@
         <!-- Invite Guests Start -->
         <div class="col-lg-8 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
             <h2>Guests Details:</h2>
-            <form action="" method="post">
+            <form action="store-guest.php" method="post">
 
                 <table class="table table-striped">
                     <tr>
@@ -165,7 +161,6 @@
         crossorigin="anonymous"></script> -->
 
     <script>
-
         let qrImg = document.getElementById('qrImg');
         let qrSecondImg = document.getElementById('qrSecondImg');
         let guestName = document.getElementById('guest-name').value;
@@ -175,7 +170,8 @@
 
         function qrCode() {
             // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
-            qrSecondImg.src = `https://chart.googleapis.com/chart?cht=qr&chl=
+            qrSecondImg.src =
+                `https://chart.googleapis.com/chart?cht=qr&chl=
             Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; &chs=160x160&chld=L|0`;
         }
     </script>

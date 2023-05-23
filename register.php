@@ -44,7 +44,7 @@ $flats = $stmt->fetchAll();
         <header class="header">
 
             <nav class="navbar">
-                <a href="index.html">Home</a>
+                <a href="index.php">Home</a>
                 <a href="#">About</a>
                 <a href="#">Price</a>
                 <a href="#">Services</a>
@@ -66,7 +66,7 @@ $flats = $stmt->fetchAll();
 
                 <div class="form-box login">
 
-                    <form action="php/create-user-profile.php" method="post">
+                    <form action="create-user-profile.php" method="post">
 
                         <h1>Sign Up</h1>
 
@@ -96,7 +96,7 @@ $flats = $stmt->fetchAll();
 
                         <div class="input-box">
 
-                            <select id="acount-type" class="icon type">
+                            <select name="flat" id="acount-type" class="icon type">
 
                                 <?php
                                 foreach ($flats as $flat):
@@ -104,9 +104,9 @@ $flats = $stmt->fetchAll();
 
                                         ?>
 
-                                <option value="<?=$flat['flat']?>"><?=$flat['flat']?></option>
+                                        <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
 
-                                <?php
+                                        <?php
                                     endif;
                                 endforeach;
                                 ?>
@@ -116,6 +116,8 @@ $flats = $stmt->fetchAll();
                             <Label>Flat</Label>
 
                         </div>
+
+                        <input class="form-check-input" type="hidden" value="1" id="inputStatus" name="status" checked>
 
                         <div class="input-box">
                             <span class="icon"><i class='bx bxs-lock-alt'></i></span>
