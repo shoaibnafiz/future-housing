@@ -15,8 +15,7 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-    <!-- Awesome Icon -->
-    <script src="https://kit.fontawesome.com/a2afe6c5bb.js" crossorigin="anonymous"></script>
+
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="styles/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/table-background.css">
@@ -40,7 +39,7 @@
                             <a class="nav-link" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php">Profile</a>
+                            <a class="nav-link active" href="profile-edit.php">Profile</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="flat-rent.php">Flat Rent</a>
@@ -127,7 +126,7 @@
 
                     <div class="p-2">
                         <button id="" class="btn btn-dark float-end">Save</button>
-                        <a href="dashboard.html" class="btn btn-secondary">Back</a>
+                        <a href="dashboard.php" class="btn btn-secondary">Back</a>
                     </div>
                 </form>
 
@@ -150,10 +149,10 @@
         crossorigin="anonymous"></script> -->
 
     <script>
-    function display_image(file) {
-        const userImage = document.querySelector(".js-image");
-        userIamge.src = URL.createObjectURL(file);
-    }
+        function display_image(file) {
+            const userImage = document.querySelector(".js-image");
+            userIamge.src = URL.createObjectURL(file);
+        }
     </script>
 </body>
 

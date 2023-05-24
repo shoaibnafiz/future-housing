@@ -18,7 +18,7 @@
     <!-- Awesome Icon -->
     <script src="https://kit.fontawesome.com/a2afe6c5bb.js" crossorigin="anonymous"></script>
     <!-- Stylesheet Link -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="styles/table-background.css">
 </head>
 
 <body>
@@ -27,30 +27,6 @@
         <nav class="navbar bg-body-tertiary">
             <div class="container">
                 <h2><a class="navbar-brand" href="index.html">Future Housing</a></h2>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Future Housing</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="admin.html">Admin</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">User/Guard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Register</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </nav>
         <!-- Navbar End -->
@@ -58,9 +34,9 @@
 
     <main>
         <!-- Form Start -->
-        <section class="container my-5">
-            <form class="border border-3 rounded-4 border-dark">
-                <h2 class="text-center bg-dark text-light py-3 mb-4 rounded-3">Login</h2>
+        <section class="container col-sm-4 my-5">
+            <form action="create-flat.php" method="get" class="background border border-3 rounded-4 border-dark">
+                <h2 class="text-center bg-dark text-light py-3 mb-4 rounded-3">Admin Login</h2>
                 <div class="m-3">
                     <h4 for="exampleInputEmail1" class="form-label ms-5">Email address</h4>
                     <div class="d-flex align-items-center">
@@ -84,11 +60,11 @@
                 <div class="text-center m-3">
                     <button type="submit" class="btn btn-secondary px-5 rounded-5">Login</button>
                 </div>
-                <div class="m-3 d-flex flex-column text-center">
+                <!-- <div class="m-3 d-flex flex-column text-center">
                     <hr>
                     <p>New User?</p>
                     <p>Don't have an account? <strong><a href="">Register</a></strong></p>
-                </div>
+                </div> -->
             </form>
         </section>
         <!-- Form End -->

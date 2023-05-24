@@ -38,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">Home</a>
+                            <a class="nav-link active" href="dashboard.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="profile-edit.php">Profile</a>

@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invite Guests</title>
+    <title>Flat Rent</title>
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -19,7 +19,6 @@
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="styles/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/table-background.css">
-
 
 
 </head>
@@ -46,7 +45,7 @@
                             <a class="nav-link" href="flat-rent.php">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="invite-guests.php">Guests</a>
+                            <a class="nav-link" href="invite-guests.php">Guests</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="tasks.php">Tasks</a>
@@ -55,7 +54,7 @@
                             <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complains.php">Complain</a>
+                            <a class="nav-link active" href="complains.php">Complains</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="guards.php">Guards</a>
@@ -72,78 +71,39 @@
 
     <main>
 
-        <!-- Invite Guests Start -->
+        <!-- Flat Rent Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
-            <h2>Guests Details:</h2>
-            <form action="store-guest.php" method="post">
+            <h2>Flat Rent Details</h2>
+            <form action="store-complains.php" method="post">
 
                 <table class="table table-striped">
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Guest Name</th>
+                        <th><i class="bi bi-person-circle"></i> Complain</th>
                         <td>
-                            <input type="text" class="form-control" name="guestname" placeholder="Full Name"
-                                id="guest-name">
+                            <textarea class="form-control" rows="3" name="complain" id="complain"></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-envelope"></i> Guest Cell</th>
+                        <th><i class="bi bi-person-circle"></i> Date</th>
                         <td>
-                            <input type="text" class="form-control" name="guestcell" placeholder="Guest Mobile No"
-                                id="guest-cell">
+                            <input type="date" class="form-control" name="date" id="date">
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-phone"></i> Total Guests</th>
+                        <th><i class="bi bi-person-circle"></i> Time</th>
                         <td>
-                            <input type="text" class="form-control" name="totalguest" placeholder="Number of persons"
-                                id="total-guest">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-phone"></i> Visit Purpose</th>
-                        <td>
-                            <input type="text" class="form-control" name="visitpurpose" placeholder="Visit Purpose"
-                                id="visit-purpose">
+                            <input type="time" class="form-control" name="time" id="time">
                         </td>
                     </tr>
                 </table>
 
                 <div class="p-2">
-                    <button onclick="qrCode()" type="button" class="btn btn-dark float-end" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Save</button>
+                    <button id="" class="btn btn-dark float-end">Save</button>
                     <a href="dashboard.php" class="btn btn-secondary">Back</a>
                 </div>
             </form>
         </div>
-        <!-- Invite Guests End -->
-
-        <!-- QR Code Start -->
-
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">QR Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div id="qrImg" class="text-center">
-                            <img src="" alt="" id="qrSecondImg">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-dark">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- QR Code End -->
-
+        <!-- Flat Rent End -->
     </main>
 
     <!-- Footer Start -->
@@ -160,19 +120,7 @@
         crossorigin="anonymous"></script> -->
 
     <script>
-        let qrImg = document.getElementById('qrImg');
-        let qrSecondImg = document.getElementById('qrSecondImg');
-        let guestName = document.getElementById('guest-name').value;
-        let guestCell = document.getElementById('guest-cell').value;
-        let totalGuest = document.getElementById('total-guest').value;
-        let visitPurpose = document.getElementById('visit-purpose').value;
 
-        function qrCode() {
-            // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
-            qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=
-            Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; &chs=160x160&chld=L|0`;
-        }
     </script>
 </body>
 
