@@ -12,13 +12,13 @@
     <title>Flat Rent</title>
 
     <!-- Bootstrap Link -->
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../../styles/bootstrap.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
 
     <!-- Stylesheet Link -->
-    <link rel="stylesheet" href="styles/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles/table-background.css">
+    <link rel="stylesheet" href="../../styles/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../styles/table-background.css">
 
 
 </head>
@@ -42,7 +42,7 @@
                             <a class="nav-link" href="profile-edit.php">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="flat-rent.php">Flat Rent</a>
+                            <a class="nav-link" href="flat-rent.php">Flat Rent</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="invite-guests.php">Guests</a>
@@ -54,13 +54,13 @@
                             <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complains.php">Complains</a>
+                            <a class="nav-link active" href="complains.php">Complains</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="guards.php">Guards</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Logout</a>
+                            <a class="nav-link" href="../../index.php">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -74,37 +74,25 @@
         <!-- Flat Rent Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
             <h2>Flat Rent Details</h2>
-            <form action="store-flat-rent.php" method="post">
+            <form action="store-complains.php" method="post">
 
                 <table class="table table-striped">
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Full Name</th>
+                        <th><i class="bi bi-person-circle"></i> Complain</th>
                         <td>
-                            <input type="text" class="form-control" name="fullname" placeholder="Full Name"
-                                id="fullname">
+                            <textarea class="form-control" rows="3" name="complain" id="complain"></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-envelope"></i> Email</th>
+                        <th><i class="bi bi-calendar3-event-fill"></i> Date</th>
                         <td>
-                            <input type="email" class="form-control" name="email" placeholder="email@email.com"
-                                id="email">
+                            <input type="date" class="form-control" name="date" id="date">
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-phone"></i> Phone</th>
+                        <th><i class="bi bi-clock-fill"></i> Time</th>
                         <td>
-                            <input type="text" class="form-control" name="phone" placeholder="Phone No" id="phone">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-gender-ambiguous"></i> Gender</th>
-                        <td>
-                            <select id="gender" class="form-select mb-3" aria-label=".form-select example">
-                                <option selected value="">--Select Gender--</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
+                            <input type="time" class="form-control" name="time" id="time">
                         </td>
                     </tr>
                 </table>
@@ -126,7 +114,7 @@
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->

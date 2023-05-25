@@ -29,8 +29,15 @@ $renters = $stmt->fetchAll();
 
 
 foreach ($renters as $renter) {
+    if ($renter['email'] !== $_email) {
+        // alert('Incorrect email');
+        header("location:index.php");
+    } else if ($renter['password'] !== $_password) {
+        // alert('Incorrect email');
+        header("location:index.php");
+    }
     if ($renter['email'] === $_email && $renter['password'] === $_password && $_account_type === "renter") {
-        header("location:dashboard.php");
+        header("location:php/renters/dashboard.php");
     }
 }
 

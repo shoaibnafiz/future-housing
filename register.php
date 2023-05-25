@@ -104,9 +104,9 @@ $flats = $stmt->fetchAll();
 
                                         ?>
 
-                                        <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
+                                <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
 
-                                        <?php
+                                <?php
                                     endif;
                                 endforeach;
                                 ?>
@@ -124,6 +124,10 @@ $flats = $stmt->fetchAll();
                             <input type="password" name="password" required>
                             <Label>Password</Label>
                         </div>
+                        <!-- <div class="d-none">
+                            <input class="form-check-input mt-2" type="checkbox" value="1" id="inputStatus"
+                                name="status" checked>
+                        </div> -->
 
 
 

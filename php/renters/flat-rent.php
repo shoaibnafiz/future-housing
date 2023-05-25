@@ -12,13 +12,13 @@
     <title>Flat Rent</title>
 
     <!-- Bootstrap Link -->
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="../../styles/bootstrap.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
 
     <!-- Stylesheet Link -->
-    <link rel="stylesheet" href="styles/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles/table-background.css">
+    <link rel="stylesheet" href="../../styles/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../styles/table-background.css">
 
 
 </head>
@@ -42,7 +42,7 @@
                             <a class="nav-link" href="profile-edit.php">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.php">Flat Rent</a>
+                            <a class="nav-link active" href="flat-rent.php">Flat Rent</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="invite-guests.php">Guests</a>
@@ -54,13 +54,13 @@
                             <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="complains.php">Complains</a>
+                            <a class="nav-link" href="complains.php">Complains</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="guards.php">Guards</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Logout</a>
+                            <a class="nav-link" href="../../index.php">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -74,25 +74,49 @@
         <!-- Flat Rent Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
             <h2>Flat Rent Details</h2>
-            <form action="store-complains.php" method="post">
+            <form action="store-flat-rent.php" method="post">
 
                 <table class="table table-striped">
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Complain</th>
+                        <th><i class="bi bi-person-circle"></i> Full Name</th>
                         <td>
-                            <textarea class="form-control" rows="3" name="complain" id="complain"></textarea>
+                            <input type="text" class="form-control" name="fullname" id="fullname">
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Date</th>
+                        <th><i class="bi bi-phone"></i> Mobile No</th>
                         <td>
-                            <input type="date" class="form-control" name="date" id="date">
+                            <input type="text" class="form-control" name="phone" id="phone">
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Time</th>
+                        <th><i class="bi bi-buildings-fill"></i> Flat No</th>
                         <td>
-                            <input type="time" class="form-control" name="time" id="time">
+                            <input type="text" class="form-control" name="flat" id="flat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-calendar-fill"></i> Month</th>
+                        <td>
+                            <input type="month" class="form-control" name="month" id="month">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-cash-coin"></i> Rent Amount</th>
+                        <td>
+                            <input type="text" class="form-control" name="amount" id="amount">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-phone"></i> bKash Mobile No</th>
+                        <td>
+                            <input type="text" class="form-control" name="bkash-number" id="bkash-number">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-coin"></i> bKash Trx ID</th>
+                        <td>
+                            <input type="text" class="form-control" name="trx" id="trx">
                         </td>
                     </tr>
                 </table>
@@ -107,14 +131,14 @@
     </main>
 
     <!-- Footer Start -->
-    <footer class="fixed-bottom text-center bg-body-tertiary pt-5 pb-3">
+    <footer class="text-center bg-body-tertiary pt-5 pb-3">
         <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
         </p>
     </footer>
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
