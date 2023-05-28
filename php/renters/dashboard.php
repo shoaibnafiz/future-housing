@@ -2,6 +2,8 @@
 
 $webroot = "http://localhost/future-housing/image/";
 
+$_username = $_GET['username'];
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -11,13 +13,12 @@ $conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $p
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-//Export Query
-
-$query = "SELECT * FROM `renters`";
+$query = "SELECT * FROM `renters` WHERE username = :username";
 
 $stmt = $conn->prepare($query);
+$stmt->bindParam(':username', $_username);
 $result = $stmt->execute();
-$renters = $stmt->fetchAll();
+$renter = $stmt->fetch();
 
 ?>
 
@@ -49,7 +50,8 @@ $renters = $stmt->fetchAll();
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php">Future Housing</a></h2>
+                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future
+                        Housing</a></h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,25 +59,26 @@ $renters = $stmt->fetchAll();
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" href="dashboard.php">Home</a>
+                            <a class="nav-link active"
+                                href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php">Profile</a>
+                            <a class="nav-link" href="profile-edit.php?username=<?= $renter['username']; ?>">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.php">Flat Rent</a>
+                            <a class="nav-link" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="invite-guests.php">Guests</a>
+                            <a class="nav-link" href="invite-guests.php?username=<?= $renter['username']; ?>">Guests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="tasks.php">Tasks</a>
+                            <a class="nav-link" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="report.php">Report</a>
+                            <a class="nav-link" href="report.php?username=<?= $renter['username']; ?>">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complains.php">Complains</a>
+                            <a class="nav-link" href="complains.php?username=<?= $renter['username']; ?>">Complains</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="guards.php">Guards</a>
@@ -98,18 +101,18 @@ $renters = $stmt->fetchAll();
                 <h2 class="text-center">View</h2>
                 <div class="row mt-5 gap-3">
                     <a class="btn btn-outline-danger col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="notices.php">
+                        href="notices.php?flat=<?= $renter['flat']; ?>">
                         <p><i class="fa-solid fa-square-poll-horizontal fa-2xl"></i>
                         </p>
                         <h4>Notices</h4>
                     </a>
                     <a class="btn btn-outline-warning col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="events.php">
+                        href="events.php?flat=<?= $renter['flat']; ?>">
                         <p><i class="fa-solid fa-calendar-day fa-2xl"></i></p>
                         <h4>Events</h4>
                     </a>
                     <a class="btn btn-outline-info col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="history.php">
+                        href="history.php?flat=<?= $renter['flat']; ?>">
                         <p><i class="fa-solid fa-clock-rotate-left fa-2xl"></i></p>
                         <h4>History</h4>
                     </a>
@@ -122,73 +125,66 @@ $renters = $stmt->fetchAll();
         <section id="profile-container">
             <div class="bg-color text-light row col-lg-8 border rounded-4 mx-auto p-5 my-5 shadow-lg">
 
-                <?php
-                if (count($renters) > 0):
-                    foreach ($renters as $renter):
-                        ?>
-
-                        <div class="col-md-4 text-center mb-3">
-                            <img src="<?= $webroot; ?>users/<?= $renter['picture'] ?>" class="mt-2 1img-fluid rounded"
-                                style="width: 180px; height: 180px;" alt="">
-                            <div>
-                                <a href="profile-edit.php"><button class="mx-auto m-1 btn btn-secondary">Edit</button></a>
-                                <!-- <button class="mx-auto m-1 btn-sm btn btn-secondary">Delete</button>
+                <div class="col-md-4 text-center mb-3">
+                    <img src="<?= $webroot; ?>users/<?= $renter['picture']; ?>" class="mt-2 1img-fluid rounded"
+                        style="width: 180px; height: 180px;" alt="">
+                    <div>
+                        <a href="profile-edit.php?username=<?= $renter['username'] ?>"><button
+                                class="mx-auto m-1 btn btn-secondary">Edit</button></a>
+                        <!-- <button class="mx-auto m-1 btn-sm btn btn-secondary">Delete</button>
                 <button class="mx-auto m-1 btn-sm btn btn-secondary">Logout</button> -->
-                            </div>
-                        </div>
-                        <div class="col-md-8">
-                            <h2>User Profile</h2>
-                            <table class="table table-striped">
-                                <tr>
-                                    <th colspan="2">User Details:</th>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-person-circle"></i> Name</th>
-                                    <td>
-                                        <?= $renter['fullname'] ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-envelope"></i> Email</th>
-                                    <td>
-                                        <?= $renter['email'] ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-phone"></i> Phone</th>
-                                    <td>
-                                        <?= $renter['phone'] ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-buildings-fill"></i> Flat No</th>
-                                    <td>
-                                        <?= $renter['flat'] ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-person-square"></i> NID No</th>
-                                    <td>
-                                        <?= $renter['nid'] ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-gender-ambiguous"></i> Gender</th>
-                                    <td>
-                                        <?= $renter['gender'] ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th><i class="bi bi-person-badge"></i> Acount Type</th>
-                                    <td>Renter</td>
-                                </tr>
-                            </table>
-                        </div>
-
-                        <?php
-                    endforeach;
-                endif;
-                ?>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h2>
+                        <?= $renter['username']; ?>'s Profile
+                    </h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <th colspan="2">User Details:</th>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-person-circle"></i> Name</th>
+                            <td>
+                                <?= $renter['fullname']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-envelope"></i> Email</th>
+                            <td>
+                                <?= $renter['email']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-phone"></i> Phone</th>
+                            <td>
+                                <?= $renter['phone']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-buildings-fill"></i> Flat No</th>
+                            <td>
+                                <?= $renter['flat']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-person-square"></i> NID No</th>
+                            <td>
+                                <?= $renter['nid']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-gender-ambiguous"></i> Gender</th>
+                            <td>
+                                <?= $renter['gender']; ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-person-badge"></i> Acount Type</th>
+                            <td>Renter</td>
+                        </tr>
+                    </table>
+                </div>
 
             </div>
         </section>

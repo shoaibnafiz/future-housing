@@ -26,7 +26,8 @@
         <!-- Navbar Start -->
         <nav class="navbar bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php">Future Housing</a></h2>
+                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
+                </h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -40,28 +41,28 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="dashboard.php">Home</a>
+                                <a class="nav-link" aria-current="page"
+                                    href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="profile.php">Profile</a>
+                                <a class="nav-link" href="profile.php?username=<?= $renter['username']; ?>">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="flat-rent.php">Flat Rent</a>
+                                <a class="nav-link" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat
+                                    Rent</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="utility-bill.php">Utility Bill</a>
+                                <a class="nav-link" href="guest.php?username=<?= $renter['username']; ?>">Guest</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="guest.php">Guest</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="tasks.php">Tasks</a>
+                                <a class="nav-link" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="report.php">Report</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="complain.php">Complain</a>
+                                <a class="nav-link"
+                                    href="complain.php?username=<?= $renter['username']; ?>">Complain</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="guard.php">Guard</a>

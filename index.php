@@ -103,9 +103,9 @@ $flats = $stmt->fetchAll();
                         <h1>Sign In</h1>
 
                         <div class="input-box">
-                            <span class="icon"><i class='bx bxs-envelope'></i></span>
-                            <input id="user-email" type="email" name="email" required>
-                            <Label>Email</Label>
+                            <span class="icon"><i class='bx bxs-user'></i></span>
+                            <input id="username" type="text" name="username" required>
+                            <Label>Username</Label>
                         </div>
 
                         <div class="input-box">
@@ -234,40 +234,40 @@ $flats = $stmt->fetchAll();
             foreach ($flats as $flat):
                 ?>
 
-            <div class="col facilities-col">
+                <div class="col facilities-col">
 
-                <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>">
+                    <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>">
 
-                <h3> Flat
-                    <?= $flat['flat']; ?>
-                </h3>
+                    <h3> Flat
+                        <?= $flat['flat']; ?>
+                    </h3>
 
-                <p>
-                    <?= $flat['description']; ?>
-                </p>
-                <div class="d-flex justify-content-between">
                     <p>
-                        Rent:
-                        <strong>
-                            <?= $flat['rent'] ?>
-                        </strong>
+                        <?= $flat['description']; ?>
                     </p>
-                    <p>
-                        Status:
-                        <?php
+                    <div class="d-flex justify-content-between">
+                        <p>
+                            Rent:
+                            <strong>
+                                <?= $flat['rent'] ?>
+                            </strong>
+                        </p>
+                        <p>
+                            Status:
+                            <?php
                             if ($flat['status'] == 0) {
                                 echo "<strong>Available</strong>";
                             } else {
                                 echo "<strong>Rented</strong>";
                             }
                             ?>
-                    </p>
+                        </p>
+                    </div>
+
+
                 </div>
 
-
-            </div>
-
-            <?php
+                <?php
             endforeach;
             ?>
 
@@ -441,6 +441,7 @@ $flats = $stmt->fetchAll();
 
     </section>
 
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

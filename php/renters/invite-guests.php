@@ -1,5 +1,23 @@
 <?php
 
+$_username = $_GET['username'];
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$query = "SELECT * FROM `renters` WHERE username = :username";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':username', $_username);
+$result = $stmt->execute();
+$renter = $stmt->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +47,8 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php">Future Housing</a></h2>
+                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
+                </h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -37,25 +56,26 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">Home</a>
+                            <a class="nav-link" href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php">Profile</a>
+                            <a class="nav-link" href="profile-edit.php?username=<?= $renter['username']; ?>">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.php">Flat Rent</a>
+                            <a class="nav-link" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="invite-guests.php">Guests</a>
+                            <a class="nav-link active"
+                                href="invite-guests.php?username=<?= $renter['username']; ?>">Guests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="tasks.php">Tasks</a>
+                            <a class="nav-link" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complains.php">Complain</a>
+                            <a class="nav-link" href="complains.php?username=<?= $renter['username']; ?>">Complain</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="guards.php">Guards</a>
@@ -112,6 +132,13 @@
                         <th><i class="bi bi-clock-fill"></i> Time</th>
                         <td>
                             <input type="time" class="form-control" name="time" id="time">
+                        </td>
+                    </tr>
+                    <tr class="d-none">
+                        <th><i class="bi bi-person-circle"></i> User Name</th>
+                        <td>
+                            <input type="text" class="form-control" name="username" id="username"
+                                value="<?= $renter['username'] ?>">
                         </td>
                     </tr>
                 </table>

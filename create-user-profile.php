@@ -1,5 +1,6 @@
 <?php
 $_fullname = $_POST['fullname'];
+$_username = $_POST['username'];
 $_email = $_POST['email'];
 $_phone = $_POST['phone'];
 $_nid = $_POST['nid'];
@@ -20,12 +21,23 @@ $conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $p
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
+$query = "SELECT * FROM `renters`";
 
-//Insert Query
-$query = "INSERT INTO `renters` (`fullname`,`email`,`phone`,`nid`,`flat`,`password`,`picture`, `registered_at`) VALUES (:fullname, :email, :phone, :nid, :flat, :password, :picture, :registered_at)";
+$stmt = $conn->prepare($query);
+$result = $stmt->execute();
+$renters = $stmt->fetchAll();
+
+foreach ($renters as $renter) {
+    if ($renter['username'] === $_username) {
+        return header("location: register.php");
+    }
+}
+
+$query = "INSERT INTO `renters` (`fullname`,`username`,`email`,`phone`,`nid`,`flat`,`password`,`picture`, `registered_at`) VALUES (:fullname, :username, :email, :phone, :nid, :flat, :password, :picture, :registered_at)";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':fullname', $_fullname);
+$stmt->bindParam(':username', $_username);
 $stmt->bindParam(':email', $_email);
 $stmt->bindParam(':phone', $_phone);
 $stmt->bindParam(':nid', $_nid);
@@ -47,4 +59,6 @@ $result = $stmt->execute();
 
 
 header("location:register.php");
+/* ?register= succeed
+?register= error */
 ?>

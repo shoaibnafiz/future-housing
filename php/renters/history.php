@@ -1,5 +1,23 @@
 <?php
 
+$_flat = $_GET['flat'];
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$query = "SELECT * FROM `flat_rents` WHERE flat = :flat";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':flat', $_flat);
+$result = $stmt->execute();
+$rents = $stmt->fetchAll();
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +42,8 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php">Future Housing</a></h2>
+                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
+                </h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -58,6 +77,31 @@
         <section id="history-flat-rent-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Flat Rent History</h3>
             <div id="history-flat-rent">
+                <?php
+                foreach ($rents as $rent):
+                    ?>
+                    <div class="rent-history">
+                        <p>Rent Amount: TK<strong>
+                                <?= $rent['rent'] ?>
+                            </strong></p>
+                        <p>Gas Bill: TK<strong>
+                                <?= $rent['gas_bill'] ?>
+                            </strong></p>
+                        <p>Date of Rent: <strong>
+                                <?= $rent['rented_at'] ?>
+                            </strong></p>
+                        <p>Bkash Cell: <strong>
+                                <?= $rent['bKash_number'] ?>
+                            </strong></p>
+                        <p>Bkash Trx ID: <strong>
+                                <?= $rent['trx_id'] ?>
+                            </strong></p>
+                        <!-- <p>Date: <strong>${flatRent.date}</strong></p>
+                    <p>Time: <strong>${flatRent.time}</strong></p> -->
+                    </div>
+                    <?php
+                endforeach;
+                ?>
             </div>
         </section>
         <!-- Flat Rent History Section End -->
@@ -66,6 +110,10 @@
         <section id="history-guests-container" class="container d-none">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Guests History</h3>
             <div id="history-guests">
+                <div class="rent-history">
+                    <p>Task: <strong>${task.task}</strong></p>
+                    <p>Date: <strong>${task.date}</strong></p>
+                </div>
             </div>
         </section>
         <!-- Guest History Section End -->
@@ -74,6 +122,10 @@
         <section id="history-tasks-container" class="container d-none">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Tasks History</h3>
             <div id="history-tasks">
+                <div class="rent-history">
+                    <p>Task: <strong>${task.task}</strong></p>
+                    <p>Date: <strong>${task.date}</strong></p>
+                </div>
             </div>
         </section>
         <!-- Tasks History Section End -->
@@ -82,6 +134,10 @@
         <section id="history-complains-container" class="container d-none">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Complains History</h3>
             <div id="history-complains">
+                <div class="rent-history">
+                    <p>Task: <strong>${task.task}</strong></p>
+                    <p>Date: <strong>${task.date}</strong></p>
+                </div>
             </div>
         </section>
         <!-- Complains History Section End -->

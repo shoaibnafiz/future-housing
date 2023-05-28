@@ -1,5 +1,23 @@
 <?php
 
+$_username = $_GET['username'];
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
+// set the PDO error mode to exception
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+$query = "SELECT * FROM `renters` WHERE username = :username";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':username', $_username);
+$result = $stmt->execute();
+$renter = $stmt->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +27,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flat Rent</title>
+    <title>Tasks</title>
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">
@@ -28,7 +46,8 @@
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php">Future Housing</a></h2>
+                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
+                </h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,25 +55,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">Home</a>
+                            <a class="nav-link" href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php">Profile</a>
+                            <a class="nav-link" href="profile-edit.php?username=<?= $renter['username']; ?>">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.php">Flat Rent</a>
+                            <a class="nav-link" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat Rent</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="invite-guests.php">Guests</a>
+                            <a class="nav-link" href="invite-guests.php?username=<?= $renter['username']; ?>">Guests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="tasks.php">Tasks</a>
+                            <a class="nav-link active" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="report.php">Report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="complains.php">Complains</a>
+                            <a class="nav-link" href="complains.php?username=<?= $renter['username']; ?>">Complains</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="guards.php">Guards</a>
@@ -73,14 +92,29 @@
 
         <!-- Flat Rent Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
-            <h2>Flat Rent Details</h2>
-            <form action="store-tasks.php" method="post">
+            <h2>Task Details</h2>
+            <form action="store-task.php" method="post">
 
                 <table class="table table-striped">
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Guard Name</th>
+                        <th><i class="bi bi-person-circle"></i> Full Name</th>
                         <td>
-                            <input type="text" class="form-control" name="guardname" id="guard-name">
+                            <input type="text" class="form-control" name="fullname" id="fullname"
+                                value="<?= $renter['fullname'] ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-phone"></i> Mobile No</th>
+                        <td>
+                            <input type="text" class="form-control" name="phone" id="phone"
+                                value="<?= $renter['phone'] ?>">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><i class="bi bi-buildings-fill"></i> Flat No</th>
+                        <td>
+                            <input type="text" class="form-control" name="flat" id="flat"
+                                value="<?= $renter['flat'] ?>">
                         </td>
                     </tr>
                     <tr>
@@ -89,22 +123,17 @@
                             <textarea class="form-control" rows="3" name="task" id="task"></textarea>
                         </td>
                     </tr>
-                    <tr>
-                        <th><i class="bi bi-calendar3-event-fill"></i> Date</th>
+                    <tr class="d-none">
+                        <th><i class="bi bi-person-circle"></i> User Name</th>
                         <td>
-                            <input type="date" class="form-control" name="date" id="date">
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><i class="bi bi-clock-fill"></i> Time</th>
-                        <td>
-                            <input type="time" class="form-control" name="time" id="time">
+                            <input type="text" class="form-control" name="username" id="username"
+                                value="<?= $renter['username'] ?>">
                         </td>
                     </tr>
                 </table>
 
                 <div class="p-2">
-                    <button id="" class="btn btn-dark float-end">Save</button>
+                    <button type="submit" class="btn btn-dark float-end">Save</button>
                     <a href="dashboard.php" class="btn btn-secondary">Back</a>
                 </div>
             </form>

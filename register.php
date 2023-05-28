@@ -33,6 +33,7 @@ $flats = $stmt->fetchAll();
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
 </head>
 
 <body>
@@ -77,6 +78,12 @@ $flats = $stmt->fetchAll();
                         </div>
 
                         <div class="input-box">
+                            <span class="icon"><i class='bx bxs-user'></i></span>
+                            <input type="text" name="username" required>
+                            <Label>User Name</Label>
+                        </div>
+
+                        <div class="input-box">
                             <span class="icon"><i class='bx bxs-envelope'></i></span>
                             <input type="email" name="email" required>
                             <Label>Email</Label>
@@ -104,9 +111,9 @@ $flats = $stmt->fetchAll();
 
                                         ?>
 
-                                <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
+                                        <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
 
-                                <?php
+                                        <?php
                                     endif;
                                 endforeach;
                                 ?>
@@ -124,10 +131,6 @@ $flats = $stmt->fetchAll();
                             <input type="password" name="password" required>
                             <Label>Password</Label>
                         </div>
-                        <!-- <div class="d-none">
-                            <input class="form-check-input mt-2" type="checkbox" value="1" id="inputStatus"
-                                name="status" checked>
-                        </div> -->
 
 
 
@@ -135,8 +138,7 @@ $flats = $stmt->fetchAll();
                             <label><input type="checkbox" required>&nbsp I agree with <a>Terms & Conditions</a></label>
                         </div>
 
-                        <button type="submit" onclick="return confirm('Confirm Registration?')"
-                            class="btn">Register</button>
+                        <button type="submit" class="btn">Register</button>
 
                         <div class="using">
                             <Label>----- or sign up with -----</Label>
@@ -161,6 +163,8 @@ $flats = $stmt->fetchAll();
         </div>
 
     </section>
+
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 
