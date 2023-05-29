@@ -112,7 +112,7 @@ $renter = $stmt->fetch();
                         <h4>Events</h4>
                     </a>
                     <a class="btn btn-outline-info col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="history.php?flat=<?= $renter['flat']; ?>">
+                        href="history.php?username=<?= $renter['username']; ?>&flat=<?= $renter['flat']; ?>">
                         <p><i class="fa-solid fa-clock-rotate-left fa-2xl"></i></p>
                         <h4>History</h4>
                     </a>

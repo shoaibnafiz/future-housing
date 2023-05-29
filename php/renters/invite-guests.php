@@ -101,25 +101,25 @@ $renter = $stmt->fetch();
                     <tr>
                         <th><i class="bi bi-person-circle"></i> Guest Name</th>
                         <td>
-                            <input type="text" class="form-control" name="guestname" id="guest-name">
+                            <input type="text" class="form-control" name="guest_name" id="guest-name">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Guest Cell</th>
                         <td>
-                            <input type="text" class="form-control" name="guestcell" id="guest-cell">
+                            <input type="text" class="form-control" name="guest_cell" id="guest-cell">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-people-fill"></i> Total Guests</th>
                         <td>
-                            <input type="text" class="form-control" name="totalguest" id="total-guest">
+                            <input type="text" class="form-control" name="total_guest" id="total-guest">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-patch-question-fill"></i> Visit Purpose</th>
                         <td>
-                            <input type="text" class="form-control" name="visitpurpose" id="visit-purpose">
+                            <input type="text" class="form-control" name="visit_purpose" id="visit-purpose">
                         </td>
                     </tr>
                     <tr>
@@ -141,12 +141,18 @@ $renter = $stmt->fetch();
                                 value="<?= $renter['username'] ?>">
                         </td>
                     </tr>
+                    <tr class="">
+                        <th><i class="bi bi-person-circle"></i> User Name</th>
+                        <td>
+                            <input type="text" class="form-control" name="pinCode" id="pinCode" value="">
+                        </td>
+                    </tr>
                 </table>
 
                 <div class="p-2">
-                    <button onclick="qrCode()" type="button" class="btn btn-dark float-end" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Save</button>
-                    <a href="dashboard.php" class="btn btn-secondary">Back</a>
+                    <!-- onclick="qrCode() data-bs-toggle="modal" data-bs-target="#staticBackdrop"" -->
+                    <button type="submit" class="btn btn-dark float-end" id="generate-pin">Save</button>
+                    <a href="dashboard.php?username=<?= $renter['username'] ?>" class="btn btn-secondary">Back</a>
                 </div>
             </form>
         </div>
@@ -194,6 +200,32 @@ $renter = $stmt->fetch();
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
 
+    <!-- qrCode Generator Start-->
+    <script>
+        function getPin() {
+            const pin = generatePin();
+            const pinString = pin + '';
+
+            if (pinString.length === 4) {
+                return pin;
+            } else {
+                return getPin();
+            }
+        }
+
+        function generatePin() {
+            const random = Math.round(Math.random() * 10000);
+            return random;
+        }
+
+        document.getElementById('generate-pin').addEventListener('click', function () {
+            const pin = getPin();
+            document.getElementById('pinCode').value = pin;
+        })
+    </script>
+    <!-- qrCode Generator End-->
+
+
     <script>
         let qrImg = document.getElementById('qrImg');
         let qrSecondImg = document.getElementById('qrSecondImg');
@@ -201,12 +233,14 @@ $renter = $stmt->fetch();
         let guestCell = document.getElementById('guest-cell').value;
         let totalGuest = document.getElementById('total-guest').value;
         let visitPurpose = document.getElementById('visit-purpose').value;
+        let date = document.getElementById('date').value;
+        let time = document.getElementById('time').value;
 
         function qrCode() {
             // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
+            // qrSecondImg.src = "https://chart.googleapis.com/chart?cht=qr&chl=" + qrTxt.value;
             qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=
-            Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; &chs=160x160&chld=L|0`;
+                `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; &chs=160x160&chld=L|0`;
         }
     </script>
 </body>

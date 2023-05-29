@@ -134,7 +134,7 @@ $renter = $stmt->fetch();
 
                 <div class="p-2">
                     <button type="submit" class="btn btn-dark float-end">Save</button>
-                    <a href="dashboard.php" class="btn btn-secondary">Back</a>
+                    <a href="dashboard.php?username=<?= $renter['username'] ?>" class="btn btn-secondary">Back</a>
                 </div>
             </form>
         </div>

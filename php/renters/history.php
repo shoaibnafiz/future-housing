@@ -1,5 +1,6 @@
 <?php
 
+$_username = $_GET['username'];
 $_flat = $_GET['flat'];
 
 $servername = "localhost";
@@ -17,6 +18,27 @@ $stmt = $conn->prepare($query);
 $stmt->bindParam(':flat', $_flat);
 $result = $stmt->execute();
 $rents = $stmt->fetchAll();
+
+/* $query = "SELECT * FROM `guests` WHERE flat = :flat";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':flat', $_flat);
+$result = $stmt->execute();
+$guests = $stmt->fetchAll(); */
+
+$query = "SELECT * FROM `tasks` WHERE flat = :flat";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':flat', $_flat);
+$result = $stmt->execute();
+$tasks = $stmt->fetchAll();
+
+$query = "SELECT * FROM `complains` WHERE flat = :flat";
+
+$stmt = $conn->prepare($query);
+$stmt->bindParam(':flat', $_flat);
+$result = $stmt->execute();
+$complains = $stmt->fetchAll();
 
 ?>
 
@@ -42,7 +64,7 @@ $rents = $stmt->fetchAll();
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
+                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $_username; ?>">Future Housing</a>
                 </h2>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -110,10 +132,16 @@ $rents = $stmt->fetchAll();
         <section id="history-guests-container" class="container d-none">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Guests History</h3>
             <div id="history-guests">
-                <div class="rent-history">
-                    <p>Task: <strong>${task.task}</strong></p>
-                    <p>Date: <strong>${task.date}</strong></p>
-                </div>
+                <?php
+                foreach ($rents as $rent):
+                    ?>
+                    <div class="rent-history">
+                        <p>Task: <strong>${task.task}</strong></p>
+                        <p>Date: <strong>${task.date}</strong></p>
+                    </div>
+                    <?php
+                endforeach;
+                ?>
             </div>
         </section>
         <!-- Guest History Section End -->
@@ -122,10 +150,23 @@ $rents = $stmt->fetchAll();
         <section id="history-tasks-container" class="container d-none">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Tasks History</h3>
             <div id="history-tasks">
-                <div class="rent-history">
-                    <p>Task: <strong>${task.task}</strong></p>
-                    <p>Date: <strong>${task.date}</strong></p>
-                </div>
+                <?php
+                foreach ($tasks as $task):
+                    ?>
+                    <div class="rent-history">
+                        <p>Task: <strong>
+                                <?= $task['task'] ?>
+                            </strong></p>
+                        <p>Date: <strong>
+                                <?= $task['given_at'] ?>
+                            </strong></p>
+                        <p>Status: <strong>
+                                <?= $task['status'] == 1 ? "Complete.!!" : "Pending..." ?>
+                            </strong></p>
+                    </div>
+                    <?php
+                endforeach;
+                ?>
             </div>
         </section>
         <!-- Tasks History Section End -->
@@ -134,10 +175,23 @@ $rents = $stmt->fetchAll();
         <section id="history-complains-container" class="container d-none">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Complains History</h3>
             <div id="history-complains">
-                <div class="rent-history">
-                    <p>Task: <strong>${task.task}</strong></p>
-                    <p>Date: <strong>${task.date}</strong></p>
-                </div>
+                <?php
+                foreach ($complains as $complain):
+                    ?>
+                    <div class="rent-history">
+                        <p>Complain: <strong>
+                                <?= $complain['complain'] ?>
+                            </strong></p>
+                        <p>Date: <strong>
+                                <?= $complain['given_at'] ?>
+                            </strong></p>
+                        <p>Status: <strong>
+                                <?= $complain['status'] == 1 ? "Complete.!!" : "Pending..." ?>
+                            </strong></p>
+                    </div>
+                    <?php
+                endforeach;
+                ?>
             </div>
         </section>
         <!-- Complains History Section End -->
@@ -155,7 +209,39 @@ $rents = $stmt->fetchAll();
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
-    <script src="../../js/history.js"></script>
+    <!-- <script src="../../js/history.js"></script> -->
+
+    <script>
+        document.getElementById('navbar-nav').addEventListener('click', function (e) {
+            const historyFlatRentContainer = document.getElementById('history-flat-rent-container');
+            const historyTasksContainer = document.getElementById('history-tasks-container');
+            const historyComplainsContainer = document.getElementById('history-complains-container');
+            const historyGuestsContainer = document.getElementById('history-guests-container');
+
+            const addressLink = e.target.text;
+            if (addressLink === "Flat Rent & Utility Bills") {
+                historyFlatRentContainer.classList.remove('d-none');
+                historyGuestsContainer.classList.add('d-none');
+                historyTasksContainer.classList.add('d-none');
+                historyComplainsContainer.classList.add('d-none');
+            } else if (addressLink === "All Guests") {
+                historyFlatRentContainer.classList.add('d-none');
+                historyGuestsContainer.classList.remove('d-none');
+                historyTasksContainer.classList.add('d-none');
+                historyComplainsContainer.classList.add('d-none');
+            } else if (addressLink === "Tasks") {
+                historyFlatRentContainer.classList.add('d-none');
+                historyGuestsContainer.classList.add('d-none');
+                historyTasksContainer.classList.remove('d-none');
+                historyComplainsContainer.classList.add('d-none');
+            } else if (addressLink === "Complains") {
+                historyFlatRentContainer.classList.add('d-none');
+                historyGuestsContainer.classList.add('d-none');
+                historyTasksContainer.classList.add('d-none');
+                historyComplainsContainer.classList.remove('d-none');
+            }
+        })
+    </script>
 </body>
 
 </html>

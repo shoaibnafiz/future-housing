@@ -234,40 +234,33 @@ $flats = $stmt->fetchAll();
             foreach ($flats as $flat):
                 ?>
 
-                <div class="col facilities-col">
+            <div class="col facilities-col">
 
-                    <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>">
+                <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>">
 
-                    <h3> Flat
-                        <?= $flat['flat']; ?>
-                    </h3>
+                <h3> Flat
+                    <?= $flat['flat']; ?>
+                </h3>
 
+                <p>
+                    <?= $flat['description']; ?>
+                </p>
+                <div class="d-flex justify-content-between">
                     <p>
-                        <?= $flat['description']; ?>
+                        Rent:
+                        <strong>
+                            <?= $flat['rent'] ?>
+                        </strong>
                     </p>
-                    <div class="d-flex justify-content-between">
-                        <p>
-                            Rent:
-                            <strong>
-                                <?= $flat['rent'] ?>
-                            </strong>
-                        </p>
-                        <p>
-                            Status:
-                            <?php
-                            if ($flat['status'] == 0) {
-                                echo "<strong>Available</strong>";
-                            } else {
-                                echo "<strong>Rented</strong>";
-                            }
-                            ?>
-                        </p>
-                    </div>
-
-
+                    <p>
+                        Status: <strong><?= $flat['status'] == 1 ? "Rented" : "Available" ?></strong>
+                    </p>
                 </div>
 
-                <?php
+
+            </div>
+
+            <?php
             endforeach;
             ?>
 
