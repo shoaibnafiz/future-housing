@@ -93,7 +93,7 @@ $renter = $stmt->fetch();
 
         <!-- Flat Rent Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
-            <h2>Complain Details</h2>
+            <h2>Complain:</h2>
             <form action="store-complain.php" method="post">
 
                 <table class="table table-striped">
@@ -119,7 +119,7 @@ $renter = $stmt->fetch();
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-person-circle"></i> Complain</th>
+                        <th><i class="bi bi-list-task"></i> Complain</th>
                         <td>
                             <textarea class="form-control" rows="3" name="complain" id="complain"></textarea>
                         </td>
@@ -143,7 +143,7 @@ $renter = $stmt->fetch();
     </main>
 
     <!-- Footer Start -->
-    <footer class="fixed-bottom text-center bg-body-tertiary pt-5 pb-3">
+    <footer class="text-center bg-body-tertiary pt-5 pb-3">
         <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
         </p>
     </footer>

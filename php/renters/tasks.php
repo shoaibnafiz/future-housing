@@ -92,7 +92,7 @@ $renter = $stmt->fetch();
 
         <!-- Flat Rent Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
-            <h2>Task Details</h2>
+            <h2>Give Task:</h2>
             <form action="store-task.php" method="post">
 
                 <table class="table table-striped">
@@ -142,7 +142,7 @@ $renter = $stmt->fetch();
     </main>
 
     <!-- Footer Start -->
-    <footer class="fixed-bottom text-center bg-body-tertiary pt-5 pb-3">
+    <footer class="text-center bg-body-tertiary pt-5 pb-3">
         <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
         </p>
     </footer>

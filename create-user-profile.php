@@ -58,7 +58,5 @@ $stmt->bindParam(':status', $_status);
 $result = $stmt->execute();
 
 
-header("location:register.php");
-/* ?register= succeed
-?register= error */
+header("location:index.php");
 ?>

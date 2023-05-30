@@ -94,7 +94,7 @@ $renter = $stmt->fetch();
 
         <!-- Invite Guests Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
-            <h2>Guests Details:</h2>
+            <h2>Invite Guests:</h2>
             <form action="store-guest.php" method="post">
 
                 <table class="table table-striped">
@@ -142,7 +142,7 @@ $renter = $stmt->fetch();
                         </td>
                     </tr>
                     <tr class="">
-                        <th><i class="bi bi-person-circle"></i> User Name</th>
+                        <th><i class="bi bi-upc"></i> Pin Code</th>
                         <td>
                             <input type="text" class="form-control" name="pinCode" id="pinCode" value="">
                         </td>
@@ -150,8 +150,9 @@ $renter = $stmt->fetch();
                 </table>
 
                 <div class="p-2">
-                    <!-- onclick="qrCode() data-bs-toggle="modal" data-bs-target="#staticBackdrop"" -->
-                    <button type="submit" class="btn btn-dark float-end" id="generate-pin">Save</button>
+                    <!-- onclick="qrCode()" data-bs-toggle="modal" data-bs-target="#staticBackdrop" -->
+                    <button type="button" onclick="qrCode()" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                        class="btn btn-dark float-end" id="generate-pin">Save</button>
                     <a href="dashboard.php?username=<?= $renter['username'] ?>" class="btn btn-secondary">Back</a>
                 </div>
             </form>
@@ -188,7 +189,7 @@ $renter = $stmt->fetch();
     </main>
 
     <!-- Footer Start -->
-    <footer class="fixed-bottom text-center bg-body-tertiary pt-5 pb-3">
+    <footer class="text-center bg-body-tertiary pt-5 pb-3">
         <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
         </p>
     </footer>
@@ -200,7 +201,7 @@ $renter = $stmt->fetch();
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
 
-    <!-- qrCode Generator Start-->
+    <!-- Pin Code Generator Start-->
     <script>
         function getPin() {
             const pin = generatePin();
@@ -223,9 +224,10 @@ $renter = $stmt->fetch();
             document.getElementById('pinCode').value = pin;
         })
     </script>
-    <!-- qrCode Generator End-->
+    <!-- Pin Code Generator End-->
 
 
+    <!-- qrCode Generator Start-->
     <script>
         let qrImg = document.getElementById('qrImg');
         let qrSecondImg = document.getElementById('qrSecondImg');
@@ -243,6 +245,7 @@ $renter = $stmt->fetch();
                 `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; &chs=160x160&chld=L|0`;
         }
     </script>
+    <!-- qrCode Generator End-->
 </body>
 
 </html>
