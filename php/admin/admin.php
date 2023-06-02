@@ -35,21 +35,20 @@
     <main>
         <!-- Form Start -->
         <section class="container col-sm-4 my-5">
-            <form action="create-flat.php" method="get" class="background border border-3 rounded-4 border-dark">
+            <form action="login-dashboard.php" method="get" class="background border border-3 rounded-4 border-dark">
                 <h2 class="text-center bg-dark text-light py-3 mb-4 rounded-3">Admin Login</h2>
                 <div class="m-3">
-                    <h4 for="exampleInputEmail1" class="form-label ms-5">Email address</h4>
+                    <h4 for="inputUserName" class="form-label ms-5">User Name</h4>
                     <div class="d-flex align-items-center">
-                        <i class="fa-solid fa-envelope fa-2xl mx-2"></i><input type="email" class="form-control"
-                            id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Email">
+                        <i class="fa-solid fa-envelope fa-2xl mx-2"></i><input type="text" name="username"
+                            class="form-control" id="inputUserName" placeholder="Enter your username">
                     </div>
-                    <div id="emailHelp" class="form-text ms-5">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="m-3">
-                    <h4 for="exampleInputPassword1" class="form-label ms-5">Password</h4>
+                    <h4 for="inputPassword" class="form-label ms-5">Password</h4>
                     <div class="d-flex align-items-center">
                         <i class="fa-solid fa-lock fa-2xl mx-2"></i>
-                        <input type="password" class="form-control" id="exampleInputPassword1"
+                        <input type="password" name="password" class="form-control" id="inputPassword"
                             placeholder="Enter your Password">
                     </div>
                 </div>
@@ -71,7 +70,7 @@
     </main>
 
     <!-- Footer Start -->
-    <footer class="text-center bg-body-tertiary pt-5 pb-3">
+    <footer class="text-center fixed-bottom bg-body-tertiary pt-5 pb-3">
         <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
         </p>
     </footer>

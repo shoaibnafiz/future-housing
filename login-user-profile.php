@@ -31,7 +31,7 @@ if (empty($_username) || empty($_password)) {
         header("location:php/renters/dashboard.php?username=" . $_username /*$renter['username']*/);
     } else {
         $_SESSION['is_authenticated'] = false;
-        header("location:" . $webroot . "404.php");
+        header("location:404.php");
     }
 }
 

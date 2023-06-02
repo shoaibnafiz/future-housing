@@ -1,5 +1,7 @@
 <?php
 
+$currentPage = 'task';
+
 $_username = $_GET['username'];
 
 $servername = "localhost";
@@ -27,7 +29,7 @@ $renter = $stmt->fetch();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complains</title>
+    <title>Task</title>
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">
@@ -44,57 +46,16 @@ $renter = $stmt->fetch();
 <body>
     <header>
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
-                </h2>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php?username=<?= $renter['username']; ?>">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat Rent</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="invite-guests.php?username=<?= $renter['username']; ?>">Guests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="report.php">Report</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active"
-                                href="complains.php?username=<?= $renter['username']; ?>">Complains</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="guards.php">Guards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../index.php">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php include 'components/nav.php'; ?>
         <!-- Navbar End -->
     </header>
 
     <main>
 
         <!-- Flat Rent Start -->
-        <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
-            <h2>Complain:</h2>
-            <form action="store-complain.php" method="post">
+        <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-danger text-light">
+            <h2>Give Task:</h2>
+            <form action="store-task.php" method="post">
 
                 <table class="table table-striped">
                     <tr>
@@ -119,9 +80,9 @@ $renter = $stmt->fetch();
                         </td>
                     </tr>
                     <tr>
-                        <th><i class="bi bi-list-task"></i> Complain</th>
+                        <th><i class="bi bi-list-task"></i> Task</th>
                         <td>
-                            <textarea class="form-control" rows="3" name="complain" id="complain"></textarea>
+                            <textarea class="form-control" rows="3" name="task" id="task"></textarea>
                         </td>
                     </tr>
                     <tr class="d-none">
@@ -143,10 +104,7 @@ $renter = $stmt->fetch();
     </main>
 
     <!-- Footer Start -->
-    <footer class="text-center bg-body-tertiary pt-5 pb-3">
-        <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
-        </p>
-    </footer>
+    <?php include 'components/footer.php'; ?>
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->

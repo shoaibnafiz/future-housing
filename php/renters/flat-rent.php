@@ -1,5 +1,7 @@
 <?php
 
+$currentPage = 'flat-rent';
+
 $_username = $_GET['username'];
 
 $servername = "localhost";
@@ -44,55 +46,14 @@ $renter = $stmt->fetch();
 <body>
     <header>
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
-                </h2>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php?username=<?= $renter['username']; ?>">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat
-                                Rent</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="invite-guests.php?username=<?= $renter['username']; ?>">Guests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="report.php">Report</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="complains.php?username=<?= $renter['username']; ?>">Complains</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="guards.php">Guards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../index.php">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php include 'components/nav.php'; ?>
         <!-- Navbar End -->
     </header>
 
     <main>
 
         <!-- Flat Rent Start -->
-        <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
+        <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-danger text-light">
             <h2>Flat Rent Details</h2>
             <form action="store-flat-rent.php" method="post">
 
@@ -161,10 +122,7 @@ $renter = $stmt->fetch();
     </main>
 
     <!-- Footer Start -->
-    <footer class="text-center bg-body-tertiary pt-5 pb-3">
-        <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
-        </p>
-    </footer>
+    <?php include 'components/footer.php'; ?>
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->

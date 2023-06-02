@@ -1,5 +1,7 @@
 <?php
 
+$currentPage = 'invite-guests';
+
 $_username = $_GET['username'];
 
 $servername = "localhost";
@@ -45,55 +47,14 @@ $renter = $stmt->fetch();
 <body>
     <header>
         <!-- Navbar Start -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container">
-                <h2><a class="navbar-brand" href="dashboard.php?username=<?= $renter['username']; ?>">Future Housing</a>
-                </h2>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php?username=<?= $renter['username']; ?>">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="profile-edit.php?username=<?= $renter['username']; ?>">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="flat-rent.php?username=<?= $renter['username']; ?>">Flat Rent</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active"
-                                href="invite-guests.php?username=<?= $renter['username']; ?>">Guests</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="tasks.php?username=<?= $renter['username']; ?>">Tasks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="report.php">Report</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="complains.php?username=<?= $renter['username']; ?>">Complain</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="guards.php">Guards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../index.php">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php include 'components/nav.php'; ?>
         <!-- Navbar End -->
     </header>
 
     <main>
 
         <!-- Invite Guests Start -->
-        <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-color text-light">
+        <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-danger text-light">
             <h2>Invite Guests:</h2>
             <form action="store-guest.php" method="post">
 
@@ -137,11 +98,25 @@ $renter = $stmt->fetch();
                     <tr class="d-none">
                         <th><i class="bi bi-person-circle"></i> User Name</th>
                         <td>
+                            <input type="text" class="form-control" name="flat" id="flat"
+                                value="<?= $renter['flat'] ?>">
+                        </td>
+                    </tr>
+                    <tr class="d-none">
+                        <th><i class="bi bi-person-circle"></i> User Name</th>
+                        <td>
                             <input type="text" class="form-control" name="username" id="username"
                                 value="<?= $renter['username'] ?>">
                         </td>
                     </tr>
-                    <tr class="">
+                    <tr class="d-none">
+                        <th><i class="bi bi-person-circle"></i> User Name</th>
+                        <td>
+                            <input type="text" class="form-control" name="host_name" id="host_name"
+                                value="<?= $renter['fullname'] ?>">
+                        </td>
+                    </tr>
+                    <tr class="d-none">
                         <th><i class="bi bi-upc"></i> Pin Code</th>
                         <td>
                             <input type="text" class="form-control" name="pinCode" id="pinCode" value="">
@@ -155,44 +130,43 @@ $renter = $stmt->fetch();
                         class="btn btn-dark float-end" id="generate-pin">Save</button>
                     <a href="dashboard.php?username=<?= $renter['username'] ?>" class="btn btn-secondary">Back</a>
                 </div>
+
+                <!-- QR Code Start -->
+
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">QR Code</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div id="qrImg" class="text-center">
+                                    <img src="" alt="" id="qrSecondImg">
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-dark">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code End -->
+
             </form>
         </div>
         <!-- Invite Guests End -->
 
-        <!-- QR Code Start -->
-
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">QR Code</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div id="qrImg" class="text-center">
-                            <img src="" alt="" id="qrSecondImg">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-dark">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- QR Code End -->
-
     </main>
 
     <!-- Footer Start -->
-    <footer class="text-center bg-body-tertiary pt-5 pb-3">
-        <p>Copyright <i class="fa-regular fa-copyright"></i> 2023 <strong>Future Housing</strong>. All rights reserved.
-        </p>
-    </footer>
+    <?php include 'components/footer.php'; ?>
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->
@@ -201,49 +175,44 @@ $renter = $stmt->fetch();
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
 
-    <!-- Pin Code Generator Start-->
-    <script>
-        function getPin() {
-            const pin = generatePin();
-            const pinString = pin + '';
-
-            if (pinString.length === 4) {
-                return pin;
-            } else {
-                return getPin();
-            }
-        }
-
-        function generatePin() {
-            const random = Math.round(Math.random() * 10000);
-            return random;
-        }
-
-        document.getElementById('generate-pin').addEventListener('click', function () {
-            const pin = getPin();
-            document.getElementById('pinCode').value = pin;
-        })
-    </script>
-    <!-- Pin Code Generator End-->
-
 
     <!-- qrCode Generator Start-->
-    <script>
-        let qrImg = document.getElementById('qrImg');
-        let qrSecondImg = document.getElementById('qrSecondImg');
-        let guestName = document.getElementById('guest-name').value;
-        let guestCell = document.getElementById('guest-cell').value;
-        let totalGuest = document.getElementById('total-guest').value;
-        let visitPurpose = document.getElementById('visit-purpose').value;
-        let date = document.getElementById('date').value;
-        let time = document.getElementById('time').value;
 
-        function qrCode() {
-            // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
-            // qrSecondImg.src = "https://chart.googleapis.com/chart?cht=qr&chl=" + qrTxt.value;
-            qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; &chs=160x160&chld=L|0`;
+    <script>
+    /* <!-- Pin Code Generator Start--> */
+    function getPin() {
+        const pin = generatePin();
+        const pinString = pin + '';
+
+        if (pinString.length === 4) {
+            return pin;
+        } else {
+            return getPin();
         }
+    }
+
+    function generatePin() {
+        const random = Math.round(Math.random() * 10000);
+        return random;
+    }
+    /* <!-- Pin Code Generator End--> */
+
+    function qrCode() {
+        const qrImg = document.getElementById('qrImg');
+        const qrSecondImg = document.getElementById('qrSecondImg');
+        const guestName = document.getElementById('guest-name').value;
+        const guestCell = document.getElementById('guest-cell').value;
+        const totalGuest = document.getElementById('total-guest').value;
+        const visitPurpose = document.getElementById('visit-purpose').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const pin = getPin();
+        document.getElementById('pinCode').value = pin;
+        // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
+        // qrSecondImg.src = "https://chart.googleapis.com/chart?cht=qr&chl=" + qrTxt.value;
+        qrSecondImg.src =
+            `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
+    }
     </script>
     <!-- qrCode Generator End-->
 </body>
