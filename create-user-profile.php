@@ -5,21 +5,13 @@ $_email = $_POST['email'];
 $_phone = $_POST['phone'];
 $_nid = $_POST['nid'];
 $_flat = $_POST['flat'];
-$_password = $_POST['password'];
+$_password = md5($_POST['password']);
 $_picture = "no-image.jpg";
 $_registered_at = date("Y-m-d H:i:s", time());
 $_status = 1;
 
 
-// Connection to database
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+include "database.php";
 
 $query = "SELECT * FROM `renters`";
 

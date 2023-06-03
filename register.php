@@ -1,12 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include "database.php";
 
 
 //Export Query
@@ -111,9 +105,9 @@ $flats = $stmt->fetchAll();
 
                                         ?>
 
-                                        <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
+                                <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
 
-                                        <?php
+                                <?php
                                     endif;
                                 endforeach;
                                 ?>

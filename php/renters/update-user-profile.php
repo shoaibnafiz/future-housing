@@ -33,18 +33,12 @@ $_fullname = $_POST['fullname'];
 $_email = $_POST['email'];
 $_phone = $_POST['phone'];
 $_gender = $_POST['gender'];
+$_password = md5($_POST['password']);
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
+include "../../database.php";
 
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
-$query = "UPDATE `renters` SET `fullname` = :fullname, `email` = :email, `picture` = :picture, `phone` = :phone, `gender` = :gender WHERE `renters`.`username` = :username";
+$query = "UPDATE `renters` SET `fullname` = :fullname, `email` = :email, `picture` = :picture, `phone` = :phone, `gender` = :gender, `password` = :password WHERE `renters`.`username` = :username";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':username', $_username);
@@ -53,6 +47,7 @@ $stmt->bindParam(':email', $_email);
 $stmt->bindParam(':phone', $_phone);
 $stmt->bindParam(':picture', $_picture);
 $stmt->bindParam(':gender', $_gender);
+$stmt->bindParam(':password', $_password);
 $result = $stmt->execute();
 
 header("location:profile-edit.php?username=" . $_username);

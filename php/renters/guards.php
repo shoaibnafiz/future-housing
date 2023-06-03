@@ -4,12 +4,8 @@ $currentPage = 'guards';
 
 $_username = $_GET['username'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
 
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include "../../database.php";
 
 $query = "SELECT * FROM `guards`";
 
@@ -37,6 +33,8 @@ $renter = $stmt->fetch();
 
     <link rel="stylesheet" href="../../styles/table-background.css">
     <link rel="stylesheet" href="../../styles/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../styles/history.css">
+
 </head>
 
 <body>

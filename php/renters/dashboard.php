@@ -6,14 +6,8 @@ $webroot = "http://localhost/future-housing/image/";
 
 $_username = $_GET['username'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
 
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+include "../../database.php";
 
 $query = "SELECT * FROM `renters` WHERE username = :username";
 
@@ -43,6 +37,7 @@ $renter = $stmt->fetch();
     <link rel="stylesheet" href="../../styles/dashboard.css">
     <link rel="stylesheet" href="../../styles/bootstrap-icons.css">
     <link rel="stylesheet" href="../../styles/table-background.css">
+    <link rel="stylesheet" href="../../styles/history.css">
 
 
 </head>
@@ -72,7 +67,7 @@ $renter = $stmt->fetch();
                         <h4>Events</h4>
                     </a>
                     <a class="btn btn-outline-info col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="history.php?username=<?= $renter['username']; ?>&flat=<?= $renter['flat']; ?>">
+                        href="history-flat-rents.php?username=<?= $renter['username']; ?>&flat=<?= $renter['flat']; ?>">
                         <p><i class="fa-solid fa-clock-rotate-left fa-2xl"></i></p>
                         <h4>History</h4>
                     </a>

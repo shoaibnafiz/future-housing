@@ -1,10 +1,5 @@
 <?php
 
-/* echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-die(); */
-
 $_username = $_POST['username'];
 
 $_flat = $_POST['flat'];
@@ -18,14 +13,8 @@ $_time = $_POST['time'];
 $_pinCode = $_POST['pinCode'];
 $_status = 0;
 
-$servername = "localhost";
-$username = "root";
-$password = "";
 
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+include "../../database.php";
 
 $query = "INSERT INTO `guests` (`flat`,`host_name`,`guest_name`,`guest_cell`,`total_guest`, `visit_purpose`, `date`, `time`, `pinCode`, `status`) VALUES (:flat, :host_name, :guest_name, :guest_cell, :total_guest, :visit_purpose, :date, :time, :pinCode, :status)";
 

@@ -4,12 +4,7 @@ $_id = $_GET['id'];
 $_status = 1;
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+include "../../database.php";
 
 $query = "UPDATE `guests` SET `status` = :status WHERE `guests`.`id` = :id";
 

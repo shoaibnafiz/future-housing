@@ -6,14 +6,7 @@ $webroot = "http://localhost/future-housing/image/";
 $_username = $_GET['username'];
 
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+include "../../database.php";
 
 $query = "SELECT * FROM `renters` WHERE username = :username";
 
@@ -40,6 +33,7 @@ $renter = $stmt->fetch();
     <!-- Stylesheet Link -->
     <link rel="stylesheet" href="../../styles/bootstrap-icons.css">
     <link rel="stylesheet" href="../../styles/table-background.css">
+    <link rel="stylesheet" href="../../styles/history.css">
 
 
 </head>
@@ -114,6 +108,12 @@ $renter = $stmt->fetch();
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="bi bi-key-fill"></i> Password</th>
+                            <td>
+                                <input type="password" class="form-control" name="password" id="password" value="">
                             </td>
                         </tr>
                     </table>

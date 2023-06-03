@@ -10,14 +10,8 @@ $_bKash_number = $_POST['bKash_number'];
 $_trx_id = $_POST['trx_id'];
 $_rented_at = date("Y-m-d H:i:s", time());
 
-$servername = "localhost";
-$username = "root";
-$password = "";
 
-$conn = new PDO("mysql:host=$servername;dbname=future_housing_db", $username, $password);
-// set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+include "../../database.php";
 
 $query = "INSERT INTO `flat_rents` (`flat`,`fullname`,`phone`,`rent`,`gas_bill`,`bKash_number`,`trx_id`, `rented_at`) VALUES (:flat, :fullname, :phone, :rent, :gas_bill, :bKash_number, :trx_id, :rented_at)";
 
