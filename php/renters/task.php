@@ -57,27 +57,27 @@ $renter = $stmt->fetch();
                         <th><i class="bi bi-person-circle"></i> Full Name</th>
                         <td>
                             <input type="text" class="form-control" name="fullname" id="fullname"
-                                value="<?= $renter['fullname'] ?>">
+                                value="<?= $renter['fullname'] ?>" disabled>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile No</th>
                         <td>
                             <input type="text" class="form-control" name="phone" id="phone"
-                                value="<?= $renter['phone'] ?>">
+                                value="<?= $renter['phone'] ?>" disabled>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-buildings-fill"></i> Flat No</th>
                         <td>
-                            <input type="text" class="form-control" name="flat" id="flat"
-                                value="<?= $renter['flat'] ?>">
+                            <input type="text" class="form-control" name="flat" id="flat" value="<?= $renter['flat'] ?>"
+                                disabled>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-list-task"></i> Task</th>
                         <td>
-                            <textarea class="form-control" rows="3" name="task" id="task"></textarea>
+                            <textarea class="form-control" rows="3" name="task" id="task" required></textarea>
                         </td>
                     </tr>
                     <tr class="d-none">

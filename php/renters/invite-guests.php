@@ -57,37 +57,37 @@ $renter = $stmt->fetch();
                     <tr>
                         <th><i class="bi bi-person-circle"></i> Guest Name</th>
                         <td>
-                            <input type="text" class="form-control" name="guest_name" id="guest-name">
+                            <input type="text" class="form-control" name="guest_name" id="guest-name" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Guest Cell</th>
                         <td>
-                            <input type="text" class="form-control" name="guest_cell" id="guest-cell">
+                            <input type="text" class="form-control" name="guest_cell" id="guest-cell" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-people-fill"></i> Total Guests</th>
                         <td>
-                            <input type="text" class="form-control" name="total_guest" id="total-guest">
+                            <input type="text" class="form-control" name="total_guest" id="total-guest" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-patch-question-fill"></i> Visit Purpose</th>
                         <td>
-                            <input type="text" class="form-control" name="visit_purpose" id="visit-purpose">
+                            <input type="text" class="form-control" name="visit_purpose" id="visit-purpose" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-calendar3-event-fill"></i> Date</th>
                         <td>
-                            <input type="date" class="form-control" name="date" id="date">
+                            <input type="date" class="form-control" name="date" id="date" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-clock-fill"></i> Time</th>
                         <td>
-                            <input type="time" class="form-control" name="time" id="time">
+                            <input type="time" class="form-control" name="time" id="time" required>
                         </td>
                     </tr>
                     <tr class="d-none">
@@ -201,12 +201,20 @@ $renter = $stmt->fetch();
         const visitPurpose = document.getElementById('visit-purpose').value;
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
-        const pin = getPin();
-        document.getElementById('pinCode').value = pin;
-        // qrSecondImg.src = "https://api.qrserver.com/v1/create-qr-code/?size=150x150$date=" + qrTxt.value;
-        // qrSecondImg.src = "https://chart.googleapis.com/chart?cht=qr&chl=" + qrTxt.value;
-        qrSecondImg.src =
-            `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
+        // console.log(guestName);
+
+
+        if (guestName.trim() === '' || guestCell.trim() === '' || totalGuest.trim() === '' || visitPurpose.trim() ===
+            '' || date.trim() === '' || time.trim() === '') {
+            qrSecondImg.src =
+                `https://chart.googleapis.com/chart?cht=qr&chl=Input Every Details; &chs=160x160&chld=L|0`;
+        } else {
+            const pin = getPin();
+            document.getElementById('pinCode').value = pin;
+            qrSecondImg.src =
+                `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
+        }
+
     }
     </script>
     <!-- qrCode Generator End-->

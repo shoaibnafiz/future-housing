@@ -57,45 +57,45 @@ $renter = $stmt->fetch();
                         <th><i class="bi bi-person-circle"></i> Full Name</th>
                         <td>
                             <input type="text" class="form-control" name="fullname" id="fullname"
-                                value="<?= $renter['fullname'] ?>">
+                                value="<?= $renter['fullname'] ?>" disabled>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile No</th>
                         <td>
                             <input type="text" class="form-control" name="phone" id="phone"
-                                value="<?= $renter['phone'] ?>">
+                                value="<?= $renter['phone'] ?>" disabled>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-buildings-fill"></i> Flat No</th>
                         <td>
-                            <input type="text" class="form-control" name="flat" id="flat"
-                                value="<?= $renter['flat'] ?>">
+                            <input type="text" class="form-control" name="flat" id="flat" value="<?= $renter['flat'] ?>"
+                                disabled>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-cash-coin"></i> Rent Amount</th>
                         <td>
-                            <input type="text" class="form-control" name="rent" id="rent">
+                            <input type="text" class="form-control" name="rent" id="rent" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-cash-coin"></i> Gas Bill</th>
                         <td>
-                            <input type="text" class="form-control" name="gas_bill" id="gas_bill">
+                            <input type="text" class="form-control" name="gas_bill" id="gas_bill" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> bKash Mobile No</th>
                         <td>
-                            <input type="text" class="form-control" name="bKash_number" id="bKash_number">
+                            <input type="text" class="form-control" name="bKash_number" id="bKash_number" required>
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-coin"></i> bKash Trx ID</th>
                         <td>
-                            <input type="text" class="form-control" name="trx_id" id="trx_id">
+                            <input type="text" class="form-control" name="trx_id" id="trx_id" required>
                         </td>
                     </tr>
                     <tr class="d-none">

@@ -36,6 +36,23 @@ $tasks = $stmt->fetchAll();
 
         <!-- Task Lists Start -->
         <section>
+            <div class="container mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 border border-black border-4 rounded-4">
+                        <h3 class="text-center my-3">Search For Guest Invitation</h3>
+                        <form method="get" action="find-guests.php">
+                            <div class="mb-3 row">
+                                <label for="inputPinCode" class="col-sm-2 col-form-label">Pin Code:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control border border-black border-2"
+                                        id="inputPinCode" name="pinCode" value="">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark float-end mb-3" id="find">Find</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-sm-10">
