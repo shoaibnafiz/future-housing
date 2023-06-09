@@ -47,10 +47,27 @@ if(isset($_GET['pinCode'])){
 
         <!-- Guest's Details Start -->
         <section>
+            <div class="container my-3">
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 border border-black border-4 rounded-4">
+                        <h3 class="text-center my-3">Search For Guest Invitation</h3>
+                        <form method="get" action="">
+                            <div class="mb-3 row">
+                                <label for="inputPinCode" class="col-sm-2 col-form-label">Pin Code:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control border border-black border-2"
+                                        id="inputPinCode" name="pinCode" value="" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark float-end mb-3" id="find">Find</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col">
-                        <h2 class="text-center mb-4">Guests Details</h2>
+                        <h2 class="text-center mb-4">Guests Invitations</h2>
 
                         <?php
                         if(!isset($pinCode)){

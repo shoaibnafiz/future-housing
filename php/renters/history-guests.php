@@ -45,17 +45,19 @@ $guests = $stmt->fetchAll();
         <!-- Guest History Section Start -->
         <section id="history-guests-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Guests History</h3>
-            <div id="history-guests">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" id="history-guests">
                 <?php
                 foreach ($guests as $guest):
                     ?>
-                <div class="rent-history">
-                    <p>Guest Name: <strong><?= $guest['guest_name'] ?></strong></p>
-                    <p>Guest Cell: <strong><?= $guest['guest_cell'] ?></strong></p>
-                    <p>Total Guest: <strong><?= $guest['total_guest'] ?></strong></p>
-                    <p>Visit Purpose: <strong><?= $guest['visit_purpose'] ?></strong></p>
-                    <p>Date: <strong><?= $guest['date'] ?></strong></p>
-                    <p>Time: <strong><?= $guest['time'] ?></strong></p>
+                <div class="col">
+                    <div class="rent-history">
+                        <p>Guest Name: <strong><?= $guest['guest_name'] ?></strong></p>
+                        <p>Guest Cell: <strong><?= $guest['guest_cell'] ?></strong></p>
+                        <p>Total Guest: <strong><?= $guest['total_guest'] ?></strong></p>
+                        <p>Visit Purpose: <strong><?= $guest['visit_purpose'] ?></strong></p>
+                        <p>Date: <strong><?= $guest['date'] ?></strong></p>
+                        <p>Time: <strong><?= $guest['time'] ?></strong></p>
+                    </div>
                 </div>
                 <?php
                 endforeach;
@@ -67,7 +69,7 @@ $guests = $stmt->fetchAll();
     </main>
 
     <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
+    <!-- <?php include 'components/footer.php'; ?> -->
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->

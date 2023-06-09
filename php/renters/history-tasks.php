@@ -45,19 +45,20 @@ $tasks = $stmt->fetchAll();
         <!-- Tasks History Section Start -->
         <section id="history-tasks-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Tasks History</h3>
-            <div id="history-tasks">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" id="history-tasks">
                 <?php
                 foreach ($tasks as $task):
                     ?>
-                <div class="rent-history">
-                    <p>Task: <strong>
-                            <?= $task['task'] ?>
-                        </strong></p>
-                    <p>Date: <strong>
-                            <?= $task['given_at'] ?>
-                        </strong></p>
-                    <p>Status: <strong>
-                            <?php
+                <div class="col">
+                    <div class="rent-history">
+                        <p>Task: <strong>
+                                <?= $task['task'] ?>
+                            </strong></p>
+                        <p>Date: <strong>
+                                <?= $task['given_at'] ?>
+                            </strong></p>
+                        <p>Status: <strong>
+                                <?php
                             if($task['status'] == 2){
                                 echo "Delivered!";
                             }else if($task['status'] == 1){
@@ -66,7 +67,8 @@ $tasks = $stmt->fetchAll();
                                 echo "Pending...";
                             }
                             ?>
-                        </strong></p>
+                            </strong></p>
+                    </div>
                 </div>
                 <?php
                 endforeach;
@@ -78,7 +80,7 @@ $tasks = $stmt->fetchAll();
     </main>
 
     <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
+    <!-- <?php include 'components/footer.php'; ?> -->
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->

@@ -45,28 +45,32 @@ $rents = $stmt->fetchAll();
         <!-- Flat Rent History Section Start -->
         <section id="history-flat-rent-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Flat Rent History</h3>
-            <div id="history-flat-rent">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" id="history-flat-rent">
                 <?php
                 foreach ($rents as $rent):
                     ?>
-                <div class="rent-history">
-                    <p>Rent Amount: TK<strong>
-                            <?= $rent['rent'] ?>
-                        </strong></p>
-                    <p>Gas Bill: TK<strong>
-                            <?= $rent['gas_bill'] ?>
-                        </strong></p>
-                    <p>Date of Rent: <strong>
-                            <?= $rent['rented_at'] ?>
-                        </strong></p>
-                    <p>Bkash Cell: <strong>
-                            <?= $rent['bKash_number'] ?>
-                        </strong></p>
-                    <p>Bkash Trx ID: <strong>
-                            <?= $rent['trx_id'] ?>
-                        </strong></p>
-                    <!-- <p>Date: <strong>${flatRent.date}</strong></p>
-                    <p>Time: <strong>${flatRent.time}</strong></p> -->
+                <div class="col">
+                    <div class="rent-history">
+                        <p>Rent Amount: TK<strong>
+                                <?= $rent['rent'] ?>
+                            </strong></p>
+                        <p>Gas Bill: TK<strong>
+                                <?= $rent['gas_bill'] ?>
+                            </strong></p>
+                        <p>Date of Rent: <strong>
+                                <?= $rent['rented_at'] ?>
+                            </strong></p>
+                        <p>Bkash Cell: <strong>
+                                <?= $rent['bKash_number'] ?>
+                            </strong></p>
+                        <p>Bkash Trx ID: <strong>
+                                <?= $rent['trx_id'] ?>
+                            </strong></p>
+                        <p>Rented at: <strong>
+                                <?= $rent['rented_at'] ?>
+                            </strong></p>
+                    </div>
+
                 </div>
                 <?php
                 endforeach;
@@ -78,7 +82,7 @@ $rents = $stmt->fetchAll();
     </main>
 
     <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
+    <!-- <?php include 'components/footer.php'; ?> -->
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->

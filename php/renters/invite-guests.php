@@ -140,6 +140,7 @@ $renter = $stmt->fetch();
                             <div class="modal-body">
 
                                 <div id="qrImg" class="text-center">
+                                    <h4 id="inputErrorText" class="text-dark d-none">Please Input Every Details</h4>
                                     <img src="" alt="" id="qrSecondImg">
                                 </div>
 
@@ -195,6 +196,7 @@ $renter = $stmt->fetch();
     function qrCode() {
         const qrImg = document.getElementById('qrImg');
         const qrSecondImg = document.getElementById('qrSecondImg');
+        const inputErrorText = document.getElementById('inputErrorText');
         const guestName = document.getElementById('guest-name').value;
         const guestCell = document.getElementById('guest-cell').value;
         const totalGuest = document.getElementById('total-guest').value;
@@ -207,10 +209,12 @@ $renter = $stmt->fetch();
         if (guestName.trim() === '' || guestCell.trim() === '' || totalGuest.trim() === '' || visitPurpose.trim() ===
             '' || date.trim() === '' || time.trim() === '') {
             qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=Input Every Details; &chs=160x160&chld=L|0`;
+                `https://chart.googleapis.com/chart?cht=qr&chl=Please Input Every Details; &chs=160x160&chld=L|0`;
+            inputErrorText.classList.remove('d-none');
         } else {
             const pin = getPin();
             document.getElementById('pinCode').value = pin;
+            inputErrorText.classList.add('d-none');
             qrSecondImg.src =
                 `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
         }

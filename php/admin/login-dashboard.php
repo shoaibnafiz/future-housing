@@ -1,10 +1,5 @@
 <?php
 
-/* echo "<pre>";
-print_r($_GET);
-echo "</pre>";
-die(); */
-
 $_username = $_GET['username'];
 $_password = $_GET['password'];
 

@@ -77,6 +77,18 @@ $guards = $stmt->fetchAll();
                                     <th><i class="bi bi-person-badge"></i> Acount Type</th>
                                     <td>Guard</td>
                                 </tr>
+                                <tr>
+                                    <th><i class="bi bi-clock-fill"></i> Schedule Starts at</th>
+                                    <td>
+                                        <?= $guard['start_time']?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i class="bi bi-clock-fill"></i> Schedule Ends at</th>
+                                    <td>
+                                        <?= $guard['end_time']?>
+                                    </td>
+                                </tr>
                             </table>
                         </div>
 

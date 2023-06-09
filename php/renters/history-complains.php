@@ -45,20 +45,22 @@ $complains = $stmt->fetchAll();
         <!-- Complains History Section Start -->
         <section id="history-complains-container" class="container">
             <h3 class="text-center text-light bg-dark py-3 rounded-3">Complains History</h3>
-            <div id="history-complains">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3" id="history-complains">
                 <?php
                 foreach ($complains as $complain):
                     ?>
-                <div class="rent-history">
-                    <p>Complain: <strong>
-                            <?= $complain['complain'] ?>
-                        </strong></p>
-                    <p>Date: <strong>
-                            <?= $complain['given_at'] ?>
-                        </strong></p>
-                    <p>Status: <strong>
-                            <?= $complain['status'] == 1 ? "Complete.!!" : "Pending..." ?>
-                        </strong></p>
+                <div class="col">
+                    <div class="rent-history">
+                        <p>Complain: <strong>
+                                <?= $complain['complain'] ?>
+                            </strong></p>
+                        <p>Date: <strong>
+                                <?= $complain['given_at'] ?>
+                            </strong></p>
+                        <p>Status: <strong>
+                                <?= $complain['status'] == 1 ? "Complete.!!" : "Pending..." ?>
+                            </strong></p>
+                    </div>
                 </div>
                 <?php
                 endforeach;
@@ -70,7 +72,7 @@ $complains = $stmt->fetchAll();
     </main>
 
     <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
+    <!-- <?php include 'components/footer.php'; ?> -->
     <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->
