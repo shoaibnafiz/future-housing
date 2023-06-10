@@ -1,3 +1,9 @@
+<?php
+
+$currentPage = "dashboard";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +21,7 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Admin Deashboard</title>
+    <title>Dashboard | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -311,36 +317,11 @@
             </main>
 
             <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/"
-                                    target="_blank"><strong>AdminKit</strong></a>
-                                - <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap
-                                        Admin
-                                        Template</strong></a> &copy;
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+
+                <?php include "components/footer.php";?>
+
             </footer>
+
         </div>
 
     </div>

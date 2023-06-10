@@ -87,6 +87,12 @@ $renter = $stmt->fetch();
                         </td>
                     </tr>
                     <tr>
+                        <th><i class="bi bi-phone"></i> Send to</th>
+                        <td>
+                            <input type="text" class="form-control" value="01790323767" disabled>
+                        </td>
+                    </tr>
+                    <tr>
                         <th><i class="bi bi-phone"></i> bKash Mobile No</th>
                         <td>
                             <input type="text" class="form-control" name="bKash_number" id="bKash_number" required>
