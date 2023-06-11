@@ -316,11 +316,9 @@ $currentPage = "dashboard";
                 </div>
             </main>
 
-            <footer class="footer">
-
-                <?php include "components/footer.php";?>
-
-            </footer>
+            <!-- Footer Start -->
+            <?php include "components/footer.php";?>
+            <!-- Footer End -->
 
         </div>
 

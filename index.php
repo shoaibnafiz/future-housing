@@ -11,6 +11,7 @@ $stmt = $conn->prepare($query);
 $result = $stmt->execute();
 $flats = $stmt->fetchAll();
 
+$flatsCount = count($flats);
 
 ?>
 
@@ -138,9 +139,6 @@ $flats = $stmt->fetchAll();
     </section>
 
 
-
-
-
     <!-- service -->
 
     <section id="service" class="service">
@@ -150,58 +148,75 @@ $flats = $stmt->fetchAll();
         <p> Buying, Renting, Selling, Inventory Management, Reservations, Bookings, Billing, Invoicing, Customer
             Management, Reporting, Analytics etc. </p>
 
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-            <div class="service-col">
+            <div class="col my-3">
+                <div class="service-col" style="height: 100%;">
+                    <h2> Buying </h2>
 
-                <h2> Buying </h2>
+                    <p> Buying a rental property is a big decision with big financial implications. You’ll want to find
+                        a
+                        location that
+                        is easy to rent and a property that fits your budget, and then figure out how you will pay for
+                        your
+                        new
+                        investment property before you can make an offer. <br><br> Buying rental property differs from
+                        buying a house
+                        as a primary residence in that the end goal is to turn a profit. This means you will need to
+                        treat
+                        your investment
+                        as a business by choosing affordable properties and finding the right way to finance the
+                        purchase
+                        the land
+                        successfully. </p>
 
-                <p> Buying a rental property is a big decision with big financial implications. You’ll want to find a
-                    location that
-                    is easy to rent and a property that fits your budget, and then figure out how you will pay for your
-                    new
-                    investment property before you can make an offer. <br><br> Buying rental property differs from
-                    buying a house
-                    as a primary residence in that the end goal is to turn a profit. This means you will need to treat
-                    your investment
-                    as a business by choosing affordable properties and finding the right way to finance the purchase
-                    the land
-                    successfully. </p>
-
+                </div>
             </div>
 
-            <div class="service-col">
+            <div class="col my-3">
+                <div class="service-col" style="height: 100%;">
 
-                <h2> Renting </h2>
+                    <h2> Renting </h2>
 
-                <p> If you’re wondering how to rent a house that turns a profit, the answer is with good planning and
-                    long-term
-                    thinking. Many landlords only expect a few hundred dollars in profit per month, so it’s important to
-                    determine
-                    if the time of learning how to become a landlord will be worth in your local housing market.
-                    <br><br>
-                    These often protect renters while they’re apartment hunting, so be sure to be clear on these early
-                    on. Investing in rental property requires knowledge about tenant, leasing and property management
-                    business.
-                </p>
+                    <p> If you’re wondering how to rent a house that turns a profit, the answer is with good planning
+                        and
+                        long-term
+                        thinking. Many landlords only expect a few hundred dollars in profit per month, so it’s
+                        important to
+                        determine
+                        if the time of learning how to become a landlord will be worth in your local housing market.
+                        <br><br>
+                        These often protect renters while they’re apartment hunting, so be sure to be clear on these
+                        early
+                        on. Investing in rental property requires knowledge about tenant, leasing and property
+                        management
+                        business.
+                    </p>
 
+                </div>
             </div>
 
-            <div class="service-col">
+            <div class="col my-3">
+                <div class="service-col" style="height: 100%;">
 
-                <h2> Selling </h2>
+                    <h2> Selling </h2>
 
-                <p> Selling your home can be daunting – all the more so if you are looking for another property to buy
-                    at the same time. The decisions you make when selling a property could save you many. Before you
-                    sell
-                    your house, you’ll want to get a rough idea of how much it is worth. <br><br> This will also help
-                    you calculate
-                    how much money will be left if you have a mortgage to pay off. Selling your home for a while can add
-                    to the
-                    overall expense, but it will reduce the critical time pressures in buying a new home. Investing in a
-                    rental
-                    property can be profitable. </p>
+                    <p> Selling your home can be daunting – all the more so if you are looking for another property to
+                        buy
+                        at the same time. The decisions you make when selling a property could save you many. Before you
+                        sell
+                        your house, you’ll want to get a rough idea of how much it is worth. <br><br> This will also
+                        help
+                        you calculate
+                        how much money will be left if you have a mortgage to pay off. Selling your home for a while can
+                        add
+                        to the
+                        overall expense, but it will reduce the critical time pressures in buying a new home. Investing
+                        in a
+                        rental
+                        property can be profitable. </p>
 
+                </div>
             </div>
 
         </div>
@@ -220,15 +235,33 @@ $flats = $stmt->fetchAll();
             Wasa from Landlord Party. Rent in advance, from 1 to 10 days, 2 months notice before vacating houses.
             Renters have to give 30,000 in advance.. </p>
 
-        <div class="row row-cols-1 row-cols-md-2">
+        <div id="flat-limit" class="row row-cols-1 row-cols-md-2">
 
             <?php
-            foreach ($flats as $flat):
+            foreach ($flats as $index => $flat):
+                if ($flatsCount > 2 && $index >= 2) {
+                    break;
+                }
                 ?>
 
             <div class="col facilities-col">
 
-                <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>">
+                <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="width: 100%; height: 100%;">
+                        <div class="carousel-item active">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>" class="img-fluid"
+                                style="width: 100%; height: 280px;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture2']; ?>" class="img-fluid"
+                                style="width: 100%; height: 280px;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture3']; ?>" class="img-fluid"
+                                style="width: 100%; height: 280px;">
+                        </div>
+                    </div>
+                </div>
 
                 <h3> Flat
                     <?= $flat['flat']; ?>
@@ -258,6 +291,61 @@ $flats = $stmt->fetchAll();
 
         </div>
 
+        <div id="flat-all" class="d-none row row-cols-1 row-cols-md-2">
+
+            <?php
+            foreach ($flats as $index => $flat):
+                ?>
+
+            <div class="col facilities-col">
+
+                <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="width: 100%; height: 100%;">
+                        <div class="carousel-item active">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>" class="img-fluid"
+                                style="width: 100%; height: 280px;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture2']; ?>" class="img-fluid"
+                                style="width: 100%; height: 280px;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture3']; ?>" class="img-fluid"
+                                style="width: 100%; height: 280px;">
+                        </div>
+                    </div>
+                </div>
+
+                <h3> Flat
+                    <?= $flat['flat']; ?>
+                </h3>
+
+                <p>
+                    <?= $flat['description']; ?>
+                </p>
+                <div class="d-flex justify-content-between">
+                    <p>
+                        Rent:
+                        <strong>
+                            <?= $flat['rent'] ?>
+                        </strong>
+                    </p>
+                    <p>
+                        Status: <strong><?= $flat['status'] == 1 ? "Rented" : "Available" ?></strong>
+                    </p>
+                </div>
+
+
+            </div>
+
+            <?php
+            endforeach;
+            ?>
+
+        </div>
+
+        <button id="show-all" class="btn btn-danger" style="width: 100px;">Show All</button>
+
     </section>
 
     <!-- Flats End -->
@@ -275,48 +363,62 @@ $flats = $stmt->fetchAll();
             property
             managers to track maintenance requests and schedule repairs. </p>
 
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
-            <div class="facilities-col">
+            <div class="col my-3">
 
-                <img
-                    src="https://www.smartpropertyinvestment.com.au/images/intro-images/839x487/apartment-modern-spi.jpg">
+                <div class="facilities-col">
 
-                <h3> Rent Collection </h3>
+                    <img
+                        src="https://www.smartpropertyinvestment.com.au/images/intro-images/839x487/apartment-modern-spi.jpg">
 
-                <p> Rental management systems allow landlords to collect rent from tenants online. This eliminates the
-                    need for paper
-                    checks and makes the process more convenient for both parties. It property managers to screen
-                    potential tenants by
-                    conducting background checks and verifying their income. </p>
+                    <h3> Rent Collection </h3>
 
-            </div>
+                    <p> Rental management systems allow landlords to collect rent from tenants online. This eliminates
+                        the
+                        need for paper
+                        checks and makes the process more convenient for both parties. It property managers to screen
+                        potential tenants by
+                        conducting background checks and verifying their income. </p>
 
-            <div class="facilities-col">
-
-                <img
-                    src="https://www.mastermind-ca.com/wp-content/uploads/2021/07/1Accounting-And-Financial-Reporting-min.jpg">
-
-                <h3> Financial Reporting </h3>
-
-                <p> We offer financial reporting tools that help property managers and landlords keep track of rent
-                    payments, expenses,
-                    and other financial data related to properties. The platform includes property details such as
-                    location, size, price,
-                    and availability. It screen potential tenants by background checks. </p>
+                </div>
 
             </div>
 
-            <div class="facilities-col">
+            <div class="col my-3">
 
-                <img src="https://www.bankrate.com/2019/08/13233037/Condo-vs-apartment.jpeg">
+                <div class="facilities-col">
 
-                <h3> Lease Management </h3>
+                    <img
+                        src="https://www.mastermind-ca.com/wp-content/uploads/2021/07/1Accounting-And-Financial-Reporting-min.jpg">
 
-                <p> Rental management systems provide tools for managing leases, including the creation of lease
-                    agreements, tracking
-                    lease terms, and handling lease renewals and terminations. It enable property managers and landlords
-                    to communicate with tenants through the platform. </p>
+                    <h3> Financial Reporting </h3>
+
+                    <p> We offer financial reporting tools that help property managers and landlords keep track of rent
+                        payments, expenses,
+                        and other financial data related to properties. The platform includes property details such as
+                        location, size, price,
+                        and availability. It screen potential tenants by background checks. </p>
+
+                </div>
+
+            </div>
+
+            <div class="col my-3">
+
+                <div class="facilities-col">
+
+                    <img src="https://www.bankrate.com/2019/08/13233037/Condo-vs-apartment.jpeg">
+
+                    <h3> Lease Management </h3>
+
+                    <p> Rental management systems provide tools for managing leases, including the creation of lease
+                        agreements, tracking
+                        lease terms, and handling lease renewals and terminations. It enable property managers and
+                        landlords
+                        to communicate with tenants through the platform. </p>
+
+                </div>
 
             </div>
 
@@ -340,47 +442,56 @@ $flats = $stmt->fetchAll();
             and analyzing customer reviews, businesses can measure customer satisfaction and improve their customer
             relations. </p>
 
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-2">
 
-            <div class="testimonials-col">
+            <div class="col my-3">
 
-                <img src="https://blissful-kalam-df38fc.netlify.app/images/i.jpg">
+                <div class="testimonials-col" style="height: 100%;">
 
-                <div>
+                    <img src="https://blissful-kalam-df38fc.netlify.app/images/i.jpg">
 
-                    <p> It feels amazing to know that there is an increased demand for your product, but customer
-                        experience and
-                        satisfaction are consequential. </p>
+                    <div>
 
-                    <h3> Quazi Hasnat Irfan </h3>
+                        <p> It feels amazing to know that there is an increased demand for your product, but customer
+                            experience and
+                            satisfaction are consequential. </p>
 
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+                        <h3> Quazi Hasnat Irfan </h3>
+
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="testimonials-col">
+            <div class="col my-3">
 
-                <img src="https://blissful-kalam-df38fc.netlify.app/images/m.jpg">
+                <div class="testimonials-col" style="height: 100%;">
 
-                <div>
+                    <img src="https://blissful-kalam-df38fc.netlify.app/images/m.jpg">
 
-                    <p> It’s okay to be wrong but it’s not okay to not accept it. When we fail to acknowledge and admit
-                        that we were
-                        wrong, we hinder our mind. </p>
+                    <div>
 
-                    <h3> Ridoyan Murad </h3>
+                        <p> It’s okay to be wrong but it’s not okay to not accept it. When we fail to acknowledge and
+                            admit
+                            that we were
+                            wrong, we hinder our mind. </p>
 
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
+                        <h3> Ridoyan Murad </h3>
+
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+
+                    </div>
 
                 </div>
 
@@ -427,6 +538,14 @@ $flats = $stmt->fetchAll();
     </section>
 
     <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    document.getElementById('show-all').addEventListener('click', function() {
+        document.getElementById('flat-limit').classList.add('d-none');
+        document.getElementById('show-all').classList.add('d-none');
+        document.getElementById('flat-all').classList.remove('d-none');
+    })
+    </script>
 
 </body>
 
