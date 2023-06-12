@@ -23,6 +23,7 @@ $flats = $stmt->fetchAll();
 
     <title>Register</title>
 
+    <link rel="stylesheet" href="styles/register.css">
     <link rel="stylesheet" href="styles/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
@@ -35,23 +36,6 @@ $flats = $stmt->fetchAll();
     <!-- register -->
 
     <section class="welcome">
-
-        <header class="header">
-
-            <nav class="navbar">
-                <a href="index.php">Home</a>
-                <a href="#">About</a>
-                <a href="#">Price</a>
-                <a href="#">Services</a>
-                <a href="#">Contact</a>
-            </nav>
-
-            <form action="#" class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class='bx bx-search'></i></button>
-            </form>
-
-        </header>
 
         <div class="register-background"> </div>
 
@@ -132,7 +116,7 @@ $flats = $stmt->fetchAll();
                             <label><input type="checkbox" required>&nbsp I agree with <a>Terms & Conditions</a></label>
                         </div>
 
-                        <button type="submit" class="btn">Register</button>
+                        <button type="submit" class="btn-register">Register</button>
 
                         <div class="using">
                             <Label>----- or sign up with -----</Label>
@@ -146,7 +130,7 @@ $flats = $stmt->fetchAll();
                         </div>
 
                         <div class="login-register">
-                            <p>Already have an account? &nbsp<a href="index.html" class="register-link">Sign In</a></p>
+                            <p>Already have an account? &nbsp<a href="index.php" class="register-link">Sign In</a></p>
                         </div>
                     </form>
 

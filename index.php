@@ -26,6 +26,7 @@ $flatsCount = count($flats);
 
     <title>Welcome</title>
 
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
@@ -50,11 +51,6 @@ $flatsCount = count($flats);
                 <a href="#about">About</a>
             </nav>
 
-            <form action="#" class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><i class='bx bx-search'></i></button>
-            </form>
-
         </header>
 
         <div class="background"> </div>
@@ -77,7 +73,7 @@ $flatsCount = count($flats);
                         entire process in a digital format. This software also provides a communication medium that
                         simplifies the communication between a property manager and a tenant. <br> </p>
 
-                    <div class="social-icons">
+                    <div class="social-icons d-none d-lg-block">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-instagram"></i></a>
@@ -123,7 +119,7 @@ $flatsCount = count($flats);
                             <a href="#">Forgot password?</a>
                         </div>
 
-                        <button id="btn-login" type="submit" class="btn">Login</button>
+                        <button id="btn-login" type="submit" class="btn-login">Login</button>
 
                         <div class="login-register">
                             <p>Don't have an account? &nbsp<a href="register.php" class="register-link">Sign up</a></p>
@@ -151,7 +147,7 @@ $flatsCount = count($flats);
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
 
             <div class="col my-3">
-                <div class="service-col" style="height: 100%;">
+                <div class="service-col h-100">
                     <h2> Buying </h2>
 
                     <p> Buying a rental property is a big decision with big financial implications. You’ll want to find
@@ -174,7 +170,7 @@ $flatsCount = count($flats);
             </div>
 
             <div class="col my-3">
-                <div class="service-col" style="height: 100%;">
+                <div class="service-col h-100">
 
                     <h2> Renting </h2>
 
@@ -197,7 +193,7 @@ $flatsCount = count($flats);
             </div>
 
             <div class="col my-3">
-                <div class="service-col" style="height: 100%;">
+                <div class="service-col h-100">
 
                     <h2> Selling </h2>
 
@@ -246,19 +242,16 @@ $flatsCount = count($flats);
 
             <div class="col facilities-col">
 
-                <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner" style="width: 100%; height: 100%;">
+                <div id="carouselAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner h-100">
                         <div class="carousel-item active">
-                            <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>" class="img-fluid"
-                                style="width: 100%; height: 280px;">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>" style="height: 280px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= $webroot; ?>flats/<?= $flat['picture2']; ?>" class="img-fluid"
-                                style="width: 100%; height: 280px;">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture2']; ?>" style="height: 280px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= $webroot; ?>flats/<?= $flat['picture3']; ?>" class="img-fluid"
-                                style="width: 100%; height: 280px;">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture3']; ?>" style="height: 280px;">
                         </div>
                     </div>
                 </div>
@@ -299,19 +292,16 @@ $flatsCount = count($flats);
 
             <div class="col facilities-col">
 
-                <div id="carouselAutoplaying" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner" style="width: 100%; height: 100%;">
+                <div id="carouselAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner h-100">
                         <div class="carousel-item active">
-                            <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>" class="img-fluid"
-                                style="width: 100%; height: 280px;">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture1']; ?>" style="height: 280px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= $webroot; ?>flats/<?= $flat['picture2']; ?>" class="img-fluid"
-                                style="width: 100%; height: 280px;">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture2']; ?>" style="height: 280px;">
                         </div>
                         <div class="carousel-item">
-                            <img src="<?= $webroot; ?>flats/<?= $flat['picture3']; ?>" class="img-fluid"
-                                style="width: 100%; height: 280px;">
+                            <img src="<?= $webroot; ?>flats/<?= $flat['picture3']; ?>" style="height: 280px;">
                         </div>
                     </div>
                 </div>
@@ -446,7 +436,7 @@ $flatsCount = count($flats);
 
             <div class="col my-3">
 
-                <div class="testimonials-col" style="height: 100%;">
+                <div class="testimonials-col h-100">
 
                     <img src="https://blissful-kalam-df38fc.netlify.app/images/i.jpg">
 
@@ -472,7 +462,7 @@ $flatsCount = count($flats);
 
             <div class="col my-3">
 
-                <div class="testimonials-col" style="height: 100%;">
+                <div class="testimonials-col h-100">
 
                     <img src="https://blissful-kalam-df38fc.netlify.app/images/m.jpg">
 
