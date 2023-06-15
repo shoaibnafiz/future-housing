@@ -7,7 +7,7 @@ $_nid = $_POST['nid'];
 $_flat = $_POST['flat'];
 $_password = md5($_POST['password']);
 $_picture = "no-image.jpg";
-$_registered_at = date("Y-m-d H:i:s", time());
+$_requested_at = date("Y-m-d H:i:s", time());
 $_status = 1;
 
 
@@ -21,11 +21,11 @@ $renters = $stmt->fetchAll();
 
 foreach ($renters as $renter) {
     if ($renter['username'] === $_username) {
-        return header("location: register.php");
+        return header("location: register.php?error=sameuser");
     }
 }
 
-$query = "INSERT INTO `renters` (`fullname`,`username`,`email`,`phone`,`nid`,`flat`,`password`,`picture`, `registered_at`) VALUES (:fullname, :username, :email, :phone, :nid, :flat, :password, :picture, :registered_at)";
+$query = "INSERT INTO `request_renters` (`fullname`,`username`,`email`,`phone`,`nid`,`flat`,`password`, `requested_at`) VALUES (:fullname, :username, :email, :phone, :nid, :flat, :password, :requested_at)";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':fullname', $_fullname);
@@ -35,20 +35,10 @@ $stmt->bindParam(':phone', $_phone);
 $stmt->bindParam(':nid', $_nid);
 $stmt->bindParam(':flat', $_flat);
 $stmt->bindParam(':password', $_password);
-$stmt->bindParam(':picture', $_picture);
-$stmt->bindParam(':registered_at', $_registered_at);
+$stmt->bindParam(':requested_at', $_requested_at);
 
 $result = $stmt->execute();
 
 
-$query = "UPDATE `flats` SET `status` = :status WHERE `flats`.`flat` = :flat";
-
-$stmt = $conn->prepare($query);
-$stmt->bindParam(':flat', $_flat);
-$stmt->bindParam(':status', $_status);
-
-$result = $stmt->execute();
-
-
-header("location:index.php");
+header("location:index.php?request=sent");
 ?>

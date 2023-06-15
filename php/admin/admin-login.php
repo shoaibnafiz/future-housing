@@ -18,15 +18,15 @@
     <!-- Awesome Icon -->
     <script src="https://kit.fontawesome.com/a2afe6c5bb.js" crossorigin="anonymous"></script>
     <!-- Stylesheet Link -->
-    <link rel="stylesheet" href="../../styles/table-background.css">
+    <!-- <link rel="stylesheet" href="../../styles/table-background.css"> -->
 </head>
 
-<body>
+<body class="bg-primary">
     <header>
         <!-- Navbar Start -->
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar">
             <div class="container justify-content-center">
-                <h2><a class="navbar-brand" href="index.html">Future Housing</a>
+                <h2><a class="navbar-brand text-light" href="index.html">Future Housing</a>
                 </h2>
             </div>
         </nav>
@@ -36,8 +36,9 @@
     <main>
         <!-- Form Start -->
         <section style="height: 450px; width: 500px;"
-            class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-primary text-light">
+            class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-body-tertiary text-dark">
             <h2 class="text-center">Admin Login</h2>
+            <hr>
             <div class="mt-5">
                 <form class="pt-5" action="login-dashboard.php" method="get">
 
@@ -45,19 +46,21 @@
                         <tr>
                             <th><i class="bi bi-person-circle"></i> User Name</th>
                             <td>
-                                <input type="text" class="form-control" name="username" id="username" value="">
+                                <input type="text" class="form-control border border-dark border-3" name="username"
+                                    id="username" value="">
                             </td>
                         </tr>
                         <tr>
                             <th><i class="bi bi-person-circle"></i> Password</th>
                             <td>
-                                <input type="password" class="form-control" name="password" id="password" value="">
+                                <input type="password" class="form-control border border-dark border-3" name="password"
+                                    id="password" value="">
                             </td>
                         </tr>
                     </table>
 
-                    <div class="p-2">
-                        <button type="submit" class="btn btn-dark float-end">Login</button>
+                    <div class="text-center p-2">
+                        <button type="submit" class="btn btn-outline-primary">Login</button>
                     </div>
                 </form>
             </div>

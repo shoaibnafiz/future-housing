@@ -2,6 +2,12 @@
 
 $webroot = "http://localhost/future-housing/image/";
 
+if(isset($_GET['request'])){
+    echo '<script type="text/javascript">';
+    echo " alert('Request Sent')";
+    echo '</script>';
+}
+
 include "database.php";
 
 //Export Query
@@ -235,7 +241,7 @@ $flatsCount = count($flats);
 
             <?php
             foreach ($flats as $index => $flat):
-                if ($flatsCount > 2 && $index >= 2) {
+                if ($flatsCount > 2 && $index >= 4) {
                     break;
                 }
                 ?>

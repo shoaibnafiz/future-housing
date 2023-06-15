@@ -27,6 +27,7 @@ $guests = $stmt->fetchAll();
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="../../image/icons/icon-48x48.png" />
 
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
     <title>Guests Invitations | Admin Panel</title>
@@ -57,7 +58,7 @@ $guests = $stmt->fetchAll();
                                 <div class="card-header">
                                 </div>
                                 <div class="card-body py-3">
-                                    <table class="table table-hover my-0">
+                                    <table id="datatablesSimple" class="table table-hover my-0">
                                         <thead>
                                             <tr>
                                                 <th>Guest Name</th>
@@ -105,6 +106,9 @@ $guests = $stmt->fetchAll();
     </div>
 
     <script src="../../js/app.js"></script>
+    <script src="../../js/datatable.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
 
 </body>
 

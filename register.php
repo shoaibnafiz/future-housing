@@ -1,11 +1,17 @@
 <?php
 
+if(isset($_GET['error'])){
+    echo '<script type="text/javascript">';
+    echo " alert('Same Username Exist')";
+    echo '</script>';
+}
+
 include "database.php";
 
 
 //Export Query
 
-$query = "SELECT * FROM `flats`";
+$query = "SELECT * FROM `flats` WHERE status = 0";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
@@ -84,16 +90,19 @@ $flats = $stmt->fetchAll();
                             <select name="flat" id="acount-type" class="icon type">
 
                                 <?php
-                                foreach ($flats as $flat):
-                                    if ($flat['status'] == 0):
-
+                                    if (count($flats) == 0):
+                                        ?>
+                                <option value=""><?="No Flats Available"?></option>
+                                <?php
+                                    else:
+                                        foreach ($flats as $flat):
                                         ?>
 
                                 <option value="<?= $flat['flat'] ?>"><?= $flat['flat'] ?></option>
 
                                 <?php
-                                    endif;
                                 endforeach;
+                            endif;
                                 ?>
 
                             </select>

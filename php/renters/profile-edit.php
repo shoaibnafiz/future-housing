@@ -114,6 +114,7 @@ $renter = $stmt->fetch();
                             <th><i class="bi bi-key-fill"></i> Password</th>
                             <td>
                                 <input type="password" class="form-control" name="password" id="password" value="">
+                                <input type="hidden" name="old_password" value="<?= $renter['password'] ?>">
                             </td>
                         </tr>
                     </table>

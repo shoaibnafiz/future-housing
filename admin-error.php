@@ -24,7 +24,7 @@
                 <h3>OPPSSS!!!! Sorry...</h3>
                 <p>Sorry, your access is refused due to security reasons of our server and also our sensitive
                     data.<br />Please go back to the previous page to continue browsing.</p>
-                <a class="btn btn-danger" href="php/admin/admin.php">Go Back</a>
+                <a class="btn btn-danger" href="php/admin/admin-login.php">Go Back</a>
             </div>
         </div>
     </div>

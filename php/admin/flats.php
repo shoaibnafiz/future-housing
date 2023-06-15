@@ -1,14 +1,14 @@
 <?php
 
-$currentPage = "complains";
+$currentPage = "flats";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `complains`";
+$query = "SELECT * FROM `flats`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$complains = $stmt->fetchAll();
+$flats = $stmt->fetchAll();
 
 ?>
 
@@ -30,7 +30,7 @@ $complains = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Complains | Admin Panel</title>
+    <title>Flats | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@ $complains = $stmt->fetchAll();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3"><strong>Complains</strong></h1>
+                    <h1 class="h3 mb-3"><strong>Flats</strong></h1>
 
                     <div class="row">
 
@@ -62,43 +62,34 @@ $complains = $stmt->fetchAll();
                                         <thead>
                                             <tr>
                                                 <th>Flat</th>
-                                                <th class="d-none d-xl-table-cell">Full Name</th>
-                                                <th class="d-none d-xl-table-cell">Phone</th>
-                                                <th class="d-none d-md-table-cell">Complain</th>
-                                                <th>Complained at</th>
+                                                <th>Description</th>
+                                                <th>Rent</th>
+                                                <th class="d-none d-md-table-cell">Picture 1</th>
+                                                <th class="d-none d-md-table-cell">Picture 2</th>
+                                                <th class="d-none d-md-table-cell">Picture 3</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Flat</th>
-                                                <th class="d-none d-xl-table-cell">Full Name</th>
-                                                <th class="d-none d-xl-table-cell">Phone</th>
-                                                <th class="d-none d-md-table-cell">Complain</th>
-                                                <th>Complained at</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <?php
-                                                foreach($complains as $complain):
+                                                foreach($flats as $flat):
                                             ?>
                                             <tr>
-                                                <td><?=$complain['flat']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$complain['fullname']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$complain['phone']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$complain['complain']?></td>
-                                                <td><?=$complain['given_at']?></td>
-                                                <td>
+                                                <td><?=$flat['flat']?></td>
+                                                <td><?=$flat['description']?></td>
+                                                <td><?=$flat['rent']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat['picture1']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat['picture2']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat['picture3']?></td>
+                                                <td class="text-center">
                                                     <?php
-                                                        if($complain['status'] == 1){
+                                                        if($flat['status'] == 1){
                                                             ?>
-                                                    <span class="badge bg-success">Solved</span>
+                                                    <span class="badge bg-success">Rented</span>
                                                     <?php
                                                         }else{
                                                             ?>
-                                                    <a class="badge bg-info"
-                                                        href="complain-solved.php?id= <?= $complain['id']; ?>">Pending...</a>
+                                                    <span class="badge bg-success">Available</span>
                                                     <?php
                                                         }
                                                         ?>
@@ -117,9 +108,9 @@ $complains = $stmt->fetchAll();
                 </div>
             </main>
 
-            <!-- Footer Start -->
-            <?php include "components/footer.php"?>
-            <!-- Footer End -->
+            <footer class="footer">
+                <?php include "components/footer.php"?>
+            </footer>
         </div>
 
     </div>

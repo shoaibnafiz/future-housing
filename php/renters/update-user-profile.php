@@ -33,7 +33,12 @@ $_fullname = $_POST['fullname'];
 $_email = $_POST['email'];
 $_phone = $_POST['phone'];
 $_gender = $_POST['gender'];
-$_password = md5($_POST['password']);
+
+if (empty($_POST['password'])) {
+    $_password = $_POST['old_password'];
+} else {
+    $_password = md5($_POST['password']);
+}
 
 
 include "../../database.php";

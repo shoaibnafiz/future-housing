@@ -1,14 +1,16 @@
 <?php
 
-$currentPage = "complains";
+$currentPage = "guards";
+
+$webroot = "http://localhost/future-housing/image/";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `complains`";
+$query = "SELECT * FROM `guards`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$complains = $stmt->fetchAll();
+$guards = $stmt->fetchAll();
 
 ?>
 
@@ -30,7 +32,7 @@ $complains = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Complains | Admin Panel</title>
+    <title>Guards | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -49,7 +51,7 @@ $complains = $stmt->fetchAll();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3"><strong>Complains</strong></h1>
+                    <h1 class="h3 mb-3"><strong>Guards</strong></h1>
 
                     <div class="row">
 
@@ -61,48 +63,25 @@ $complains = $stmt->fetchAll();
                                     <table id="datatablesSimple" class="table table-hover my-0">
                                         <thead>
                                             <tr>
-                                                <th>Flat</th>
-                                                <th class="d-none d-xl-table-cell">Full Name</th>
-                                                <th class="d-none d-xl-table-cell">Phone</th>
-                                                <th class="d-none d-md-table-cell">Complain</th>
-                                                <th>Complained at</th>
-                                                <th>Status</th>
+                                                <th>Full Name</th>
+                                                <th class="d-none d-md-table-cell">Phone</th>
+                                                <th>NID</th>
+                                                <th class="d-none d-md-table-cell">Gender</th>
+                                                <th class="d-none d-xxl-table-cell">Start at</th>
+                                                <th class="d-none d-md-table-cell">End at</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Flat</th>
-                                                <th class="d-none d-xl-table-cell">Full Name</th>
-                                                <th class="d-none d-xl-table-cell">Phone</th>
-                                                <th class="d-none d-md-table-cell">Complain</th>
-                                                <th>Complained at</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <?php
-                                                foreach($complains as $complain):
+                                                foreach($guards as $guard):
                                             ?>
                                             <tr>
-                                                <td><?=$complain['flat']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$complain['fullname']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$complain['phone']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$complain['complain']?></td>
-                                                <td><?=$complain['given_at']?></td>
-                                                <td>
-                                                    <?php
-                                                        if($complain['status'] == 1){
-                                                            ?>
-                                                    <span class="badge bg-success">Solved</span>
-                                                    <?php
-                                                        }else{
-                                                            ?>
-                                                    <a class="badge bg-info"
-                                                        href="complain-solved.php?id= <?= $complain['id']; ?>">Pending...</a>
-                                                    <?php
-                                                        }
-                                                        ?>
-                                                </td>
+                                                <td><?=$guard['fullname']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$guard['phone']?></td>
+                                                <td><?=$guard['nid']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$guard['gender']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$guard['start_time']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$guard['end_time']?></td>
                                                 <?php
                                                 endforeach;
                                             ?>

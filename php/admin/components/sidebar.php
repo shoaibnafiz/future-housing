@@ -60,6 +60,12 @@
                 </a>
             </li>
 
+            <li class="sidebar-item  <?php if ($currentPage === 'tasks') echo 'active'; ?>">
+                <a class="sidebar-link" href="tasks.php">
+                    <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Tasks</span>
+                </a>
+            </li>
+
             <li class="sidebar-item  <?php if ($currentPage === 'complains') echo 'active'; ?>">
                 <a class="sidebar-link" href="complains.php">
                     <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Complains</span>

@@ -13,7 +13,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 if (empty($_username) || empty($_password)) {
-    header("location:admin.php");
+    header("location:../../admin-error.php");
 } else {
     $query = "SELECT COUNT(*) AS total FROM `admins` WHERE username LIKE :username AND password LIKE :password";
 
@@ -27,7 +27,7 @@ if (empty($_username) || empty($_password)) {
     // session_start();
     if ($totalAdminFound['total'] > 0) {
         $_SESSION['is_authenticated'] = true;
-        header("location:create-flat.php");
+        header("location:admin-dashboard.php");
     } else {
         $_SESSION['is_authenticated'] = false;
         header("location:../../admin-error.php");

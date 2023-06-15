@@ -1,14 +1,16 @@
 <?php
 
-$currentPage = "complains";
+$currentPage = "requests";
+
+$webroot = "http://localhost/future-housing/image/";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `complains`";
+$query = "SELECT * FROM `request_renters`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$complains = $stmt->fetchAll();
+$request_renters = $stmt->fetchAll();
 
 ?>
 
@@ -30,7 +32,7 @@ $complains = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Complains | Admin Panel</title>
+    <title>Requests for Rent | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -49,7 +51,7 @@ $complains = $stmt->fetchAll();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3"><strong>Complains</strong></h1>
+                    <h1 class="h3 mb-3"><strong>Requests for Rent</strong></h1>
 
                     <div class="row">
 
@@ -62,46 +64,34 @@ $complains = $stmt->fetchAll();
                                         <thead>
                                             <tr>
                                                 <th>Flat</th>
-                                                <th class="d-none d-xl-table-cell">Full Name</th>
-                                                <th class="d-none d-xl-table-cell">Phone</th>
-                                                <th class="d-none d-md-table-cell">Complain</th>
-                                                <th>Complained at</th>
-                                                <th>Status</th>
+                                                <th>Full Name</th>
+                                                <th class="d-none d-xl-table-cell">User Name</th>
+                                                <th class="d-none d-xl-table-cell">Email</th>
+                                                <th class="d-none d-md-table-cell">Phone</th>
+                                                <th>NID</th>
+                                                <th class="d-none d-md-table-cell">Requested at</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Flat</th>
-                                                <th class="d-none d-xl-table-cell">Full Name</th>
-                                                <th class="d-none d-xl-table-cell">Phone</th>
-                                                <th class="d-none d-md-table-cell">Complain</th>
-                                                <th>Complained at</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
                                             <?php
-                                                foreach($complains as $complain):
+                                                foreach($request_renters as $request_renter):
                                             ?>
                                             <tr>
-                                                <td><?=$complain['flat']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$complain['fullname']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$complain['phone']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$complain['complain']?></td>
-                                                <td><?=$complain['given_at']?></td>
+                                                <td><?=$request_renter['flat']?></td>
+                                                <td><?=$request_renter['fullname']?></td>
+                                                <td class="d-none d-xl-table-cell"><?=$request_renter['username']?></td>
+                                                <td class="d-none d-xl-table-cell"><?=$request_renter['email']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$request_renter['phone']?></td>
+                                                <td><?=$request_renter['nid']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$request_renter['requested_at']?>
+                                                </td>
                                                 <td>
-                                                    <?php
-                                                        if($complain['status'] == 1){
-                                                            ?>
-                                                    <span class="badge bg-success">Solved</span>
-                                                    <?php
-                                                        }else{
-                                                            ?>
-                                                    <a class="badge bg-info"
-                                                        href="complain-solved.php?id= <?= $complain['id']; ?>">Pending...</a>
-                                                    <?php
-                                                        }
-                                                        ?>
+                                                    <a class="badge bg-success"
+                                                        href="request-accepted.php?id= <?= $request_renter['id']; ?>">Accept</a>
+                                                    |
+                                                    <a class="badge bg-danger"
+                                                        href="request-denied.php?id= <?= $request_renter['id']; ?>">Reject</a>
                                                 </td>
                                                 <?php
                                                 endforeach;
