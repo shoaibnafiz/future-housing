@@ -56,13 +56,13 @@ $renter = $stmt->fetch();
                 <h2 class="text-center">View</h2>
                 <div class="row mt-5 gap-3">
                     <a class="btn btn-outline-danger col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="notices.php?flat=<?= $renter['flat']; ?>">
+                        href="notices.php?username=<?= $renter['username']; ?>">
                         <p><i class="fa-solid fa-square-poll-horizontal fa-2xl"></i>
                         </p>
                         <h4>Notices</h4>
                     </a>
                     <a class="btn btn-outline-warning col d-flex flex-column align-items-center border-3 rounded-3 py-4"
-                        href="events.php?flat=<?= $renter['flat']; ?>">
+                        href="events.php?username=<?= $renter['username']; ?>">
                         <p><i class="fa-solid fa-calendar-day fa-2xl"></i></p>
                         <h4>Events</h4>
                     </a>

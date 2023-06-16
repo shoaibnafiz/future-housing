@@ -64,5 +64,5 @@
 
 
 
-    header("location:create-flat.php");
+    header("location:add-flat.php");
 ?>

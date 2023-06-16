@@ -20,6 +20,7 @@ $_phone = $request_renter['phone'];
 $_nid = $request_renter['nid'];
 $_flat = $request_renter['flat'];
 $_password = $request_renter['password'];
+$_picture = $request_renter['picture'];
 $_registered_at = date("Y-m-d H:i:s", time());
 
 

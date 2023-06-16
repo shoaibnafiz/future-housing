@@ -25,7 +25,7 @@ foreach ($renters as $renter) {
     }
 }
 
-$query = "INSERT INTO `request_renters` (`fullname`,`username`,`email`,`phone`,`nid`,`flat`,`password`, `requested_at`) VALUES (:fullname, :username, :email, :phone, :nid, :flat, :password, :requested_at)";
+$query = "INSERT INTO `request_renters` (`fullname`,`username`,`email`,`phone`,`nid`,`flat`,`password`, `picture`, `requested_at`) VALUES (:fullname, :username, :email, :phone, :nid, :flat, :password, :picture, :requested_at)";
 
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':fullname', $_fullname);
@@ -35,6 +35,7 @@ $stmt->bindParam(':phone', $_phone);
 $stmt->bindParam(':nid', $_nid);
 $stmt->bindParam(':flat', $_flat);
 $stmt->bindParam(':password', $_password);
+$stmt->bindParam(':picture', $_picture);
 $stmt->bindParam(':requested_at', $_requested_at);
 
 $result = $stmt->execute();

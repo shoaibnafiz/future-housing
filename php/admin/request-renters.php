@@ -69,6 +69,7 @@ $request_renters = $stmt->fetchAll();
                                                 <th class="d-none d-xl-table-cell">Email</th>
                                                 <th class="d-none d-md-table-cell">Phone</th>
                                                 <th>NID</th>
+                                                <th class="d-none d-xxl-table-cell">Picture</th>
                                                 <th class="d-none d-md-table-cell">Requested at</th>
                                                 <th>Action</th>
                                             </tr>
@@ -84,6 +85,10 @@ $request_renters = $stmt->fetchAll();
                                                 <td class="d-none d-xl-table-cell"><?=$request_renter['email']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$request_renter['phone']?></td>
                                                 <td><?=$request_renter['nid']?></td>
+                                                <td class="d-none d-xxl-table-cell"><img
+                                                        src="<?= $webroot; ?>users/<?= $request_renter['picture']; ?>"
+                                                        class="mt-2 1img-fluid rounded"
+                                                        style="width: 50px; height: 50px;" alt=""></td>
                                                 <td class="d-none d-md-table-cell"><?=$request_renter['requested_at']?>
                                                 </td>
                                                 <td>

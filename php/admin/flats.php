@@ -49,7 +49,10 @@ $flats = $stmt->fetchAll();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3"><strong>Flats</strong></h1>
+                    <h1 class="h3 mb-3">
+                        <strong>Flats</strong>
+                        <a type="button" class="btn btn-dark float-end" href="add-flat.php">Add New Flat</a>
+                    </h1>
 
                     <div class="row">
 
@@ -92,7 +95,8 @@ $flats = $stmt->fetchAll();
                                                     <span class="badge bg-success">Available</span>
                                                     <?php
                                                         }
-                                                        ?>
+                                                        ?> |
+                                                    <a class="badge bg-primary" href="">Modify</a>
                                                 </td>
                                                 <?php
                                                 endforeach;

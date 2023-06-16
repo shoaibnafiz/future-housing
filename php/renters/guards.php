@@ -114,10 +114,6 @@ $renter = $stmt->fetch();
 
     </main>
 
-    <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
-    <!-- Footer End -->
-
     <!-- Bootstrap JS Link -->
     <script src="../../js/bootstrap.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

@@ -1,16 +1,14 @@
 <?php
 
-$currentPage = "guards";
-
-$webroot = "http://localhost/future-housing/image/";
+$currentPage = "events";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `guards`";
+$query = "SELECT * FROM `events`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$guards = $stmt->fetchAll();
+$events = $stmt->fetchAll();
 
 ?>
 
@@ -32,7 +30,7 @@ $guards = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Guards | Admin Panel</title>
+    <title>Events | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -52,8 +50,8 @@ $guards = $stmt->fetchAll();
                 <div class="container-fluid p-0">
 
                     <h1 class="h3 mb-3">
-                        <strong>Guards</strong>
-                        <a type="button" class="btn btn-dark float-end">Add New Guard</a>
+                        <strong>Events</strong>
+                        <a type="button" class="btn btn-dark float-end">Add Event</a>
                     </h1>
 
                     <div class="row">
@@ -66,25 +64,23 @@ $guards = $stmt->fetchAll();
                                     <table id="datatablesSimple" class="table table-hover my-0">
                                         <thead>
                                             <tr>
-                                                <th>Full Name</th>
-                                                <th class="d-none d-md-table-cell">Phone</th>
-                                                <th>NID</th>
-                                                <th class="d-none d-md-table-cell">Gender</th>
-                                                <th class="d-none d-xxl-table-cell">Start at</th>
-                                                <th class="d-none d-md-table-cell">End at</th>
+                                                <th>Event Date</th>
+                                                <th>Event Details</th>
                                             </tr>
                                         </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Event Date</th>
+                                                <th>Event Details</th>
+                                            </tr>
+                                        </tfoot>
                                         <tbody>
                                             <?php
-                                                foreach($guards as $guard):
+                                                foreach($events as $event):
                                             ?>
                                             <tr>
-                                                <td><?=$guard['fullname']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guard['phone']?></td>
-                                                <td><?=$guard['nid']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guard['gender']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guard['start_time']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guard['end_time']?></td>
+                                                <td><?=$event['date']?></td>
+                                                <td><?=$event['details']?></td>
                                                 <?php
                                                 endforeach;
                                             ?>
@@ -107,9 +103,9 @@ $guards = $stmt->fetchAll();
     </div>
 
     <script src="../../js/app.js"></script>
-    <script src="../../js/datatable.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
+    <script src="../../js/datatable.js"></script>
 
 </body>
 
