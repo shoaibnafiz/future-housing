@@ -51,7 +51,7 @@ $notices = $stmt->fetchAll();
 
                     <h1 class="h3 mb-3">
                         <strong>Notices</strong>
-                        <a type="button" class="btn btn-dark float-end">Add Notice</a>
+                        <a type="button" class="btn btn-dark float-end" href="add-notice.php">Add Notice</a>
                     </h1>
 
                     <div class="row">

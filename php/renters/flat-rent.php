@@ -114,6 +114,11 @@ $renter = $stmt->fetch();
                 </table>
 
                 <div class="p-2">
+                    <!-- <button class="your-button-class" id="sslczPayBtn" token="if you have any token validation"
+                        postdata="your javascript arrays or objects which requires in backend"
+                        order="If you already have the transaction generated for current order"
+                        endpoint="checkout_ajax.php"> Pay Now
+                    </button> -->
                     <button type="submit" class="btn btn-dark float-end">Save</button>
                     <a href="dashboard.php?username=<?= $renter['username']; ?>" class="btn btn-secondary">Back</a>
                 </div>
@@ -132,9 +137,21 @@ $renter = $stmt->fetch();
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script> -->
 
-    <script>
+    <!-- <script>
+    (function(window, document) {
+        var loader = function() {
+            var script = document.createElement("script"),
+                tag = document.getElementsByTagName("script")[0];
+            script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(
+                7);
+            tag.parentNode.insertBefore(script, tag);
+        };
 
-    </script>
+        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload",
+            loader);
+    })(window, document);
+    </script> -->
+
 </body>
 
 </html>

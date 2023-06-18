@@ -1,14 +1,14 @@
 <?php
 
-/* $currentPage = "flats";
+$currentPage = "notices";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `flats`";
+$query = "SELECT * FROM `notices`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$flats = $stmt->fetchAll(); */
+$notices = $stmt->fetchAll();
 
 ?>
 
@@ -30,7 +30,7 @@ $flats = $stmt->fetchAll(); */
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Flats | Admin Panel</title>
+    <title>Notices | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -50,48 +50,24 @@ $flats = $stmt->fetchAll(); */
                 <div class="container-fluid p-0">
 
                     <div class="offset-md-2 offset-lg-3 col-md-8 col-lg-6 border border-3 border-dark rounded-4 p-3">
-                        <h1 class="text-center mb-4">Add New Flat</h1>
-                        <form action="store-flat.php" method="post" enctype="multipart/form-data">
+                        <h1 class="text-center mb-4">Give Notice</h1>
+                        <form action="store-notice.php" method="post" enctype="multipart/form-data">
                             <div class="mb-3 row">
-                                <label for="inputFlat" class="col-sm-3 col-form-label">Flat: </label>
+                                <label for="inputDate" class="col-sm-3 col-form-label">Date: </label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inputFlat" name="flat" value="">
+                                    <input type="date" class="form-control" id="inputDate" name="date" value="">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputDescription" class="col-sm-3 col-form-label">Description: </label>
                                 <div class="col-sm-9">
                                     <textarea type="text" class="form-control" id="inputDescription" name="description"
-                                        value=""></textarea>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputRent" class="col-sm-3 col-form-label">Rent: </label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="inputRent" name="rent" value="">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputPicture1" class="col-sm-3 col-form-label">Picture 1: </label>
-                                <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="inputPicture1" name="picture1" value="">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputPicture2" class="col-sm-3 col-form-label">Picture 2: </label>
-                                <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="inputPicture2" name="picture2" value="">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputPicture3" class="col-sm-3 col-form-label">Picture 3: </label>
-                                <div class="col-sm-9">
-                                    <input type="file" class="form-control" id="inputPicture3" name="picture3" value="">
+                                        value="" style="height: 150px"></textarea>
                                 </div>
                             </div>
 
                             <div>
-                                <a type="btn" href="flats.php" class="btn btn-secondary">Back</a>
+                                <a type="btn" href="notices.php" class="btn btn-secondary">Back</a>
                                 <button type="submit" class="btn btn-dark float-end">Submit</button>
                             </div>
                         </form>

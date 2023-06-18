@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 11, 2023 at 08:05 PM
+-- Generation Time: Jun 18, 2023 at 07:22 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -70,11 +70,33 @@ INSERT INTO `complains` (`id`, `flat`, `fullname`, `phone`, `complain`, `given_a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int NOT NULL,
+  `date` date DEFAULT NULL,
+  `details` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `date`, `details`) VALUES
+(1, '2023-01-17', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, error quidem enim nostrum accusamus ducimus ex repudiandae a est laudantium!'),
+(2, '2023-02-12', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, error quidem enim nostrum accusamus ducimus ex repudiandae a est laudantium!'),
+(3, '2023-07-01', 'We are having a little party on rooftop in 1st July. Everyone is invited.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `flats`
 --
 
 CREATE TABLE `flats` (
-  `flat` varchar(11) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `id` int NOT NULL,
+  `flat` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb3_unicode_ci,
   `rent` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `picture1` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
@@ -87,11 +109,14 @@ CREATE TABLE `flats` (
 -- Dumping data for table `flats`
 --
 
-INSERT INTO `flats` (`flat`, `description`, `rent`, `picture1`, `picture2`, `picture3`, `status`) VALUES
-('101', '3 rooms, 2 bathrooms, 1 kitchen with back porch and front porch', '20000', 'IMG_1685024823-flat-1.jpg', 'IMG_1685024823-flat-2.jpg', 'IMG_1685024823-drawing-1.jpg', 1),
-('102', '3 rooms, 2 bathrooms, 1 kitchen with back porch.', '15000', 'IMG_1685024850-flat-2.jpg', 'IMG_1685024850-flat-1.jpg', 'IMG_1685024850-drawing-2.jpg', 1),
-('201', '3 rooms, 2 bathrooms, 1 kitchen with back porch and front porch', '20000', 'IMG_1685024877-flat-1.jpg', 'IMG_1685024877-flat-2.jpg', 'IMG_1685024877-drawing-1.jpg', 0),
-('202', '3 rooms, 2 bathrooms, 1 kitchen with back porch.', '15000', 'IMG_1685024903-flat-2.jpg', 'IMG_1685024903-flat-1.jpg', 'IMG_1685024903-drawing-2.jpg', 0);
+INSERT INTO `flats` (`id`, `flat`, `description`, `rent`, `picture1`, `picture2`, `picture3`, `status`) VALUES
+(1, '101', '3 rooms, 2 bathrooms, 1 kitchen with back porch and front porch', '20000', 'IMG_1687094149_flat-1.jpg', 'IMG_1687094541_flat-2.jpg', 'IMG_1685024823-drawing-1.jpg', 1),
+(2, '102', '3 rooms, 2 bathrooms, 1 kitchen with back porch.', '15000', 'IMG_1685024850-flat-2.jpg', 'IMG_1685024850-flat-1.jpg', 'IMG_1685024850-drawing-2.jpg', 1),
+(3, '201', '3 rooms, 2 bathrooms, 1 kitchen with back porch and front porch', '20000', 'IMG_1685024877-flat-1.jpg', 'IMG_1685024877-flat-2.jpg', 'IMG_1685024877-drawing-1.jpg', 0),
+(4, '202', '3 rooms, 2 bathrooms, 1 kitchen with back porch.', '15000', 'IMG_1685024903-flat-2.jpg', 'IMG_1685024903-flat-1.jpg', 'IMG_1685024903-drawing-2.jpg', 0),
+(5, '301', '3 rooms, 2 bathrooms, 1 kitchen with back porch and front porch', '20000', 'IMG_1686924245-flat-1.jpg', 'IMG_1686924245-flat-2.jpg', 'IMG_1686924245-drawing-1.jpg', 0),
+(6, '302', '3 rooms, 2 bathrooms, 1 kitchen with back porch.', '15000', 'IMG_1686924346-flat-2.jpg', 'IMG_1686924346-flat-1.jpg', 'IMG_1686924346-drawing-2.jpg', 0),
+(7, '101', '3 rooms, 2 bathrooms, 1 kitchen with back porch and front porch', '20000', 'IMG_1687093609_kitchen-1.jpg', 'IMG_1685024823-flat-2.jpg', 'IMG_1685024823-drawing-1.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -172,9 +197,10 @@ CREATE TABLE `guests` (
 --
 
 INSERT INTO `guests` (`id`, `flat`, `host_name`, `guest_name`, `guest_cell`, `total_guest`, `visit_purpose`, `date`, `time`, `pinCode`, `status`) VALUES
-(1, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-05-31', '17:58:00', 4988, 1),
+(1, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-05-31', '17:58:00', 4988, 0),
 (2, '102', 'Nafizul Alam', 'Nothing', '123456789654', 6, 'eweei', '2023-05-31', '17:58:00', 1820, 0),
-(3, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-06-02', '17:50:00', 3096, 0);
+(3, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-06-02', '17:50:00', 3096, 0),
+(4, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-06-30', '22:12:00', 4626, 0);
 
 -- --------------------------------------------------------
 
@@ -183,8 +209,37 @@ INSERT INTO `guests` (`id`, `flat`, `host_name`, `guest_name`, `guest_cell`, `to
 --
 
 CREATE TABLE `notices` (
-  `date` varchar(11) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `id` int NOT NULL,
+  `date` date DEFAULT NULL,
   `description` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+--
+-- Dumping data for table `notices`
+--
+
+INSERT INTO `notices` (`id`, `date`, `description`) VALUES
+(1, '2023-01-17', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, error quidem enim nostrum accusamus ducimus ex repudiandae a est laudantium!'),
+(2, '2023-02-12', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, error quidem enim nostrum accusamus ducimus ex repudiandae a est laudantium!'),
+(3, '2023-05-20', 'Everyone should give the rents before 20th May.'),
+(4, '2023-06-20', 'Everyone should give the rents before 20th June.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `phone` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `status` varchar(10) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `transaction_id` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `currency` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -211,8 +266,27 @@ CREATE TABLE `renters` (
 --
 
 INSERT INTO `renters` (`flat`, `fullname`, `username`, `email`, `phone`, `nid`, `gender`, `password`, `picture`, `registered_at`) VALUES
-('102', 'Nafizul Alam', 'nafiz1999', 'nafizulalam1999@gmail.com', '01790323767', '9154964242', 'Male', 'd41d8cd98f00b204e9800998ecf8427e', 'IMG_1686391449_user3.jpg', '2023-05-27 20:23:06'),
+('102', 'Nafizul Alam', 'nafiz1999', 'nafizulalam1999@gmail.com', '01790323767', '9154964242', 'Male', 'ee11cbb19052e40b07aac0ca060c23ee', 'IMG_1686391449_user3.jpg', '2023-05-27 20:23:06'),
 ('101', 'Nafizul Alam', 'shoaib1999', 'shohebnafiz@gmail.com', '01790323767', '9154964242', 'Male', 'ee11cbb19052e40b07aac0ca060c23ee', 'IMG_1685455322_IMG_20210923_213545-01.jpg', '2023-05-30 20:01:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `request_renters`
+--
+
+CREATE TABLE `request_renters` (
+  `id` int NOT NULL,
+  `flat` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `fullname` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `username` varchar(256) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(256) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `phone` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `nid` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `password` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `picture` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `requested_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -256,10 +330,16 @@ ALTER TABLE `complains`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `flats`
 --
 ALTER TABLE `flats`
-  ADD PRIMARY KEY (`flat`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `flat_rents`
@@ -280,11 +360,29 @@ ALTER TABLE `guests`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notices`
+--
+ALTER TABLE `notices`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `renters`
 --
 ALTER TABLE `renters`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `flat` (`flat`);
+
+--
+-- Indexes for table `request_renters`
+--
+ALTER TABLE `request_renters`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tasks`
@@ -309,6 +407,18 @@ ALTER TABLE `complains`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `flats`
+--
+ALTER TABLE `flats`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `flat_rents`
 --
 ALTER TABLE `flat_rents`
@@ -324,7 +434,25 @@ ALTER TABLE `guards`
 -- AUTO_INCREMENT for table `guests`
 --
 ALTER TABLE `guests`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `notices`
+--
+ALTER TABLE `notices`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `request_renters`
+--
+ALTER TABLE `request_renters`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tasks`

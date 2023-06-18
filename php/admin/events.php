@@ -51,7 +51,7 @@ $events = $stmt->fetchAll();
 
                     <h1 class="h3 mb-3">
                         <strong>Events</strong>
-                        <a type="button" class="btn btn-dark float-end">Add Event</a>
+                        <a type="button" class="btn btn-dark float-end" href="add-event.php">Add Event</a>
                     </h1>
 
                     <div class="row">

@@ -1,14 +1,14 @@
 <?php
 
-$currentPage = "flats";
+$currentPage = "flat-rents";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `flats`";
+$query = "SELECT * FROM `flat_rents`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$flats = $stmt->fetchAll();
+$flat_rents = $stmt->fetchAll();
 
 ?>
 
@@ -30,7 +30,7 @@ $flats = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Flats | Admin Panel</title>
+    <title>Flat Rents | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -49,10 +49,7 @@ $flats = $stmt->fetchAll();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3">
-                        <strong>Flats</strong>
-                        <a type="button" class="btn btn-dark float-end" href="add-flat.php">Add New Flat</a>
-                    </h1>
+                    <h1 class="h3 mb-3"><strong>Flat Rents</strong></h1>
 
                     <div class="row">
 
@@ -65,40 +62,28 @@ $flats = $stmt->fetchAll();
                                         <thead>
                                             <tr>
                                                 <th>Flat</th>
-                                                <th>Description</th>
+                                                <th class="d-none d-md-table-cell">Full Name</th>
+                                                <th class="d-none d-md-table-cell">Phone</th>
                                                 <th>Rent</th>
-                                                <th class="d-none d-md-table-cell">Picture 1</th>
-                                                <th class="d-none d-md-table-cell">Picture 2</th>
-                                                <th class="d-none d-md-table-cell">Picture 3</th>
-                                                <th>Status</th>
+                                                <th class="d-none d-md-table-cell">Gas Bill</th>
+                                                <th class="d-none d-md-table-cell">bKash Number</th>
+                                                <th class="d-none d-md-table-cell">Trx Id</th>
+                                                <th>Rented at</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach($flats as $flat):
+                                                foreach($flat_rents as $flat_rent):
                                             ?>
                                             <tr>
-                                                <td><?=$flat['flat']?></td>
-                                                <td><?=$flat['description']?></td>
-                                                <td><?=$flat['rent']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$flat['picture1']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$flat['picture2']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$flat['picture3']?></td>
-                                                <td class="text-center">
-                                                    <?php
-                                                        if($flat['status'] == 1){
-                                                            ?>
-                                                    <span class="badge bg-success">Rented</span>
-                                                    <?php
-                                                        }else{
-                                                            ?>
-                                                    <span class="badge bg-warning">Available</span>
-                                                    <?php
-                                                        }
-                                                        ?> |
-                                                    <a class="badge bg-primary"
-                                                        href="modify-flat.php?id=<?=$flat['id']?>">Modify</a>
-                                                </td>
+                                                <td><?= $flat_rent['flat'] ?></td>
+                                                <td class="d-none d-md-table-cell"><?= $flat_rent['fullname'] ?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat_rent['phone']?></td>
+                                                <td class="text-center"><?=$flat_rent['rent']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat_rent['gas_bill']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat_rent['bKash_number']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$flat_rent['trx_id']?></td>
+                                                <td class="text-center"><?=$flat_rent['rented_at']?></td>
                                                 <?php
                                                 endforeach;
                                             ?>

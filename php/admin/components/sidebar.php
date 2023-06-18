@@ -35,8 +35,8 @@
                 </a>
             </li>
 
-            <li class="sidebar-item  <?php if ($currentPage === 'history-rents') echo 'active'; ?>">
-                <a class="sidebar-link" href="history-rents.php">
+            <li class="sidebar-item  <?php if ($currentPage === 'flat-rents') echo 'active'; ?>">
+                <a class="sidebar-link" href="flat-rents.php">
                     <i class="align-middle" data-feather="book"></i> <span class="align-middle">Rent History</span>
                 </a>
             </li>
