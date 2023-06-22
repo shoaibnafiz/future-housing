@@ -31,6 +31,7 @@ $flatsCount = count($flats);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Welcome</title>
+    <link rel="shortcut icon" href="image/background/a.jpg" />
 
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -111,7 +112,7 @@ $flatsCount = count($flats);
 
                         <div class="input-box">
 
-                            <select name="account_type" id="acount-type" class="icon type">
+                            <select name="account_type" id="account-type" class="icon type">
                                 <option value="renter">Renter</option>
                                 <option value="guard">Guard</option>
                             </select>

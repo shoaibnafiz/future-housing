@@ -24,6 +24,7 @@ $renter = $stmt->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flat Rent</title>
+    <link rel="shortcut icon" href="../../image/background/a.jpg" />
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">
@@ -57,21 +58,21 @@ $renter = $stmt->fetch();
                         <th><i class="bi bi-person-circle"></i> Full Name</th>
                         <td>
                             <input type="text" class="form-control" name="fullname" id="fullname"
-                                value="<?= $renter['fullname'] ?>" disabled>
+                                value="<?= $renter['fullname']; ?>">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile No</th>
                         <td>
                             <input type="text" class="form-control" name="phone" id="phone"
-                                value="<?= $renter['phone'] ?>" disabled>
+                                value="<?= $renter['phone']; ?>">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-buildings-fill"></i> Flat No</th>
                         <td>
-                            <input type="text" class="form-control" name="flat" id="flat" value="<?= $renter['flat'] ?>"
-                                disabled>
+                            <input type="text" class="form-control" name="flat" id="flat"
+                                value="<?= $renter['flat']; ?>">
                         </td>
                     </tr>
                     <tr>

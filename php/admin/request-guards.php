@@ -1,14 +1,16 @@
 <?php
 
-$currentPage = "guests-invitations";
+$currentPage = "guard requests";
+
+$webroot = "http://localhost/future-housing/image/";
 
 include "../../database.php";
 
-$query = "SELECT * FROM `guests`";
+$query = "SELECT * FROM `request_guards`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$guests = $stmt->fetchAll();
+$request_guards = $stmt->fetchAll();
 
 ?>
 
@@ -30,7 +32,7 @@ $guests = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Guests Invitations | Admin Panel</title>
+    <title>Requests for Rent | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -49,7 +51,7 @@ $guests = $stmt->fetchAll();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3"><strong>Guests Invitations</strong></h1>
+                    <h1 class="h3 mb-3"><strong>Requests for Rent</strong></h1>
 
                     <div class="row">
 
@@ -61,29 +63,39 @@ $guests = $stmt->fetchAll();
                                     <table id="datatablesSimple" class="table table-hover my-0">
                                         <thead>
                                             <tr>
-                                                <th>Guest Name</th>
-                                                <th class="d-none d-md-table-cell">Guest Cell</th>
-                                                <th>Total Guest</th>
-                                                <th class="d-none d-md-table-cell">Visit Purpose</th>
-                                                <th>Date</th>
-                                                <th class="d-none d-md-table-cell">Time</th>
-                                                <th>Invited in</th>
-                                                <th class="d-none d-md-table-cell">Invited by</th>
+                                                <th>Full Name</th>
+                                                <th class="d-none d-xl-table-cell">User Name</th>
+                                                <th class="d-none d-xl-table-cell">Email</th>
+                                                <th class="d-none d-md-table-cell">Phone</th>
+                                                <th>NID</th>
+                                                <th class="d-none d-xxl-table-cell">Picture</th>
+                                                <th class="d-none d-md-table-cell">Requested at</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                                foreach($guests as $guest):
+                                                foreach($request_guards as $request_guard):
                                             ?>
                                             <tr>
-                                                <td><?=$guest['guest_name']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guest['guest_cell']?></td>
-                                                <td class="text-center"><?=$guest['total_guest']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guest['visit_purpose']?></td>
-                                                <td><?=$guest['date']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guest['time']?></td>
-                                                <td class="text-center"><?=$guest['flat']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$guest['host_name']?></td>
+                                                <td><?=$request_guard['fullname']?></td>
+                                                <td class="d-none d-xl-table-cell"><?=$request_guard['username']?></td>
+                                                <td class="d-none d-xl-table-cell"><?=$request_guard['email']?></td>
+                                                <td class="d-none d-md-table-cell"><?=$request_guard['phone']?></td>
+                                                <td><?=$request_guard['nid']?></td>
+                                                <td class="d-none d-xxl-table-cell"><img
+                                                        src="<?= $webroot; ?>users/<?= $request_guard['picture']; ?>"
+                                                        class="mt-2 1img-fluid rounded"
+                                                        style="width: 50px; height: 50px;" alt=""></td>
+                                                <td class="d-none d-md-table-cell"><?=$request_guard['requested_at']?>
+                                                </td>
+                                                <td>
+                                                    <a class="badge bg-success"
+                                                        href="request-guard-accepted.php?id=<?= $request_guard['id']; ?>">Accept</a>
+                                                    |
+                                                    <a class="badge bg-danger"
+                                                        href="request-guard-denied.php?id=<?= $request_guard['id']; ?>">Reject</a>
+                                                </td>
                                                 <?php
                                                 endforeach;
                                             ?>
@@ -98,9 +110,9 @@ $guests = $stmt->fetchAll();
                 </div>
             </main>
 
-            <footer class="footer">
-                <?php include "components/footer.php"?>
-            </footer>
+            <!-- Footer Start -->
+            <?php include "components/footer.php"?>
+            <!-- Footer End -->
         </div>
 
     </div>

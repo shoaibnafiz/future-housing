@@ -1,12 +1,20 @@
 <?php
 
+include "database.php";
+
 if(isset($_GET['error'])){
-    echo '<script type="text/javascript">';
-    echo " alert('Same Username Exist')";
-    echo '</script>';
+    if($_GET['error'] == 'noflat'){
+        echo '<script type="text/javascript">';
+        echo " alert('You didn't add Flat')";
+        echo '</script>';
+    }
+    if($_GET['error'] == 'sameuser'){
+        echo '<script type="text/javascript">';
+        echo " alert('Same Username Exist')";
+        echo '</script>';
+    }
 }
 
-include "database.php";
 
 
 //Export Query
@@ -28,6 +36,7 @@ $flats = $stmt->fetchAll();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Register</title>
+    <link rel="shortcut icon" href="image/background/a.jpg" />
 
     <link rel="stylesheet" href="styles/register.css">
     <link rel="stylesheet" href="styles/style.css">
@@ -87,8 +96,9 @@ $flats = $stmt->fetchAll();
 
                         <div class="input-box">
 
-                            <select name="flat" id="acount-type" class="icon type">
+                            <select name="flat" id="flat" class="icon type">
 
+                                <option value=""><?="N/A for Guard"?></option>
                                 <?php
                                     if (count($flats) == 0):
                                         ?>
@@ -108,6 +118,17 @@ $flats = $stmt->fetchAll();
                             </select>
 
                             <Label>Flat</Label>
+
+                        </div>
+
+                        <div class="input-box">
+
+                            <select name="account_type" id="account-type" class="icon type">
+                                <option value="renter">Renter</option>
+                                <option value="guard">Guard</option>
+                            </select>
+
+                            <Label>Account Type</Label>
 
                         </div>
 

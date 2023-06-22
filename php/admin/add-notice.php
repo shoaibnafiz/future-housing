@@ -1,15 +1,5 @@
 <?php
 
-$currentPage = "notices";
-
-include "../../database.php";
-
-$query = "SELECT * FROM `notices`";
-
-$stmt = $conn->prepare($query);
-$result = $stmt->execute();
-$notices = $stmt->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +15,7 @@ $notices = $stmt->fetchAll();
         content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="../../image/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../../image/background/a.jpg" />
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
@@ -55,7 +45,8 @@ $notices = $stmt->fetchAll();
                             <div class="mb-3 row">
                                 <label for="inputDate" class="col-sm-3 col-form-label">Date: </label>
                                 <div class="col-sm-9">
-                                    <input type="date" class="form-control" id="inputDate" name="date" value="">
+                                    <input type="date" min="<?= date("Y-m-d");?>" class="form-control" id="inputDate"
+                                        name="date" value="">
                                 </div>
                             </div>
                             <div class="mb-3 row">

@@ -22,7 +22,7 @@
                 </a>
             </li>
 
-            <li class="sidebar-item  <?php if ($currentPage === 'requests') echo 'active'; ?>">
+            <li class="sidebar-item  <?php if ($currentPage === 'renter requests') echo 'active'; ?>">
                 <a class="sidebar-link" href="request-renters.php">
                     <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Renter
                         Request</span>
@@ -69,6 +69,13 @@
             <li class="sidebar-item  <?php if ($currentPage === 'complains') echo 'active'; ?>">
                 <a class="sidebar-link" href="complains.php">
                     <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Complains</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item  <?php if ($currentPage === 'guard requests') echo 'active'; ?>">
+                <a class="sidebar-link" href="request-guards.php">
+                    <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Guard
+                        Request</span>
                 </a>
             </li>
 

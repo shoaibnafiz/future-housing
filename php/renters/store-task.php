@@ -24,6 +24,6 @@ $stmt->bindParam(':status', $_status);
 $result = $stmt->execute();
 
 
-header("location:tasks.php?username=" . $_username);
+header("location:task.php?username=" . $_username);
 
 ?>

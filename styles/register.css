@@ -18,7 +18,7 @@
 
 .register-background {
     width: 100%;
-    height: 100vh;
+    height: 150vh;
     background: url(../image/background/Background.avif) no-repeat;
     background-size: cover;
     background-position: center;
@@ -27,7 +27,7 @@
 
 .container-1 {
     position: absolute;
-    top: 25%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: url(../image/background/a.jpg) no-repeat;
@@ -40,6 +40,14 @@
     height: auto;
     padding: 20px;
     text-align: center;
+}
+
+.container-1 .reg-box {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: calc(100% - 58%);
+    height: 100%;
 }
 
 .name {
@@ -211,16 +219,16 @@
 @media only screen and (min-width: 991.98px) {
 
     .register-background {
-        height: 120vh;
+        height: 135vh;
     }
 
     .container-1 {
         position: absolute;
-        top: 40%;
+        top: 65%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 50%;
-        height: 600px;
+        height: 950px;
         background: url(../image/background/a.jpg) no-repeat;
         background-size: cover;
         background-position: center;
@@ -229,10 +237,11 @@
         color: #e4e4e4;
     }
 
-    .container-1 .logreg-box {
+
+    .container-1 .reg-box {
         position: absolute;
         top: 0%;
-        right: 0%;
+        right: 30%;
         width: calc(100% - 58%);
         height: 100%;
     }
@@ -252,18 +261,48 @@
 
 @media only screen and (min-width: 479.98px) and (max-width: 991.98px) {
 
+    .register-background {
+        height: 100vh;
+    }
+
     .container-1 {
-        top: 25%;
-        width: 75%;
+        top: 20%;
+        left: 50%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        width: 50%;
+        height: 85%;
+    }
+
+    .container-1 .reg-box {
+        position: absolute;
+        top: 0%;
+        right: 29%;
+        width: calc(100% - 58%);
+        height: 100%;
     }
 }
 
 @media only screen and (max-width: 480px) {
     .register-background {
-        height: 128vh;
+        height: 150vh;
+        width: 100%;
+        background: url(../image/background/Background.avif) no-repeat;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
     }
 
     .container-1 {
-        top: 20%;
+        top: 30%;
+        border-radius: 10px;
+        height: 150vh;
+    }
+
+
+    .container-1 .reg-box {
+        height: 100%;
+        width: 100%;
     }
 }

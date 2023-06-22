@@ -21,6 +21,7 @@ $events = $stmt->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events</title>
+    <link rel="shortcut icon" href="../../image/background/a.jpg" />
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">

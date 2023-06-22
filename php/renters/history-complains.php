@@ -23,6 +23,7 @@ $complains = $stmt->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History</title>
+    <link rel="shortcut icon" href="../../image/background/a.jpg" />
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">
@@ -49,8 +50,8 @@ $complains = $stmt->fetchAll();
                 <?php
                 foreach ($complains as $complain):
                     ?>
-                <div class="col">
-                    <div class="rent-history">
+                <div class="col my-2">
+                    <div class="rent-history h-100">
                         <p>Complain: <strong>
                                 <?= $complain['complain'] ?>
                             </strong></p>

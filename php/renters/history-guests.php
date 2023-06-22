@@ -23,6 +23,7 @@ $guests = $stmt->fetchAll();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>History</title>
+    <link rel="shortcut icon" href="../../image/background/a.jpg" />
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">
@@ -49,8 +50,8 @@ $guests = $stmt->fetchAll();
                 <?php
                 foreach ($guests as $guest):
                     ?>
-                <div class="col">
-                    <div class="rent-history">
+                <div class="col my-2">
+                    <div class="rent-history h-100">
                         <p>Guest Name: <strong><?= $guest['guest_name'] ?></strong></p>
                         <p>Guest Cell: <strong><?= $guest['guest_cell'] ?></strong></p>
                         <p>Total Guest: <strong><?= $guest['total_guest'] ?></strong></p>

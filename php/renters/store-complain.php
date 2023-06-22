@@ -24,6 +24,6 @@ $stmt->bindParam(':status', $_status);
 $result = $stmt->execute();
 
 
-header("location:complains.php?username=" . $_username);
+header("location:complain.php?username=" . $_username);
 
 ?>

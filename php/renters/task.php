@@ -24,6 +24,7 @@ $renter = $stmt->fetch();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task</title>
+    <link rel="shortcut icon" href="../../image/background/a.jpg" />
 
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="../../styles/bootstrap.min.css">
@@ -47,7 +48,13 @@ $renter = $stmt->fetch();
 
     <main>
 
-        <!-- Flat Rent Start -->
+        <div class="container my-4">
+            <h6 class="d-flex justify-content-center">If You have ordered something and a parcel is coming, but
+                currently you are busy or outside the
+                Appartment then give the TASK to the guards. They will receive the Parcel for you. And just take
+                it from them later.</h6>
+        </div>
+        <!-- Task Start -->
         <div class="col-md-8 col-lg-5 border rounded-4 mx-auto p-5 my-5 shadow-lg bg-danger text-light">
             <h2>Give Task:</h2>
             <form action="store-task.php" method="post">
@@ -57,21 +64,21 @@ $renter = $stmt->fetch();
                         <th><i class="bi bi-person-circle"></i> Full Name</th>
                         <td>
                             <input type="text" class="form-control" name="fullname" id="fullname"
-                                value="<?= $renter['fullname'] ?>" disabled>
+                                value="<?= $renter['fullname'] ?>">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-phone"></i> Mobile No</th>
                         <td>
                             <input type="text" class="form-control" name="phone" id="phone"
-                                value="<?= $renter['phone'] ?>" disabled>
+                                value="<?= $renter['phone'] ?>">
                         </td>
                     </tr>
                     <tr>
                         <th><i class="bi bi-buildings-fill"></i> Flat No</th>
                         <td>
-                            <input type="text" class="form-control" name="flat" id="flat" value="<?= $renter['flat'] ?>"
-                                disabled>
+                            <input type="text" class="form-control" name="flat" id="flat"
+                                value="<?= $renter['flat'] ?>">
                         </td>
                     </tr>
                     <tr>
@@ -95,7 +102,7 @@ $renter = $stmt->fetch();
                 </div>
             </form>
         </div>
-        <!-- Flat Rent End -->
+        <!-- Task End -->
     </main>
 
     <!-- Footer Start -->
