@@ -2,19 +2,15 @@
 
 include "database.php";
 
-if(isset($_GET['error'])){
-    if($_GET['error'] == 'noflat'){
-        echo '<script type="text/javascript">';
-        echo " alert('You didn't add Flat')";
-        echo '</script>';
-    }
-    if($_GET['error'] == 'sameuser'){
-        echo '<script type="text/javascript">';
-        echo " alert('Same Username Exist')";
-        echo '</script>';
-    }
-}
+$error = isset($_GET['error']) ? $_GET['error'] : '';
 
+if ($error === 'noflat') {
+    echo '<script>alert("You didn\'t add Flat");</script>';
+} elseif ($error === 'flat') {
+    echo '<script>alert("Guard shouldn\'t add Flat");</script>';
+} elseif ($error === 'sameuser') {
+    echo '<script>alert("Same Username Exist");</script>';
+}
 
 
 //Export Query

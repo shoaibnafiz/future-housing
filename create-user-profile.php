@@ -58,6 +58,9 @@ if($_account_type == 'renter'){
     $result = $stmt->execute();
 
 }else{
+    if (isset($_flat)) {
+        return header("location: register.php?error=flat");
+    }
     $query = "INSERT INTO `request_guards` (`fullname`,`username`,`email`,`phone`,`nid`,`password`, `picture`, `requested_at`) VALUES (:fullname, :username, :email, :phone, :nid, :password, :picture, :requested_at)";
 
     $stmt = $conn->prepare($query);

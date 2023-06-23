@@ -4,7 +4,7 @@ $webroot = "http://localhost/future-housing/image/";
 
 if(isset($_GET['request'])){
     echo '<script type="text/javascript">';
-    echo " alert('Request Sent')";
+    echo " alert('Request Sent. You can login after Admin accept the request.')";
     echo '</script>';
 }
 

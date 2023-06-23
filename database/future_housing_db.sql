@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 18, 2023 at 07:22 PM
+-- Generation Time: Jun 22, 2023 at 09:19 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -65,7 +65,11 @@ CREATE TABLE `complains` (
 --
 
 INSERT INTO `complains` (`id`, `flat`, `fullname`, `phone`, `complain`, `given_at`, `status`) VALUES
-(1, '101', 'Nafizul Alam', '01790323767', 'There is a problem in our water pipeline. Please fix this as soon as possible.', '2023-05-28 19:51:22', 0);
+(1, '101', 'Nafizul Alam', '01790323767', 'There is a problem in our water pipeline. Please fix this as soon as possible.', '2023-05-28 19:51:22', 0),
+(2, NULL, NULL, NULL, 'gsdgfsg', '2023-06-20 20:16:35', 0),
+(3, NULL, NULL, NULL, 'There is a problem in our water pipeline....', '2023-06-20 20:18:32', 0),
+(4, NULL, NULL, NULL, 'dgfsdg', '2023-06-20 20:20:43', 0),
+(5, '101', 'Nafizul Alam', '01790323767', 'dsfgsdgsdg', '2023-06-20 20:42:35', 0);
 
 -- --------------------------------------------------------
 
@@ -146,7 +150,12 @@ INSERT INTO `flat_rents` (`id`, `flat`, `fullname`, `phone`, `rent`, `gas_bill`,
 (3, '101', 'Nafizul Alam', '01790323767', '15000', '1080', NULL, NULL, '2023-05-28 18:15:29'),
 (4, '101', 'Nafizul Alam', '01790323767', '20000', '1080', NULL, 'jguyrftyedyhgf', '2023-05-28 18:16:36'),
 (5, '101', 'Nafizul Alam', '01790323767', '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-05-28 18:18:32'),
-(6, '101', 'Nafizul Alam', '01790323767', '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-05-28 18:22:55');
+(6, '101', 'Nafizul Alam', '01790323767', '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-05-28 18:22:55'),
+(7, NULL, NULL, NULL, '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-06-20 20:17:15'),
+(8, NULL, NULL, NULL, '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-06-20 20:25:19'),
+(9, NULL, NULL, NULL, '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-06-20 20:37:27'),
+(10, '101', 'Nafizul Alam', '01790323767', '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-06-20 20:38:31'),
+(11, NULL, NULL, NULL, '20000', '1080', '12345678978', 'jguyrftyedyhgf', '2023-06-20 20:39:02');
 
 -- --------------------------------------------------------
 
@@ -157,20 +166,25 @@ INSERT INTO `flat_rents` (`id`, `flat`, `fullname`, `phone`, `rent`, `gas_bill`,
 CREATE TABLE `guards` (
   `id` int NOT NULL,
   `fullname` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `username` varchar(256) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(256) COLLATE utf8mb3_unicode_ci NOT NULL,
   `phone` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `nid` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `gender` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `password` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `picture` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `start_time` time DEFAULT NULL,
-  `end_time` time DEFAULT NULL
+  `end_time` time DEFAULT NULL,
+  `registered_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Dumping data for table `guards`
 --
 
-INSERT INTO `guards` (`id`, `fullname`, `phone`, `nid`, `gender`, `start_time`, `end_time`) VALUES
-(1, 'Samad Zia', '01375876954', '3256987412', 'Male', '09:00:00', '21:00:00'),
-(2, 'Jabed Karim', '01532469875', '6548793215', 'Male', '21:00:00', '09:00:00');
+INSERT INTO `guards` (`id`, `fullname`, `username`, `email`, `phone`, `nid`, `gender`, `password`, `picture`, `start_time`, `end_time`, `registered_at`) VALUES
+(1, 'Samad Zia', 'samad', 'samad@gmail.com', '01375876954', '3256987412', 'Male', 'df4ad9d5c22ecabca116e2b8dd0c140c', NULL, '09:00:00', '21:00:00', '2023-06-21 20:50:31'),
+(2, 'Jabed Karim', 'jabed', 'jabed@gmail.com', '01532469875', '6548793215', 'Male', 'df4ad9d5c22ecabca116e2b8dd0c140c', NULL, '21:00:00', '09:00:00', '2023-06-21 20:50:31');
 
 -- --------------------------------------------------------
 
@@ -200,7 +214,8 @@ INSERT INTO `guests` (`id`, `flat`, `host_name`, `guest_name`, `guest_cell`, `to
 (1, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-05-31', '17:58:00', 4988, 0),
 (2, '102', 'Nafizul Alam', 'Nothing', '123456789654', 6, 'eweei', '2023-05-31', '17:58:00', 1820, 0),
 (3, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-06-02', '17:50:00', 3096, 0),
-(4, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-06-30', '22:12:00', 4626, 0);
+(4, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-06-30', '22:12:00', 4626, 0),
+(5, '101', 'Nafizul Alam', 'Ruposh', '01324567898', 5, 'meeting', '2023-05-17', '20:36:00', 3575, 0);
 
 -- --------------------------------------------------------
 
@@ -267,7 +282,25 @@ CREATE TABLE `renters` (
 
 INSERT INTO `renters` (`flat`, `fullname`, `username`, `email`, `phone`, `nid`, `gender`, `password`, `picture`, `registered_at`) VALUES
 ('102', 'Nafizul Alam', 'nafiz1999', 'nafizulalam1999@gmail.com', '01790323767', '9154964242', 'Male', 'ee11cbb19052e40b07aac0ca060c23ee', 'IMG_1686391449_user3.jpg', '2023-05-27 20:23:06'),
-('101', 'Nafizul Alam', 'shoaib1999', 'shohebnafiz@gmail.com', '01790323767', '9154964242', 'Male', 'ee11cbb19052e40b07aac0ca060c23ee', 'IMG_1685455322_IMG_20210923_213545-01.jpg', '2023-05-30 20:01:41');
+('101', 'Nafizul Alam', 'shoaib1999', 'shohebnafiz@gmail.com', '01790323767', '9154964242', 'Male', 'ee11cbb19052e40b07aac0ca060c23ee', 'IMG_1687270687_IMG_20210923_213545-01.jpg', '2023-05-30 20:01:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `request_guards`
+--
+
+CREATE TABLE `request_guards` (
+  `id` int NOT NULL,
+  `fullname` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `username` varchar(256) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(256) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `phone` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `nid` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `password` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `picture` varchar(256) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `requested_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -309,9 +342,12 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `flat`, `fullname`, `phone`, `task`, `given_at`, `status`) VALUES
-(1, '101', 'Nafizul Alam', '01790323767', 'one delivery will come from food panda. please take it from him.', '2023-05-28 19:40:48', 0),
+(1, '101', 'Nafizul Alam', '01790323767', 'one delivery will come from food panda. please take it from him.', '2023-05-28 19:40:48', 1),
 (2, '101', 'Nafizul Alam', '01790323767', 'one delivery will come from food panda. please take it from him.', '2023-05-28 19:48:21', 0),
-(3, '102', 'Nafizul Alam', '01790323767', 'one delivery will come from food panda. please take it from him.', '2023-05-29 17:54:32', 0);
+(3, '102', 'Nafizul Alam', '01790323767', 'one delivery will come from food panda. please take it from him.', '2023-05-29 17:54:32', 0),
+(4, NULL, NULL, NULL, 'sgsdgfse', '2023-06-20 20:16:45', 0),
+(5, NULL, NULL, NULL, 'dfvdsgv', '2023-06-20 20:20:48', 0),
+(6, '101', 'Nafizul Alam', '01790323767', 'dfsdgsa', '2023-06-20 20:42:29', 0);
 
 --
 -- Indexes for dumped tables
@@ -379,6 +415,12 @@ ALTER TABLE `renters`
   ADD UNIQUE KEY `flat` (`flat`);
 
 --
+-- Indexes for table `request_guards`
+--
+ALTER TABLE `request_guards`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `request_renters`
 --
 ALTER TABLE `request_renters`
@@ -404,7 +446,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `complains`
 --
 ALTER TABLE `complains`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -422,19 +464,19 @@ ALTER TABLE `flats`
 -- AUTO_INCREMENT for table `flat_rents`
 --
 ALTER TABLE `flat_rents`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `guards`
 --
 ALTER TABLE `guards`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `guests`
 --
 ALTER TABLE `guests`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `notices`
@@ -449,16 +491,22 @@ ALTER TABLE `orders`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `request_guards`
+--
+ALTER TABLE `request_guards`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `request_renters`
 --
 ALTER TABLE `request_renters`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

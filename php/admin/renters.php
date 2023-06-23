@@ -72,6 +72,7 @@ $renters = $stmt->fetchAll();
                                                 <th class="d-none d-md-table-cell">Gender</th>
                                                 <th class="d-none d-xxl-table-cell">Picture</th>
                                                 <th class="d-none d-md-table-cell">Registered at</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -91,6 +92,13 @@ $renters = $stmt->fetchAll();
                                                         class="mt-2 1img-fluid rounded"
                                                         style="width: 50px; height: 50px;" alt=""></td>
                                                 <td class="d-none d-md-table-cell"><?=$renter['registered_at']?></td>
+                                                <td>
+                                                    <a class="badge bg-success"
+                                                        href="show-renter.php?id=<?= $renter['id']; ?>">Show</a>
+                                                    |
+                                                    <a class="badge bg-danger"
+                                                        href="remove-renter.php?id=<?= $renter['id']; ?>&flat=<?= $renter['flat']; ?>">Remove</a>
+                                                </td>
                                                 <?php
                                                 endforeach;
                                             ?>
