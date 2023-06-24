@@ -1,6 +1,6 @@
 <?php
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "../../image/";
 
 $_id = $_GET['id'];
 $currentPage = "flats";

@@ -2,7 +2,7 @@
 
 $currentPage = "guard requests";
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "../../image/";
 
 include "../../database.php";
 
@@ -68,7 +68,7 @@ $request_guards = $stmt->fetchAll();
                                                 <th class="d-none d-xl-table-cell">Email</th>
                                                 <th class="d-none d-md-table-cell">Phone</th>
                                                 <th>NID</th>
-                                                <th class="d-none d-xxl-table-cell">Picture</th>
+                                                <!-- <th class="d-none d-xxl-table-cell">Picture</th> -->
                                                 <th class="d-none d-md-table-cell">Requested at</th>
                                                 <th>Action</th>
                                             </tr>
@@ -83,11 +83,11 @@ $request_guards = $stmt->fetchAll();
                                                 <td class="d-none d-xl-table-cell"><?=$request_guard['email']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$request_guard['phone']?></td>
                                                 <td><?=$request_guard['nid']?></td>
-                                                <td class="d-none d-xxl-table-cell"><img
+                                                <!-- <td class="d-none d-xxl-table-cell"><img
                                                         src="<?= $webroot; ?>users/<?= $request_guard['picture']; ?>"
                                                         class="mt-2 1img-fluid rounded"
                                                         style="width: 50px; height: 50px;" alt=""></td>
-                                                <td class="d-none d-md-table-cell"><?=$request_guard['requested_at']?>
+                                                <td class="d-none d-md-table-cell"><?=$request_guard['requested_at']?> -->
                                                 </td>
                                                 <td>
                                                     <a class="badge bg-success"

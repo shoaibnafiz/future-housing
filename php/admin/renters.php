@@ -2,7 +2,7 @@
 
 $currentPage = "renters";
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "../../image/";
 
 include "../../database.php";
 
@@ -94,7 +94,7 @@ $renters = $stmt->fetchAll();
                                                 <td class="d-none d-md-table-cell"><?=$renter['registered_at']?></td>
                                                 <td>
                                                     <a class="badge bg-success"
-                                                        href="show-renter.php?id=<?= $renter['id']; ?>">Show</a>
+                                                        href="show-renter.php?username=<?= $renter['username']; ?>">Show</a>
                                                     |
                                                     <a class="badge bg-danger"
                                                         href="remove-renter.php?id=<?= $renter['id']; ?>&flat=<?= $renter['flat']; ?>">Remove</a>

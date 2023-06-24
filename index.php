@@ -1,6 +1,6 @@
 <?php
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "image/";
 
 if(isset($_GET['request'])){
     echo '<script type="text/javascript">';

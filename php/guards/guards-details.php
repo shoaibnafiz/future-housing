@@ -2,7 +2,9 @@
 
 $currentPage = 'guards-details';
 
-$_username = $_GET['username'];
+if(isset($_GET['username'])){
+    $_username = $_GET['username'];
+}
 
 include "../../database.php";
 

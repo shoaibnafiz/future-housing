@@ -2,7 +2,7 @@
 
 $currentPage = "guards";
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "../../image/";
 
 include "../../database.php";
 
@@ -67,6 +67,8 @@ $guards = $stmt->fetchAll();
                                         <thead>
                                             <tr>
                                                 <th>Full Name</th>
+                                                <th>User Name</th>
+                                                <th>Email</th>
                                                 <th class="d-none d-md-table-cell">Phone</th>
                                                 <th>NID</th>
                                                 <th class="d-none d-md-table-cell">Gender</th>
@@ -80,6 +82,8 @@ $guards = $stmt->fetchAll();
                                             ?>
                                             <tr>
                                                 <td><?=$guard['fullname']?></td>
+                                                <td><?=$guard['username']?></td>
+                                                <td><?=$guard['email']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$guard['phone']?></td>
                                                 <td><?=$guard['nid']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$guard['gender']?></td>

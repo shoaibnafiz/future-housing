@@ -2,7 +2,9 @@
 
 $currentPage = 'find-guests';
 
-$_username = $_GET['username'];
+if(isset($_GET['username'])){
+    $_username = $_GET['username'];
+}
 
 include "../../database.php";
 
@@ -60,6 +62,13 @@ if(isset($_GET['pinCode'])){
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control border border-black border-2"
                                         id="inputPinCode" name="pinCode" value="" required>
+                                </div>
+                            </div>
+                            <div class="mb-3 row d-none">
+                                <label for="inputUserName" class="col-sm-2 col-form-label">Username:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control border border-black border-2"
+                                        id="inputUserName" name="username" value="<?=$_username?>">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-dark float-end mb-3" id="find">Find</button>

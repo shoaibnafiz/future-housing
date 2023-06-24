@@ -1,5 +1,6 @@
 <?php
-    $approot = $_SERVER['DOCUMENT_ROOT'] . "/future-housing/image/";
+    // $approot = $_SERVER['DOCUMENT_ROOT'] . "/future-housing/image/";
+    $approot = "../../image/";
     $file_name1 = "IMG_" . time() . "-" . $_FILES['picture1']['name'];
     $file_name2 = "IMG_" . time() . "-" . $_FILES['picture2']['name'];
     $file_name3 = "IMG_" . time() . "-" . $_FILES['picture3']['name'];

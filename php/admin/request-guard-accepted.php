@@ -1,11 +1,6 @@
 <?php
 
 $_id = $_GET['id'];
-$_status = 1;
-/* echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-die(); */
 
 include "../../database.php";
 

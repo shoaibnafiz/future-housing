@@ -2,7 +2,7 @@
 
 $currentPage = 'profile';
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "../../image/";
 $_username = $_GET['username'];
 
 

@@ -2,7 +2,7 @@
 
 $currentPage = "renter requests";
 
-$webroot = "http://localhost/future-housing/image/";
+$webroot = "../../image/";
 
 include "../../database.php";
 

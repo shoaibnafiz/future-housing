@@ -1,5 +1,6 @@
 <?php
-    $approot = $_SERVER['DOCUMENT_ROOT'] . "/future-housing/image/";
+    // $approot = $_SERVER['DOCUMENT_ROOT'] . "/future-housing/image/";
+    $approot = "../../image/";
 
     if ($_FILES['picture1']['name'] != "") {
 

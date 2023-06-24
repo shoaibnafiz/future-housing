@@ -2,7 +2,9 @@
 
 $currentPage = 'home';
 
-$_username = $_GET['username'];
+if(isset($_GET['username'])){
+    $_username = $_GET['username'];
+}
 
 
 include "../../database.php";
@@ -32,7 +34,6 @@ $tasks = $stmt->fetchAll();
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-    <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
