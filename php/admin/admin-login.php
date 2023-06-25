@@ -42,7 +42,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="m-sm-4">
-                                    <form action="login-dashboard.php" method="get">
+                                    <form action="admin-dashboard.php" method="get">
                                         <div class="mb-3">
                                             <label class="form-label">Username</label>
                                             <input class="form-control form-control-lg" type="text" name="username"
