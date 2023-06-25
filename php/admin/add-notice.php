@@ -1,5 +1,7 @@
 <?php
 
+$currentPage = "notices";
+
 ?>
 
 <!DOCTYPE html>

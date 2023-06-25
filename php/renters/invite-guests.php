@@ -147,6 +147,12 @@ $renter = $stmt->fetch();
                                 </div>
 
                             </div>
+                            <div id="share" class="text-center">
+                                <a href="" target="_blank" type="button" class="float btn btn-primary">Share on
+                                    Facebook</a>
+                                <a href="" target="_blank" type="button" class="float btn btn-success">Share on
+                                    WhatsApp</a>
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 <button type="submit" class="btn btn-dark">Save</button>
@@ -205,7 +211,8 @@ $renter = $stmt->fetch();
         const visitPurpose = document.getElementById('visit-purpose').value;
         const date = document.getElementById('date').value;
         const time = document.getElementById('time').value;
-        // console.log(guestName);
+        const share = document.getElementById('share');
+
 
 
         if (guestName.trim() === '' || guestCell.trim() === '' || totalGuest.trim() === '' || visitPurpose.trim() ===
@@ -219,6 +226,15 @@ $renter = $stmt->fetch();
             inputErrorText.classList.add('d-none');
             qrSecondImg.src =
                 `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
+
+            const qrCodeURL = qrSecondImg.src;
+            const shareWhatsAppButton = document.querySelector('#share a.btn-success');
+            const shareFacebookButton = document.querySelector('#share a.btn-primary');
+            const encodedQRCodeURL = encodeURIComponent(qrCodeURL);
+
+            shareWhatsAppButton.href =
+                `https://wa.me/?text=${encodeURIComponent(`Hi There! Please find the QR code for your visit: ${qrCodeURL}`)}`;
+            shareFacebookButton.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedQRCodeURL}`;
         }
 
     }

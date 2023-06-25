@@ -53,7 +53,6 @@ $guards = $stmt->fetchAll();
 
                     <h1 class="h3 mb-3">
                         <strong>Guards</strong>
-                        <a type="button" class="btn btn-dark float-end">Add New Guard</a>
                     </h1>
 
                     <div class="row">

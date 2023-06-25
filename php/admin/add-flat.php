@@ -1,5 +1,7 @@
 <?php
 
+$currentPage = "flats";
+
 ?>
 
 <!DOCTYPE html>

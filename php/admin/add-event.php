@@ -1,5 +1,7 @@
 <?php
 
+$currentPage = "events";
+
 ?>
 
 <!DOCTYPE html>
