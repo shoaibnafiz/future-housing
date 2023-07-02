@@ -79,17 +79,19 @@
     $_flat = $_POST['flat'];
     $_description = $_POST['description'];
     $_rent = $_POST['rent'];
+    $_gas_bill = $_POST['gas_bill'];
 
 
     include "../../database.php";
 
-    $query = "UPDATE `flats` SET `flat` = :flat, `description` = :description, `rent` = :rent, `picture1` = :picture1, `picture2` = :picture2, `picture3` = :picture3 WHERE `flats`.`id` = :id";
+    $query = "UPDATE `flats` SET `flat` = :flat, `description` = :description, `rent` = :rent, `gas_bill` = :gas_bill, `picture1` = :picture1, `picture2` = :picture2, `picture3` = :picture3 WHERE `flats`.`id` = :id";
 
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id', $_id);
     $stmt->bindParam(':flat', $_flat);
     $stmt->bindParam(':description', $_description);
     $stmt->bindParam(':rent', $_rent);
+    $stmt->bindParam(':gas_bill', $_gas_bill);
     $stmt->bindParam(':picture1', $_picture1);
     $stmt->bindParam(':picture2', $_picture2);
     $stmt->bindParam(':picture3', $_picture3);

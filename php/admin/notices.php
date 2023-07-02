@@ -8,7 +8,7 @@ $query = "SELECT * FROM `notices`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$notices = $stmt->fetchAll();
+$notices = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -79,7 +79,7 @@ $notices = $stmt->fetchAll();
                                                 foreach($notices as $notice):
                                             ?>
                                             <tr>
-                                                <td><?=$notice['date']?></td>
+                                                <td><?=date('j F, Y', strtotime($notice['date']))?></td>
                                                 <td><?=$notice['description']?></td>
                                                 <?php
                                                 endforeach;

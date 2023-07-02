@@ -8,7 +8,7 @@ $query = "SELECT * FROM `events`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$events = $stmt->fetchAll();
+$events = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -79,7 +79,7 @@ $events = $stmt->fetchAll();
                                                 foreach($events as $event):
                                             ?>
                                             <tr>
-                                                <td><?=$event['date']?></td>
+                                                <td><?=date('j F, Y', strtotime($event['date']))?></td>
                                                 <td><?=$event['details']?></td>
                                                 <?php
                                                 endforeach;

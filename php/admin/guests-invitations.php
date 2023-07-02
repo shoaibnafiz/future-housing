@@ -8,7 +8,7 @@ $query = "SELECT * FROM `guests`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$guests = $stmt->fetchAll();
+$guests = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -80,7 +80,7 @@ $guests = $stmt->fetchAll();
                                                 <td class="d-none d-md-table-cell"><?=$guest['guest_cell']?></td>
                                                 <td class="text-center"><?=$guest['total_guest']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$guest['visit_purpose']?></td>
-                                                <td><?=$guest['date']?></td>
+                                                <td><?=date('j F, Y', strtotime($guest['date']))?></td>
                                                 <td class="d-none d-md-table-cell"><?=$guest['time']?></td>
                                                 <td class="text-center"><?=$guest['flat']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$guest['host_name']?></td>

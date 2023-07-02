@@ -11,7 +11,7 @@ $query = "SELECT * FROM `complains` WHERE flat = :flat";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':flat', $_flat);
 $result = $stmt->execute();
-$complains = $stmt->fetchAll();
+$complains = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -56,7 +56,7 @@ $complains = $stmt->fetchAll();
                                 <?= $complain['complain'] ?>
                             </strong></p>
                         <p>Date: <strong>
-                                <?= $complain['given_at'] ?>
+                                <?= date('j F, Y; g:i A', strtotime($complain['given_at'])) ?>
                             </strong></p>
                         <p>Status: <strong>
                                 <?= $complain['status'] == 1 ? "Complete.!!" : "Pending..." ?>

@@ -2,6 +2,8 @@
 
 $currentPage = "flats";
 
+$approot = "../../image/";
+
 include "../../database.php";
 
 $query = "SELECT * FROM `flats`";
@@ -81,9 +83,18 @@ $flats = $stmt->fetchAll();
                                                 <td><?=$flat['flat']?></td>
                                                 <td><?=$flat['description']?></td>
                                                 <td><?=$flat['rent']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$flat['picture1']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$flat['picture2']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$flat['picture3']?></td>
+                                                <td class="d-none d-xxl-table-cell"><img
+                                                        src="<?= $approot; ?>flats/<?= $flat['picture1']; ?>"
+                                                        class="mt-2 1img-fluid rounded"
+                                                        style="width: 70px; height: 40px;" alt=""></td>
+                                                <td class="d-none d-xxl-table-cell"><img
+                                                        src="<?= $approot; ?>flats/<?= $flat['picture2']; ?>"
+                                                        class="mt-2 1img-fluid rounded"
+                                                        style="width: 70px; height: 40px;" alt=""></td>
+                                                <td class="d-none d-xxl-table-cell"><img
+                                                        src="<?= $approot; ?>flats/<?= $flat['picture3']; ?>"
+                                                        class="mt-2 1img-fluid rounded"
+                                                        style="width: 70px; height: 40px;" alt=""></td>
                                                 <td class="text-center">
                                                     <?php
                                                         if($flat['status'] == 1){

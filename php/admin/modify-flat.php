@@ -84,6 +84,13 @@ $flat = $stmt->fetch();
                                         value="<?= $flat['rent'] ?>">
                                 </div>
                             </div>
+                            <div class="mb-3 row">
+                                <label for="inputGasBill" class="col-sm-3 col-form-label">Gas Bill: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputGasBill" name="gas_bill"
+                                        value="<?= $flat['gas_bill'] ?>">
+                                </div>
+                            </div>
                             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                                 <div class="col my-3">
                                     <div class="mb-3 row">

@@ -8,7 +8,7 @@ $query = "SELECT * FROM `complains`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$complains = $stmt->fetchAll();
+$complains = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -88,7 +88,7 @@ $complains = $stmt->fetchAll();
                                                 <td class="d-none d-xl-table-cell"><?=$complain['fullname']?></td>
                                                 <td class="d-none d-xl-table-cell"><?=$complain['phone']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$complain['complain']?></td>
-                                                <td><?=$complain['given_at']?></td>
+                                                <td><?=date('j F, Y; g:i A', strtotime($complain['given_at']))?></td>
                                                 <td>
                                                     <?php
                                                         if($complain['status'] == 1){

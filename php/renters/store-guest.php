@@ -13,6 +13,12 @@ $_time = $_POST['time'];
 $_pinCode = $_POST['pinCode'];
 $_status = 0;
 
+/* $month = date('F', strtotime($_date));
+echo $month;
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+die(); */
 
 include "../../database.php";
 

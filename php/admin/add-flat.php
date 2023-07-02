@@ -64,6 +64,12 @@ $currentPage = "flats";
                                 </div>
                             </div>
                             <div class="mb-3 row">
+                                <label for="inputGasBill" class="col-sm-3 col-form-label">Gas Bill: </label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="inputGasBill" name="gas_bill" value="">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
                                 <label for="inputPicture1" class="col-sm-3 col-form-label">Picture 1: </label>
                                 <div class="col-sm-9">
                                     <input type="file" class="form-control" id="inputPicture1" name="picture1" value="">

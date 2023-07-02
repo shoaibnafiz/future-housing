@@ -8,7 +8,7 @@ $query = "SELECT * FROM `tasks`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$tasks = $stmt->fetchAll();
+$tasks = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -88,12 +88,16 @@ $tasks = $stmt->fetchAll();
                                                 <td class="d-none d-xl-table-cell"><?=$task['fullname']?></td>
                                                 <td class="d-none d-xl-table-cell"><?=$task['phone']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$task['task']?></td>
-                                                <td><?=$task['given_at']?></td>
+                                                <td><?=date('j F, Y; g:i A', strtotime($task['given_at']))?></td>
                                                 <td>
                                                     <?php
-                                                        if($task['status'] == 1){
+                                                        if($task['status'] == 2){
                                                             ?>
                                                     <span class="badge bg-success">Completed</span>
+                                                    <?php
+                                                        }elseif($task['status'] == 1){
+                                                    ?>
+                                                    <span class="badge bg-warning">Current Task</span>
                                                     <?php
                                                         }else{
                                                             ?>

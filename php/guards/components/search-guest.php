@@ -58,7 +58,7 @@
                 <th></th>
                 <td class="float-end"><button class="btn btn-dark"><a
                             class="text-light text-decoration-none fw-semibold"
-                            href="guest-complete.php?id= <?= $guest['id']; ?>">Done</a></button>
+                            href="guest-complete.php?id= <?= $guest['id']; ?>&username=<?=$_username?>">Done</a></button>
                 </td>
             </tr>
         </table>

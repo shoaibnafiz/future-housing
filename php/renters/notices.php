@@ -9,7 +9,7 @@ $query = "SELECT * FROM `notices`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$notices = $stmt->fetchAll();
+$notices = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -49,7 +49,7 @@ $notices = $stmt->fetchAll();
                 <div class="col">
                     <div class="rent-history">
                         <p>Date: <strong><?= $notice['date']?></strong></p>
-                        <p><?= $notice['description']?></p>
+                        <p><strong><?= $notice['description']?></strong></p>
                     </div>
                 </div>
                 <?php
@@ -58,10 +58,6 @@ $notices = $stmt->fetchAll();
             </div>
         </section>
     </main>
-
-    <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
-    <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->
     <script src="../../js/bootstrap.min.js"></script>

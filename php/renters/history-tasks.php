@@ -11,7 +11,7 @@ $query = "SELECT * FROM `tasks` WHERE flat = :flat";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':flat', $_flat);
 $result = $stmt->execute();
-$tasks = $stmt->fetchAll();
+$tasks = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -56,7 +56,7 @@ $tasks = $stmt->fetchAll();
                                 <?= $task['task'] ?>
                             </strong></p>
                         <p>Date: <strong>
-                                <?= $task['given_at'] ?>
+                                <?= date('j F, Y; g:i A', strtotime($task['given_at'])) ?>
                             </strong></p>
                         <p>Status: <strong>
                                 <?php

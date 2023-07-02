@@ -9,7 +9,7 @@ $query = "SELECT * FROM `events`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$events = $stmt->fetchAll();
+$events = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -49,7 +49,7 @@ $events = $stmt->fetchAll();
                 <div class="col">
                     <div class="rent-history">
                         <p>Event Date: <strong><?= $event['date']?></strong></p>
-                        <p>Event Details: <?= $event['details']?></p>
+                        <p>Event Details: <strong><?= $event['details']?></strong></p>
                     </div>
                 </div>
                 <?php
@@ -58,10 +58,6 @@ $events = $stmt->fetchAll();
             </div>
         </section>
     </main>
-
-    <!-- Footer Start -->
-    <?php include 'components/footer.php'; ?>
-    <!-- Footer End -->
 
     <!-- Bootstrap JS Link -->
     <script src="../../js/bootstrap.min.js"></script>

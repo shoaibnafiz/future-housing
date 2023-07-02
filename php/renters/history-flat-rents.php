@@ -11,7 +11,7 @@ $query = "SELECT * FROM `flat_rents` WHERE flat = :flat";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':flat', $_flat);
 $result = $stmt->execute();
-$rents = $stmt->fetchAll();
+$rents = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -68,7 +68,7 @@ $rents = $stmt->fetchAll();
                                 <?= $rent['trx_id'] ?>
                             </strong></p>
                         <p>Rented at: <strong>
-                                <?= $rent['rented_at'] ?>
+                                <?= date('j F, Y; g:i A', strtotime($rent['rented_at'])) ?>
                             </strong></p>
                     </div>
 

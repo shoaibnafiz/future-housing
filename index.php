@@ -4,7 +4,7 @@ $webroot = "image/";
 
 if(isset($_GET['request'])){
     echo '<script type="text/javascript">';
-    echo " alert('Request Sent. You can login after Admin accept the request.')";
+    echo " alert('Request Sent. You can login after Admin accept the request. And now you just need to give the advance told in home>flats details with the username in refference.')";
     echo '</script>';
 }
 
@@ -236,7 +236,7 @@ $flatsCount = count($flats);
         <p> 3 rooms, 2 bathrooms, 1 kitchen, back porch in one Flat, with 15,000 rent. 3 rooms, 2 bathrooms, 1 kitchen,
             back porch, front porch in another Flat with 20,000 rent. Gas double-burner, 1080/- bill. Electricity Self,
             Wasa from Landlord Party. Rent in advance, from 1 to 10 days, 2 months notice before vacating houses.
-            Renters have to give 30,000 in advance.. </p>
+            Requested Renters have to give 30,000/- in advance in 01790323767.. </p>
 
         <div id="flat-limit" class="row row-cols-1 row-cols-md-2">
 

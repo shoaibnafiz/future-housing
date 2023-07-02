@@ -13,7 +13,7 @@ $query = "SELECT * FROM `tasks`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$tasks = $stmt->fetchAll();
+$tasks = array_reverse($stmt->fetchAll());
 ?>
 
 <!doctype html>
@@ -89,7 +89,8 @@ $tasks = $stmt->fetchAll();
                                                     <td class=""><?= $task['flat']; ?></td>
                                                     <td class="d-none d-xl-table-cell"><?= $task['fullname']; ?></td>
                                                     <td class=""><?= $task['task']; ?></td>
-                                                    <td class="d-none d-xl-table-cell"><?= $task['given_at']; ?></td>
+                                                    <td class="d-none d-xl-table-cell">
+                                                        <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?></td>
                                                     <td class="d-none d-xl-table-cell">
                                                         <?= $task['status'] ? "Complete.!!" : "Pending..."; ?></td>
                                                     <td class="p-3 text-center border border-2 border-black">
@@ -112,7 +113,8 @@ $tasks = $stmt->fetchAll();
                                                     <td class=""><?= $task['flat']; ?></td>
                                                     <td class="d-none d-xl-table-cell"><?= $task['fullname']; ?></td>
                                                     <td class=""><?= $task['task']; ?></td>
-                                                    <td class="d-none d-xl-table-cell"><?= $task['given_at']; ?></td>
+                                                    <td class="d-none d-xl-table-cell">
+                                                        <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?></td>
                                                     <td class="d-none d-xl-table-cell">
                                                         <?= $task['status'] ? "Complete.!!" : "Pending..."; ?>
                                                     </td>

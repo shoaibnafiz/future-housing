@@ -10,7 +10,7 @@ $query = "SELECT * FROM `guards`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$guards = $stmt->fetchAll();
+$guards = array_reverse($stmt->fetchAll());
 
 ?>
 

@@ -11,7 +11,7 @@ $query = "SELECT * FROM `guests` WHERE flat = :flat";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(':flat', $_flat);
 $result = $stmt->execute();
-$guests = $stmt->fetchAll();
+$guests = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -56,7 +56,7 @@ $guests = $stmt->fetchAll();
                         <p>Guest Cell: <strong><?= $guest['guest_cell'] ?></strong></p>
                         <p>Total Guest: <strong><?= $guest['total_guest'] ?></strong></p>
                         <p>Visit Purpose: <strong><?= $guest['visit_purpose'] ?></strong></p>
-                        <p>Date: <strong><?= $guest['date'] ?></strong></p>
+                        <p>Date: <strong><?= date('j F, Y', strtotime($guest['date'])) ?></strong></p>
                         <p>Time: <strong><?= $guest['time'] ?></strong></p>
                     </div>
                 </div>

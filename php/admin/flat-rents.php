@@ -8,7 +8,7 @@ $query = "SELECT * FROM `flat_rents`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$flat_rents = $stmt->fetchAll();
+$flat_rents = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -83,7 +83,8 @@ $flat_rents = $stmt->fetchAll();
                                                 <td class="d-none d-md-table-cell"><?=$flat_rent['gas_bill']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$flat_rent['bKash_number']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$flat_rent['trx_id']?></td>
-                                                <td class="text-center"><?=$flat_rent['rented_at']?></td>
+                                                <td class="text-center">
+                                                    <?=date('j F, Y; g:i A', strtotime($flat_rent['rented_at']))?></td>
                                                 <?php
                                                 endforeach;
                                             ?>

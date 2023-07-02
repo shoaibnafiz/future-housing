@@ -40,10 +40,10 @@
                 <?= $guest['visit_purpose']; ?>
             </td>
             <td class="p-3 text-center border border-2 border-black">
-                <?= $guest['date']; ?>
+                <?= date('j F, Y', strtotime($guest['date'])); ?>
             </td>
             <td class="p-3 text-center border border-2 border-black">
-                <?= $guest['time']; ?>
+                <?= date('g:i A', strtotime($guest['time'])); ?>
             </td>
             <td class="p-3 text-center text-center border border-2 border-black">
                 <?php

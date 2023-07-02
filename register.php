@@ -9,7 +9,7 @@ if ($error === 'noflat') {
 } elseif ($error === 'flat') {
     echo '<script>alert("Guard shouldn\'t add Flat");</script>';
 } elseif ($error === 'sameuser') {
-    echo '<script>alert("Same Username Exist");</script>';
+    echo '<script>alert("Same Username Exist. Please use another Username.");</script>';
 }
 
 

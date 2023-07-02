@@ -1,6 +1,7 @@
 <?php
 
 $_id = $_GET['id'];
+$_username = $_GET['username'];
 $_status = 1;
 
 
@@ -14,6 +15,6 @@ $stmt->bindParam(':id', $_id);
 $stmt->bindParam(':status', $_status);
 $result = $stmt->execute();
 
-header("location:find-guests.php");
+header("location:find-guests.php?username=$_username");
 
 ?>

@@ -14,6 +14,6 @@ $stmt->bindParam(':id', $_id);
 $stmt->bindParam(':status', $_status);
 $result = $stmt->execute();
 
-header("location:dashboard-guard.php");
+header("location:guard-dashboard.php");
 
 ?>

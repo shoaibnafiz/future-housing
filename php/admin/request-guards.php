@@ -10,7 +10,7 @@ $query = "SELECT * FROM `request_guards`";
 
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
-$request_guards = $stmt->fetchAll();
+$request_guards = array_reverse($stmt->fetchAll());
 
 ?>
 
@@ -86,8 +86,9 @@ $request_guards = $stmt->fetchAll();
                                                 <!-- <td class="d-none d-xxl-table-cell"><img
                                                         src="<?= $webroot; ?>users/<?= $request_guard['picture']; ?>"
                                                         class="mt-2 1img-fluid rounded"
-                                                        style="width: 50px; height: 50px;" alt=""></td>
-                                                <td class="d-none d-md-table-cell"><?=$request_guard['requested_at']?> -->
+                                                        style="width: 50px; height: 50px;" alt=""></td> -->
+                                                <td class="d-none d-md-table-cell">
+                                                    <?=date('j F, Y; g:i A', strtotime($request_guard['requested_at']))?>
                                                 </td>
                                                 <td>
                                                     <a class="badge bg-success"

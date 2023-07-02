@@ -66,10 +66,7 @@ $renters = $stmt->fetchAll();
                                                 <th>Flat</th>
                                                 <th>Full Name</th>
                                                 <th class="d-none d-xl-table-cell">User Name</th>
-                                                <th class="d-none d-xl-table-cell">Email</th>
                                                 <th class="d-none d-md-table-cell">Phone</th>
-                                                <th>NID</th>
-                                                <th class="d-none d-md-table-cell">Gender</th>
                                                 <th class="d-none d-xxl-table-cell">Picture</th>
                                                 <th class="d-none d-md-table-cell">Registered at</th>
                                                 <th>Action</th>
@@ -83,15 +80,13 @@ $renters = $stmt->fetchAll();
                                                 <td><?=$renter['flat']?></td>
                                                 <td><?=$renter['fullname']?></td>
                                                 <td class="d-none d-xl-table-cell"><?=$renter['username']?></td>
-                                                <td class="d-none d-xl-table-cell"><?=$renter['email']?></td>
                                                 <td class="d-none d-md-table-cell"><?=$renter['phone']?></td>
-                                                <td><?=$renter['nid']?></td>
-                                                <td class="d-none d-md-table-cell"><?=$renter['gender']?></td>
                                                 <td class="d-none d-xxl-table-cell"><img
                                                         src="<?= $webroot; ?>users/<?= $renter['picture']; ?>"
                                                         class="mt-2 1img-fluid rounded"
                                                         style="width: 50px; height: 50px;" alt=""></td>
-                                                <td class="d-none d-md-table-cell"><?=$renter['registered_at']?></td>
+                                                <td class="d-none d-md-table-cell">
+                                                    <?=date('j F, Y; g:i A', strtotime($renter['registered_at']))?></td>
                                                 <td>
                                                     <a class="badge bg-success"
                                                         href="show-renter.php?username=<?= $renter['username']; ?>">Show</a>
