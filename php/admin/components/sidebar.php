@@ -85,6 +85,12 @@
                 </a>
             </li>
 
+            <li class="sidebar-item  <?php if ($currentPage === 'reports') echo 'active'; ?>">
+                <a class="sidebar-link" href="reports.php">
+                    <i class="align-middle" data-feather="book"></i> <span class="align-middle">Reports</span>
+                </a>
+            </li>
+
         </ul>
 
     </div>
