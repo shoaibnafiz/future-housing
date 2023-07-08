@@ -69,6 +69,7 @@ $flats = $stmt->fetchAll();
                                                 <th>Flat</th>
                                                 <th>Description</th>
                                                 <th>Rent</th>
+                                                <th>Gas Bill</th>
                                                 <th class="d-none d-md-table-cell">Picture 1</th>
                                                 <th class="d-none d-md-table-cell">Picture 2</th>
                                                 <th class="d-none d-md-table-cell">Picture 3</th>
@@ -83,6 +84,7 @@ $flats = $stmt->fetchAll();
                                                 <td><?=$flat['flat']?></td>
                                                 <td><?=$flat['description']?></td>
                                                 <td><?=$flat['rent']?></td>
+                                                <td><?=$flat['gas_bill']?></td>
                                                 <td class="d-none d-xxl-table-cell"><img
                                                         src="<?= $approot; ?>flats/<?= $flat['picture1']; ?>"
                                                         class="mt-2 1img-fluid rounded"

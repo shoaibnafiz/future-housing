@@ -70,6 +70,7 @@ $request_guards = array_reverse($stmt->fetchAll());
                                                 <th>NID</th>
                                                 <!-- <th class="d-none d-xxl-table-cell">Picture</th> -->
                                                 <th class="d-none d-md-table-cell">Requested at</th>
+                                                <th>Verified</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -90,6 +91,13 @@ $request_guards = array_reverse($stmt->fetchAll());
                                                 <td class="d-none d-md-table-cell">
                                                     <?=date('j F, Y; g:i A', strtotime($request_guard['requested_at']))?>
                                                 </td>
+                                                <td><?php
+                                                if(empty($request_renter['code'])):
+                                                    echo "Done";
+                                                else:
+                                                    echo "Not Verified";
+                                                endif;
+                                                ?></td>
                                                 <td>
                                                     <a class="badge bg-success"
                                                         href="request-guard-accepted.php?id=<?= $request_guard['id']; ?>">Accept</a>

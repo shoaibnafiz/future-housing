@@ -70,6 +70,7 @@ $request_renters = array_reverse($stmt->fetchAll());
                                                 <th class="d-none d-md-table-cell">Phone</th>
                                                 <th>NID</th>
                                                 <th class="d-none d-md-table-cell">Requested at</th>
+                                                <th>Verified</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -87,6 +88,13 @@ $request_renters = array_reverse($stmt->fetchAll());
                                                 <td class="d-none d-md-table-cell">
                                                     <?=date('j F, Y; g:i A', strtotime($request_renter['requested_at']))?>
                                                 </td>
+                                                <td><?php
+                                                if(empty($request_renter['code'])):
+                                                    echo "Done";
+                                                else:
+                                                    echo "Not Verified";
+                                                endif;
+                                                ?></td>
                                                 <td>
                                                     <a class="badge bg-success"
                                                         href="request-renter-accepted.php?id= <?= $request_renter['id']; ?>">Accept</a>

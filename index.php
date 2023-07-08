@@ -1,14 +1,31 @@
 <?php
+include "database.php";
 
 $webroot = "image/";
 
-if(isset($_GET['request'])){
-    echo '<script type="text/javascript">';
-    echo " alert('Request Sent. You can login after Admin accept the request. And now you just need to give the advance told in home>flats details with the username in refference.')";
-    echo '</script>';
+$request = isset($_GET['request']) ? $_GET['request'] : '';
+
+if ($request === 'sent') {
+    echo '<script>alert("A verification link has been sent on your email. Verify your Email. You can login after Admin accept the request. And now you just need to give the advance told in home>flats details with the username in refference.");</script>';
 }
 
-include "database.php";
+if (isset($_GET['verification'])) {
+    $verification =$_GET['verification'];
+    $query1 = "SELECT * FROM request_renters WHERE code='$verification'";
+
+    $stmt = $conn->prepare($query1);
+    $result = $stmt->execute();
+    $verify = $stmt->fetch();
+    if (!empty($verify)) {
+        $query2 = "UPDATE request_renters SET code='' WHERE code='$verification'";
+        
+        $stmt = $conn->prepare($query2);
+        $result = $stmt->execute();
+    } else {
+        header("Location: index.php");
+    }
+}
+
 
 //Export Query
 $query = "SELECT * FROM `flats`";
