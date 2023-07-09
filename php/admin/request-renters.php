@@ -70,7 +70,7 @@ $request_renters = array_reverse($stmt->fetchAll());
                                                 <th class="d-none d-md-table-cell">Phone</th>
                                                 <th>NID</th>
                                                 <th class="d-none d-md-table-cell">Requested at</th>
-                                                <th>Verified</th>
+                                                <th>Verification</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
