@@ -13,7 +13,11 @@ $_username = $_POST['username'];
 $_email = $_POST['email'];
 $_phone = $_POST['phone'];
 $_nid = $_POST['nid'];
-$_flat = $_POST['flat'];
+if(isset($_POST['flat'])){
+    $_flat = $_POST['flat'];
+}else{
+    $_flat = "";
+}
 $_password = md5($_POST['password']);
 $_account_type = $_POST['account_type'];
 $_picture = "no-image.jpg";
@@ -99,10 +103,10 @@ if($_account_type == 'renter'){
     }
 
 }else{
-    if (isset($_flat)) {
+    if (!empty($_flat)) {
         return header("location: register.php?error=flat");
     }
-    $query = "INSERT INTO `request_guards` (`fullname`,`username`,`email`,`phone`,`nid`,`password`, `picture`, `requested_at`) VALUES (:fullname, :username, :email, :phone, :nid, :password, :picture, :requested_at)";
+    $query = "INSERT INTO `request_guards` (`fullname`,`username`,`email`,`phone`,`nid`,`password`, `picture`, `requested_at`, `code`) VALUES (:fullname, :username, :email, :phone, :nid, :password, :picture, :requested_at, :code)";
 
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':fullname', $_fullname);
@@ -113,6 +117,7 @@ if($_account_type == 'renter'){
     $stmt->bindParam(':password', $_password);
     $stmt->bindParam(':picture', $_picture);
     $stmt->bindParam(':requested_at', $_requested_at);
+    $stmt->bindParam(':code', $_code);
 
     $result = $stmt->execute();
 

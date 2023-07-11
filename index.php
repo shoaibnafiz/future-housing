@@ -80,6 +80,7 @@ $flatsCount = count($flats);
         <div class="background"> </div>
 
         <div class="container">
+            <a class="d-block d-lg-none btn text-danger float-end" href="php/admin/admin-login.php">Admin</a>
 
             <div class="content">
 
@@ -103,6 +104,8 @@ $flatsCount = count($flats);
                         <a href="#"><i class="fa fa-instagram"></i></a>
                         <a href="#"><i class="fa fa-linkedin"></i></a>
                     </div>
+                    <a class="d-none d-lg-block btn text-danger mt-3 float-start"
+                        href="php/admin/admin-login.php">Admin</a>
 
                 </div>
             </div>
@@ -168,9 +171,9 @@ $flatsCount = count($flats);
         <p> Buying, Renting, Selling, Inventory Management, Reservations, Bookings, Billing, Invoicing, Customer
             Management, Reporting, Analytics etc. </p>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="row justify-content-center">
 
-            <div class="col my-3">
+            <div class="col my-3 d-none">
                 <div class="service-col h-100">
                     <h2> Buying </h2>
 
@@ -193,7 +196,7 @@ $flatsCount = count($flats);
                 </div>
             </div>
 
-            <div class="col my-3">
+            <div class="col-md-8 my-3">
                 <div class="service-col h-100">
 
                     <h2> Renting </h2>
@@ -216,7 +219,7 @@ $flatsCount = count($flats);
                 </div>
             </div>
 
-            <div class="col my-3">
+            <div class="col my-3 d-none">
                 <div class="service-col h-100">
 
                     <h2> Selling </h2>

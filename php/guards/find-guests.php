@@ -39,6 +39,16 @@ if(isset($_GET['pinCode'])){
 
     <!-- <link rel="stylesheet" href="../../styles/table-background.css"> -->
     <link rel="stylesheet" href="../../styles/bootstrap-icons.css">
+
+    <style>
+    /* Add CSS styles for horizontal scrolling */
+    @media (max-width: 992px) {
+        .table-container {
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    </style>
 </head>
 
 <body>

@@ -32,7 +32,7 @@ $request_guards = array_reverse($stmt->fetchAll());
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Requests for Rent | Admin Panel</title>
+    <title>Requests for Guard | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@ $request_guards = array_reverse($stmt->fetchAll());
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h3 mb-3"><strong>Requests for Rent</strong></h1>
+                    <h1 class="h3 mb-3"><strong>Requests for Guard</strong></h1>
 
                     <div class="row">
 
@@ -92,7 +92,7 @@ $request_guards = array_reverse($stmt->fetchAll());
                                                     <?=date('j F, Y; g:i A', strtotime($request_guard['requested_at']))?>
                                                 </td>
                                                 <td><?php
-                                                if(empty($request_renter['code'])):
+                                                if(empty($request_guard['code'])):
                                                     echo "Done";
                                                 else:
                                                     echo "Not Verified";

@@ -35,6 +35,16 @@ $tasks = array_reverse($stmt->fetchAll());
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+    /* Add CSS styles for horizontal scrolling */
+    @media (max-width: 992px) {
+        .table-container {
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+    </style>
 </head>
 
 <body>
@@ -48,7 +58,7 @@ $tasks = array_reverse($stmt->fetchAll());
 
         <!-- Task Lists Start -->
         <section>
-            <div class="container">
+            <div class="container my-4">
                 <div class="row justify-content-center">
                     <div class="col-sm-10">
                         <h2 class="text-center my-4">Tasks List</h2>
@@ -57,83 +67,138 @@ $tasks = array_reverse($stmt->fetchAll());
                             <div class="card flex-fill w-100">
                                 <div class="card">
                                     <div class="card-body">
-                                        <table id="datatablesSimple" class="table table-hover my-0">
-                                            <thead>
-                                                <tr>
-                                                    <th class="">Flat</th>
-                                                    <th class="d-none d-xl-table-cell">FullName</th>
-                                                    <th class="">Task</th>
-                                                    <th class="d-none d-xl-table-cell">Time</th>
-                                                    <th class="d-none d-xl-table-cell">Status</th>
-                                                    <th class="">Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th class="">Flat</th>
-                                                    <th class="d-none d-xl-table-cell">FullName</th>
-                                                    <th class="">Task</th>
-                                                    <th class="d-none d-xl-table-cell">Time</th>
-                                                    <th class="d-none d-xl-table-cell">Status</th>
-                                                    <th class="">Action</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
+                                        <div class="table-container">
+                                            <table id="datatablesSimple" class="table table-hover my-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="">Flat</th>
+                                                        <th class="d-none d-lg-table-cell">FullName</th>
+                                                        <th class="">Task</th>
+                                                        <th class="d-none d-xl-table-cell">Time</th>
+                                                        <th class="d-none d-xl-table-cell">Status</th>
+                                                        <th class="">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th class="">Flat</th>
+                                                        <th class="d-none d-lg-table-cell">FullName</th>
+                                                        <th class="">Task</th>
+                                                        <th class="d-none d-xl-table-cell">Time</th>
+                                                        <th class="d-none d-xl-table-cell">Status</th>
+                                                        <th class="">Action</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody>
 
-                                                <?php
+                                                    <?php
                                 foreach ($tasks as $task):
                                     if ($task['status'] == 0):
                                         ?>
 
-                                                <tr>
-                                                    <td class=""><?= $task['flat']; ?></td>
-                                                    <td class="d-none d-xl-table-cell"><?= $task['fullname']; ?></td>
-                                                    <td class=""><?= $task['task']; ?></td>
-                                                    <td class="d-none d-xl-table-cell">
-                                                        <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?></td>
-                                                    <td class="d-none d-xl-table-cell">
-                                                        <?= $task['status'] ? "Complete.!!" : "Pending..."; ?></td>
-                                                    <td class="p-3 text-center border border-2 border-black">
-                                                        <a class="text-success fw-semibold"
-                                                            href="task-complete.php?id= <?= $task['id']; ?>">Received</a>
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td class=""><?= $task['flat']; ?></td>
+                                                        <td class="d-none d-xl-table-cell"><?= $task['fullname']; ?>
+                                                        </td>
+                                                        <td class=""><?= $task['task']; ?></td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?>
+                                                        </td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <?= $task['status'] ? "Received.!!" : "Pending..."; ?></td>
+                                                        <td class="p-3 text-center border border-2 border-black">
+                                                            <a class="text-success fw-semibold"
+                                                                href="task-complete.php?id= <?= $task['id']; ?>">Receive</a>
+                                                        </td>
+                                                    </tr>
 
-                                                <?php
+                                                    <?php
                                     endif;
                                 endforeach;
                                 ?>
 
-                                                <?php
+                                                    <?php
                                 foreach ($tasks as $task):
                                     if ($task['status'] == 1):
                                         ?>
 
-                                                <tr>
-                                                    <td class=""><?= $task['flat']; ?></td>
-                                                    <td class="d-none d-xl-table-cell"><?= $task['fullname']; ?></td>
-                                                    <td class=""><?= $task['task']; ?></td>
-                                                    <td class="d-none d-xl-table-cell">
-                                                        <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?></td>
-                                                    <td class="d-none d-xl-table-cell">
-                                                        <?= $task['status'] ? "Complete.!!" : "Pending..."; ?>
-                                                    </td>
-                                                    <td class="p-3 text-center border border-2 border-black">
-                                                        <a class="text-success fw-semibold"
-                                                            href="task-trash.php?id= <?= $task['id']; ?>">Delivered</a>
-                                                    </td>
-                                                </tr>
+                                                    <tr>
+                                                        <td class=""><?= $task['flat']; ?></td>
+                                                        <td class="d-none d-xl-table-cell"><?= $task['fullname']; ?>
+                                                        </td>
+                                                        <td class=""><?= $task['task']; ?></td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?>
+                                                        </td>
+                                                        <td class="d-none d-xl-table-cell">
+                                                            <?= $task['status'] ? "Received.!!" : "Pending..."; ?>
+                                                        </td>
+                                                        <td class="p-3 text-center border border-2 border-black">
+                                                            <a class="text-success fw-semibold"
+                                                                href="task-trash.php?id= <?= $task['id']; ?>">Deliver</a>
+                                                        </td>
+                                                    </tr>
 
-                                                <?php
+                                                    <?php
                                     endif;
                                 endforeach;
                                 ?>
 
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <h2 class="text-center my-4">Completed Tasks List</h2>
+
+                        <div class="col-12 d-flex">
+                            <div class="card flex-fill w-100">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-container">
+                                            <table id="datatablesSimple" class="table table-hover my-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="">Flat</th>
+                                                        <th class="">FullName</th>
+                                                        <th class="">Task</th>
+                                                        <th class="">Time</th>
+                                                        <th class="">Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                    <?php
+                                                foreach ($tasks as $task):
+                                                    if ($task['status'] == 2):
+                                                        ?>
+
+                                                    <tr>
+                                                        <td class=""><?= $task['flat']; ?></td>
+                                                        <td class=""><?= $task['fullname']; ?>
+                                                        </td>
+                                                        <td class=""><?= $task['task']; ?></td>
+                                                        <td class="">
+                                                            <?= date('j F, Y; g:i A', strtotime($task['given_at'])); ?>
+                                                        </td>
+                                                        <td class="">
+                                                            <?= $task['status']==2 ? "Delivered.!!" : ''; ?></td>
+                                                    </tr>
+
+                                                    <?php
+                                                        endif;
+                                                    endforeach;
+                                                    ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

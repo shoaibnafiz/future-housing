@@ -6,6 +6,11 @@ $query = "SELECT * FROM `flat_rents`";
 $stmt = $conn->prepare($query);
 $result = $stmt->execute();
 $flat_rents = $stmt->fetchAll();
+
+$query = "SELECT * FROM `renters`";
+$stmt = $conn->prepare($query);
+$result = $stmt->execute();
+$renters = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +31,7 @@ $flat_rents = $stmt->fetchAll();
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Flat Rents | Admin Panel</title>
+    <title>Reports | Admin Panel</title>
 
     <link href="../../styles/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -84,17 +89,17 @@ $flat_rents = $stmt->fetchAll();
                                                 <tbody>
                                                     <?php 
                                                     $i = 1;
-                                                    if (!empty($flat_rents)):
-                                                        foreach ($flat_rents as $flat_rent):
-                                                            $renter_query = "SELECT * FROM `renters` WHERE flat = :flat";
-                                                            $renter_stmt = $conn->prepare($renter_query);
-                                                            $renter_stmt->bindParam(':flat', $flat_rent['flat']);
-                                                            $renter_stmt->execute();
-                                                            $renter = $renter_stmt->fetch();
+                                                    if (!empty($renters)):
+                                                        foreach ($renters as $renter):
+                                                            $flat_rent_query = "SELECT * FROM `flat_rents` WHERE flat = :flat";
+                                                            $flat_rent_stmt = $conn->prepare($flat_rent_query);
+                                                            $flat_rent_stmt->bindParam(':flat', $renter['flat']);
+                                                            $flat_rent_stmt->execute();
+                                                            $flat_rent = $flat_rent_stmt->fetch();
 
                                                             $flat_query = "SELECT * FROM `flats` WHERE flat = :flat";
                                                             $flat_stmt = $conn->prepare($flat_query);
-                                                            $flat_stmt->bindParam(':flat', $flat_rent['flat']);
+                                                            $flat_stmt->bindParam(':flat', $renter['flat']);
                                                             $flat_stmt->execute();
                                                             $flat = $flat_stmt->fetch();
 
@@ -119,8 +124,8 @@ $flat_rents = $stmt->fetchAll();
                                                     ?>
                                                     <tr>
                                                         <td><?php echo $i++ ?></td>
-                                                        <td><?php echo ucwords($flat_rent['fullname']) ?></td>
-                                                        <td><?php echo $flat_rent['flat'] ?></td>
+                                                        <td><?php echo ucwords($renter['fullname']) ?></td>
+                                                        <td><?php echo $renter['flat'] ?></td>
                                                         <td><?php echo $renter['phone'] ?></td>
                                                         <td class="text-right">
                                                             <?php echo number_format($flat['rent'], 2) ?></td>
