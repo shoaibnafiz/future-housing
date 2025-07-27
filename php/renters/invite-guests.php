@@ -82,7 +82,7 @@ $renter = $stmt->fetch();
                     <tr>
                         <th><i class="bi bi-calendar3-event-fill"></i> Date</th>
                         <td>
-                            <input type="date" min="<?= date("Y-m-d");?>" class="form-control" name="date" id="date"
+                            <input type="date" min="<?= date("Y-m-d"); ?>" class="form-control" name="date" id="date"
                                 required>
                         </td>
                     </tr>
@@ -183,61 +183,61 @@ $renter = $stmt->fetch();
     <!-- qrCode Generator Start-->
 
     <script>
-    /* <!-- Pin Code Generator Start--> */
-    function getPin() {
-        const pin = generatePin();
-        const pinString = pin + '';
+        /* Pin Code Generator Start */
+        function getPin() {
+            const pin = generatePin();
+            const pinString = pin + '';
 
-        if (pinString.length === 4) {
-            return pin;
-        } else {
-            return getPin();
-        }
-    }
-
-    function generatePin() {
-        const random = Math.round(Math.random() * 10000);
-        return random;
-    }
-    /* <!-- Pin Code Generator End--> */
-
-    function qrCode() {
-        const qrImg = document.getElementById('qrImg');
-        const qrSecondImg = document.getElementById('qrSecondImg');
-        const inputErrorText = document.getElementById('inputErrorText');
-        const guestName = document.getElementById('guest-name').value;
-        const guestCell = document.getElementById('guest-cell').value;
-        const totalGuest = document.getElementById('total-guest').value;
-        const visitPurpose = document.getElementById('visit-purpose').value;
-        const date = document.getElementById('date').value;
-        const time = document.getElementById('time').value;
-        const share = document.getElementById('share');
-
-
-
-        if (guestName.trim() === '' || guestCell.trim() === '' || totalGuest.trim() === '' || visitPurpose.trim() ===
-            '' || date.trim() === '' || time.trim() === '') {
-            qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=Please Input Every Details; &chs=160x160&chld=L|0`;
-            inputErrorText.classList.remove('d-none');
-        } else {
-            const pin = getPin();
-            document.getElementById('pinCode').value = pin;
-            inputErrorText.classList.add('d-none');
-            qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; </br>; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
-
-            const qrCodeURL = qrSecondImg.src;
-            const shareWhatsAppButton = document.querySelector('#share a.btn-success');
-            const shareFacebookButton = document.querySelector('#share a.btn-primary');
-            const encodedQRCodeURL = encodeURIComponent(qrCodeURL);
-
-            shareWhatsAppButton.href =
-                `https://wa.me/?text=${encodeURIComponent(`Hi There! Please find the QR code for your visit: ${qrCodeURL}`)}`;
-            shareFacebookButton.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedQRCodeURL}`;
+            if (pinString.length === 4) {
+                return pin;
+            } else {
+                return getPin();
+            }
         }
 
-    }
+        function generatePin() {
+            const random = Math.round(Math.random() * 10000);
+            return random;
+        }
+        /* Pin Code Generator End */
+
+        function qrCode() {
+            const qrImg = document.getElementById('qrImg');
+            const qrSecondImg = document.getElementById('qrSecondImg');
+            const inputErrorText = document.getElementById('inputErrorText');
+            const guestName = document.getElementById('guest-name').value;
+            const guestCell = document.getElementById('guest-cell').value;
+            const totalGuest = document.getElementById('total-guest').value;
+            const visitPurpose = document.getElementById('visit-purpose').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const share = document.getElementById('share');
+
+
+
+            if (guestName.trim() === '' || guestCell.trim() === '' || totalGuest.trim() === '' || visitPurpose.trim() ===
+                '' || date.trim() === '' || time.trim() === '') {
+                qrSecondImg.src =
+                    `https://chart.googleapis.com/chart?cht=qr&chl=Please Input Every Details; &chs=160x160&chld=L|0`;
+                inputErrorText.classList.remove('d-none');
+            } else {
+                const pin = getPin();
+                document.getElementById('pinCode').value = pin;
+                inputErrorText.classList.add('d-none');
+                qrSecondImg.src =
+                    `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; </br>; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
+
+                const qrCodeURL = qrSecondImg.src;
+                const shareWhatsAppButton = document.querySelector('#share a.btn-success');
+                const shareFacebookButton = document.querySelector('#share a.btn-primary');
+                const encodedQRCodeURL = encodeURIComponent(qrCodeURL);
+
+                shareWhatsAppButton.href =
+                    `https://wa.me/?text=${encodeURIComponent(`Hi There! Please find the QR code for your visit: ${qrCodeURL}`)}`;
+                shareFacebookButton.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedQRCodeURL}`;
+            }
+
+        }
     </script>
     <!-- qrCode Generator End-->
 </body>
