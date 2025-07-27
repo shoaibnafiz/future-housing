@@ -225,7 +225,7 @@ $renter = $stmt->fetch();
             document.getElementById('pinCode').value = pin;
             inputErrorText.classList.add('d-none');
             qrSecondImg.src =
-                `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
+                `https://chart.googleapis.com/chart?cht=qr&chl=Guest Name = ${guestName}; </br>; Guest Cell = ${guestCell}; Total Guest = ${totalGuest}; Visit Purpose = ${visitPurpose}; date = ${date}; time = ${time}; Pin Code = ${pin}; &chs=160x160&chld=L|0`;
 
             const qrCodeURL = qrSecondImg.src;
             const shareWhatsAppButton = document.querySelector('#share a.btn-success');

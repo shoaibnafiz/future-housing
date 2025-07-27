@@ -54,7 +54,7 @@ $flat = $stmt->fetch();
                 <div class="container-fluid p-0">
 
                     <div class="border border-3 border-dark rounded-4 p-3">
-                        <h1 class="text-center mb-4">Add New Flat</h1>
+                        <h1 class="text-center mb-4">Modify Flat</h1>
                         <form action="update-flat.php" method="post" enctype="multipart/form-data">
                             <div class="mb-3 row d-none">
                                 <label for="inputId" class="col-sm-3 col-form-label">Id: </label>

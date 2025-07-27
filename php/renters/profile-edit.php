@@ -105,9 +105,9 @@ $renter = $stmt->fetch();
                             <td>
                                 <select name="gender" id="gender" class="form-select mb-3"
                                     aria-label=".form-select example">
-                                    <option selected value="<?= $renter['gender'] ?>">--Select Gender--</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
+                                    <option selected <?= empty($renter['gender']) ? 'selected' : '' ?>>--Select Gender--</option>
+                                    <option value="Male" <?= ($renter['gender'] === 'Male') ? 'selected' : '' ?>>Male</option>
+                                    <option value="Female" <?= ($renter['gender'] === 'Female') ? 'selected' : '' ?>>Female</option>
                                 </select>
                             </td>
                         </tr>
